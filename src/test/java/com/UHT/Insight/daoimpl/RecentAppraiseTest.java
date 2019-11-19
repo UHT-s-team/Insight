@@ -1,9 +1,6 @@
 package com.UHT.Insight.daoimpl;
 
 import com.UHT.Insight.daoImpl.RecentAppraiseDaoImpl;
-import com.UHT.Insight.pojo.RecentAppraise;
-
-import java.util.List;
 
 public class RecentAppraiseTest {
     private RecentAppraiseDaoImpl recentAppraiseDao=new RecentAppraiseDaoImpl();
