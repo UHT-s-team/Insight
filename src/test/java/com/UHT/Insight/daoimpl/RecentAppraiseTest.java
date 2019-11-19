@@ -1,10 +1,12 @@
 package com.UHT.Insight.daoimpl;
 
 import com.UHT.Insight.daoImpl.RecentAppraiseDaoImpl;
+import org.junit.Test;
 
 public class RecentAppraiseTest {
     private RecentAppraiseDaoImpl recentAppraiseDao=new RecentAppraiseDaoImpl();
     //查询所有
+    @Test
    public void findAll(){
        System.out.println(recentAppraiseDao.findAll());
    }

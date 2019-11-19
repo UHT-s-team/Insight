@@ -19,7 +19,7 @@
         insert  into recentappraise(R_ID,U_ID,G_TIME,R_DATE,R_STAR,R_LONG)
         values (#{R_ID},#{U_ID},#{G_TIME},#{R_DATE},#{R_STAR},#{R_LONG})
     </insert>
-    <delete id="deleteRecentAppraise" parameterType="Ineger">
+    <delete id="deleteRecentAppraise" parameterType="Integer">
         delete from recntappraise
         where  R_ID=#{R_ID}
     </delete>

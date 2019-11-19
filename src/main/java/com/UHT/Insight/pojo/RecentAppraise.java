@@ -1,13 +1,13 @@
 package com.UHT.Insight.pojo;
 
-import javax.xml.crypto.Data;
+import java.util.Date;
 import java.io.Serializable;
 
 public class RecentAppraise implements Serializable {
         private Integer R_ID;     //评论ID
         private Integer U_ID;     //用户ID
         private String G_TIME;    //游戏时长
-        private Data R_DATE;       //评价日期
+        private Date R_DATE;       //评价日期
         private float R_STAR;       //评价星级
         private  Integer R_LONG;    //评价长度
 
@@ -35,11 +35,11 @@ public class RecentAppraise implements Serializable {
         G_TIME = g_TIME;
     }
 
-    public Data getR_DATE() {
+    public Date getR_DATE() {
         return R_DATE;
     }
 
-    public void setR_DATE(Data r_DATE) {
+    public void setR_DATE(Date r_DATE) {
         R_DATE = r_DATE;
     }
 
@@ -61,7 +61,7 @@ public class RecentAppraise implements Serializable {
 
     public RecentAppraise() { }
 
-    public RecentAppraise(Integer r_ID, Integer u_ID, String g_TIME, Data r_DATE, float r_STAR, Integer r_LONG) {
+    public RecentAppraise(Integer r_ID, Integer u_ID, String g_TIME, Date r_DATE, float r_STAR, Integer r_LONG) {
         R_ID = r_ID;
         U_ID = u_ID;
         G_TIME = g_TIME;
