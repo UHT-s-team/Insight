@@ -32,6 +32,7 @@
         <mapper resource="mapper/GameBasicDao.xml"/>
         <mapper resource="mapper/ApplicationDao.xml"/>
         <mapper resource="mapper/RecentAppraiseDao.xml"/>
+        <mapper resource="mapper/RecentPlayDao.xml"/>
     </mappers>
 
 </configuration>

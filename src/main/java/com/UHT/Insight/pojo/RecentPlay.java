@@ -3,11 +3,11 @@ package com.UHT.Insight.pojo;
 import java.io.Serializable;
 
 public class RecentPlay implements Serializable {
-    private Integer G_ID;
-    private Integer U_ID;
-    private String G_NAME;
-    private String G_TIME;
-    private String T_TAGLIB;
+    private Integer G_ID;//游戏Id
+    private Integer U_ID;//用户id
+    private String G_NAME;//游戏名称
+    private String G_TIME;//游戏时长
+    private String T_TAGLIB;//游戏标签
 
     public Integer getG_ID() {
         return G_ID;

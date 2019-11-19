@@ -10,9 +10,9 @@ public interface RecentAppraiseDao {
     //插入
     Integer saveRecentAppraise(RecentAppraise recentAppraise);
     //根据id查询
-    RecentAppraise findRecentAppraiseById(Integer R_ID);
+    RecentAppraise findRecentAppraiseById(Integer G_ID);
     //根据id删除
-    Integer deleteRecentAppraiseById(Integer R_ID);
+    Integer deleteRecentAppraiseById(Integer G_ID);
     //根据id修改
     Integer updateRecntAppraise(RecentAppraise recentAppraise);
 }
