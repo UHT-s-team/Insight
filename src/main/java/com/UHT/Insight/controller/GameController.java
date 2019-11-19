@@ -19,5 +19,4 @@ public class GameController {
 
         return ResultDTO.okOf(id);
     }
-
 }
