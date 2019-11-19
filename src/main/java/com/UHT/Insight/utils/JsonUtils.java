@@ -140,6 +140,10 @@ public class JsonUtils {
                 gameTouser.setD_AGRESS(D_AGRESS=Integer.parseInt(map.get("欢乐数").toString().trim()));    //欢乐数
                 gameTouser.setD_DISAGRESS(D_DISAGRESS=Integer.parseInt(map.get("点踩数").toString().trim())); //点踩数
                 gameTouser.setREPLY(REPLY=Integer.parseInt(map.get("回复数").toString().trim()));       //回复数
+
+            Properties initProp = new Properties(System.getProperties());
+            System.out.println("当前系统编码:" + initProp.getProperty("file.encoding"));
+
                 gameTouserDao.saveGameTouser(gameTouser);
         } catch (Exception e) {
             e.printStackTrace();
