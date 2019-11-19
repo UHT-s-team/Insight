@@ -6,21 +6,20 @@
        <select id="findAll" resultType="com.UHT.Insight.pojo.RecentAppraise">
            select * from recentappraise
        </select>
-       <select id="findRecentAppraiseById" resultType="Integer" parameterType="com.UHT.Insight.pojo.RecentAppraise">
+       <select id="findRecentAppraiseById" parameterType="Integer" resultType="com.UHT.Insight.pojo.RecentAppraise">
            select * FROM recentappraise
            where R_ID=#{R_ID}
        </select>
        <update id="updateRecentAppraiseById" parameterType="com.UHT.Insight.pojo.RecentAppraise">
            UPDATE recentappraise
            set U_ID=#{U_ID},G_TIME=#{G_TIME},R_DATE=#{R_DATE},R_STAR=#{R_STAR},R_LONG=#{R_LONG}
-            where R_ID=#{R_ID}
+          where R_ID=#{R_ID}
        </update>
     <insert id="saveRecentAppraise" parameterType="com.UHT.Insight.pojo.RecentAppraise">
         insert  into recentappraise(R_ID,U_ID,G_TIME,R_DATE,R_STAR,R_LONG)
         values (#{R_ID},#{U_ID},#{G_TIME},#{R_DATE},#{R_STAR},#{R_LONG})
     </insert>
-    <delete id="deleteRecentAppraise" parameterType="Integer">
-        delete from recntappraise
-        where  R_ID=#{R_ID}
+    <delete id="deleteRecentAppraiseById" parameterType="Integer">
+        delete from recentappraise where R_ID=#{R_ID}
     </delete>
 </mapper>
