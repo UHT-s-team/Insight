@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.UHT.Insight.dao.GameDao">
+    <select id="findAll" resultType="com.UHT.Insight.pojo.Game">
+        select * from game
+    </select>
+    <insert id="saveGame"  parameterType="com.UHT.Insight.pojo.Game" >
+        insert into game(G_ID,G_NAME,BREIF,R_CONTENT,R_NUMBER,C_NUMBER,VENDER,A_DRADE,T_TAGLTB,RECOMMENT,DOWNLOAD,ATTENTION,URL)
+        values (#{G_ID},#{G_NAME},#{BREIF},#{R_CONTENT},#{R_NUMBER},#{C_NUMBER},
+        #{VENDER},#{A_DRADE},#{T_TAGLTB},#{RECOMMENT},#{DOWNLOAD},#{ATTENTION},#{URL})
+    </insert>
+    <select id="findGameById" parameterType="integer" resultType="com.UHT.Insight.pojo.Game">
+        select * from game where G_ID=#{G_ID}
+    </select>
+    <delete id="deleteGameById" parameterType="integer">
+        delete from game where G_ID=#{G_ID}
+    </delete>
+    <update id="updateGame" parameterType="com.UHT.Insight.pojo.Game">
+        update game
+        set G_NAME=#{G_NAME},BREIF=#{BREIF},R_CONTENT=#{R_CONTENT},R_NUMBER=#{R_NUMBER},C_NUMBER=#{C_NUMBER},VENDER=#{VENDER}
+        ,A_DRADE=#{A_DRADE},T_TAGLTB=#{T_TAGLTB},RECOMMENT=#{RECOMMENT},DOWNLOAD=#{DOWNLOAD},ATTENTION=#{ATTENTION},URL=#{URL}
+        where G_ID=#{G_ID}
+    </update>
+</mapper>

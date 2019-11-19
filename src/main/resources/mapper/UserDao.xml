@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.UHT.Insight.dao.UserDao">
+    <!--配置查询所有-->
+    <select id="findAll" resultType="com.UHT.Insight.pojo.Uuser">
+        select * from uuser
+    </select>
+    <select id="findUserById" parameterType="integer" resultType="com.UHT.Insight.pojo.Uuser">
+        select * from uuser where UU_ID=#{UU_ID}
+    </select>
+    <insert id="saveUser" parameterType="com.UHT.Insight.pojo.Uuser">
+        insert into uuser(UU_ID,UU_NAME,UU_PHONE,PASSWORD,SEX,COMPANY,P_COMMENT)
+        values (#{UU_ID},#{UU_NAME},#{UU_PHONE},#{PASSWORD},#{SEX},#{COMPANY},#{P_COMMENT})
+    </insert>
+    <update id="updateUser" parameterType="com.UHT.Insight.pojo.Uuser">
+        update uuser
+        set UU_NAME=#{UU_NAME},UU_PHONE=#{UU_PHONE},PASSWORD=#{PASSWORD},SEX=#{SEX},COMPANY=#{COMPANY},P_COMMENT=#{P_COMMENT}
+        where UU_ID=#{UU_ID}
+    </update>
+    <delete id="deleteUser" parameterType="integer">
+        delete from uuser  where UU_ID=#{UU_ID}
+    </delete>
+</mapper>

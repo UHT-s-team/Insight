@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.UHT.Insight.dao.GameTouserDao">
+    <!--查询所有-->
+    <select id="findAll" resultType="com.UHT.Insight.pojo.GameTouser">
+        select * from gametouser
+    </select>
+    <!--根据Id查询-->
+    <select id="findGameTouserById" parameterType="integer">
+        select * from gametouser where D_ID=#{D_ID}
+    </select>
+    <!-- 插入-->
+    <insert id="saveGameTouser" parameterType="com.UHT.Insight.pojo.GameTouser">
+        insert into gametouser(D_ID,U_ID,G_ID,U_NAME,I_TIME,D_START,G_TIME,D_CONTENT,G_EQUTPTMENT,D_HAPPY,D_AGRESS,D_DISAGRESS,REPLY)
+        values (#{D_ID},#{U_ID},#{G_ID},#{U_NAME},#{I_TIME},#{D_START},#{G_TIME},#{D_CONTENT},#{G_EQUTPTMENT},#{D_HAPPY},#{D_AGRESS},#{D_DISAGRESS},#{REPLY})
+    </insert>
+    <!--更新-->
+    <update id="updateGameTouser" parameterType="com.UHT.Insight.pojo.GameTouser">
+        update gametouser
+        set U_ID=#{U_ID},G_ID=#{G_ID},U_NAME=#{U_NAME},I_TIME=#{I_TIME},D_START=#{D_START},G_TIME=#{G_TIME},D_CONTENT=#{D_CONTENT},G_EQUTPTMENT=#{G_EQUTPTMENT},D_HAPPY=#{D_HAPPY},D_AGRESS=#{D_AGRESS},D_DISAGRESS=#{D_DISAGRESS},REPLY=#{REPLY}
+        where D_ID=#{D_ID}
+    </update>
+    <!--删除-->
+    <delete id="deleteGameTouser" parameterType="integer">
+        delete from gametouser where D_ID=#{D_ID}
+    </delete>
+</mapper>

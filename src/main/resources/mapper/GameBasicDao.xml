@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.UHT.Insight.dao.GameBasicDao">
+    <!--查询所有-->
+    <select id="findAll" resultType="com.UHT.Insight.pojo.GameBasic">
+        select  * from GameBasic
+    </select>
+    <!--更新-->
+    <update id="updateGameBasic" parameterType="com.UHT.Insight.pojo.GameBasic">
+        update gamebasic
+        set G_NAME=#{G_NAME},N_GRADE=#{N_GRADE},R_G_WEIGHT=#{R_G_WEIGHT},L_GRADE=#{L_GRADE}
+        where G_ID=#{G_ID}
+    </update>
+    <!--删除-->
+    <delete id="deleteGameBasic" parameterType="integer">
+        delete from gamebasic where G_ID=#{G_ID}
+    </delete>
+    <!--插入-->
+    <insert id="saveGameBasic" parameterType="com.UHT.Insight.pojo.GameBasic">
+        insert into gamebasic(G_ID,G_NAME,N_GRADE,R_G_WEIGHT,L_GRADE)
+        values (#{G_ID},#{G_NAME},#{N_GRADE},#{R_G_WEIGHT},#{L_GRADE})
+    </insert>
+    <!--根据id查询-->
+    <select id="findGBById" parameterType="integer" resultType="com.UHT.Insight.pojo.GameBasic">
+        select * from gamebasic where G_ID=#{G_ID}
+    </select>
+
+</mapper>

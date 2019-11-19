@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.UHT.Insight.dao.ApplicationDao">
+    <!--查询所有-->
+    <select id="findAll" resultType="com.UHT.Insight.pojo.Application">
+        select * from Application
+    </select>
+    <!--根据id查询-->
+    <select id="findAppById" resultType="com.UHT.Insight.pojo.Application" parameterType="Integer">
+        select * from Application where G_ID=#{G_ID}
+    </select>
+    <!--根据Id更新数据-->
+    <update id="updateAppByApp" parameterType="com.UHT.Insight.pojo.Application">
+        update application
+        set S_GRADE=#{S_GRADE},N_NUM_GRADE=#{N_NUM_GRADE},VERSION=#{VERSION},KEYWORD=#{KEYWORD},EVENT=#{EVENT} where G_ID=#{G_ID}
+    </update>
+    <!--插入数据-->
+    <insert id="saveApp" parameterType="com.UHT.Insight.pojo.Application">
+        insert into application(G_ID,S_GRADE,N_NUM_GRADE,VERSION,KEYWORD,EVENT)
+        values (#{G_ID},#{S_GRADE},#{N_NUM_GRADE},#{VERSION},#{KEYWORD},#{EVENT})
+    </insert>
+    <delete id="deleteAppById" parameterType="Integer">
+        delete from application where G_ID=#{G_ID}
+    </delete>
+
+</mapper>
