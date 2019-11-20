@@ -31,7 +31,7 @@ public class RecentAppraiseTest {
     //根据id查询
     @Test
     public void findRecentAppraiseById(){
-           System.out.println(recentAppraiseDao.findRecentAppraiseById(111).toString());
+           System.out.println(recentAppraiseDao.findRecentAppraiseById(111));
     }
     //根据id删除
     @Test

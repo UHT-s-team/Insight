@@ -26,22 +26,30 @@ public class JsonUtils {
                 G_ID = jsonObject.getString("游戏ID");
                 treeNodes.put("简介", jsonObject.getString("简介"));
                 treeNodes.put("最近更新内容", jsonObject.getString("最近更新内容"));
-                String str=null;
-                System.out.println(str=(String)jsonObject.getString("社区数").trim().toString());
+                System.out.println((String)jsonObject.getString("社区数").trim().toString());
                 treeNodes.put("评论数", (String)jsonObject.getString("评论数").trim());
                 treeNodes.put("社区数", jsonObject.getString("社区数").trim());
                 treeNodes.put("是否推荐", jsonObject.getString("是否推荐").trim());
                 treeNodes.put("游戏名称", jsonObject.getString("游戏名称"));
                 treeNodes.put("图片", jsonObject.getString("图片"));
-                treeNodes.put("厂商", jsonObject.getString("厂商"));
+                String str=null;
+                JSONArray cArray = JSONArray.fromObject(jsonObject.getString("厂商"));
+                for (Object ob : cArray) {
+                    if(ob.toString()!=null) {
+                        str += ob.toString() + ",";
+                    }
+                }
+                treeNodes.put("厂商", str);
                 treeNodes.put("安装数", jsonObject.getString("安装数").trim());
                 treeNodes.put("关注数", jsonObject.getString("关注数").trim());
                 String tablib = "";
                 JSONArray tablibArray = JSONArray.fromObject(jsonObject.getString("类型标签"));
                 for (Object ob : tablibArray) {
-                    tablib += ob.toString() + ",";
-                    treeNodes.put("类型标签", tablib);
+                    if (ob.toString() != null) {
+                        tablib += ob.toString() + ",";
+                    }
                 }
+                treeNodes.put("类型标签", tablib);
                 treeNodes.put("总评分", jsonObject.getString("总评分"));
                 System.out.println(treeNodes);
                 insertGame(treeNodes);
@@ -131,6 +139,8 @@ public class JsonUtils {
                 gameTouser.setG_ID(G_ID=Integer.parseInt(map.get("游戏ID").toString().trim()));        //对应游戏ID
                 gameTouser.setU_NAME(U_NAME=(String)map.get("用户名").toString());       //用户名称
                 Date date=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(map.get("评论时间").toString());//发布时间
+                System.out.println(date);
+                gameTouser.setI_TIME(I_TIME=date);
                 System.out.println(gameTouser.getI_TIME());
                 gameTouser.setD_START(D_START=Float.parseFloat(map.get("评分").toString().trim()));      //评分星级
                 gameTouser.setG_TIME(G_TIME=(String)(map.get("游戏时间").toString()));       //游戏时长

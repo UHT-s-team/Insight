@@ -20,6 +20,7 @@ public class UserDaoImpl implements UserDao {
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
+            return list;
         }
         return list;
     }
@@ -32,6 +33,7 @@ public class UserDaoImpl implements UserDao {
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
+            return uuser;
         }
         return uuser;
     }
@@ -44,6 +46,7 @@ public class UserDaoImpl implements UserDao {
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
+            return i;
         }
         return i;
     }
@@ -56,6 +59,7 @@ public class UserDaoImpl implements UserDao {
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
+            return i;
         }
         return i;
     }
@@ -68,6 +72,7 @@ public class UserDaoImpl implements UserDao {
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
+            return i;
         }
         return i;
     }

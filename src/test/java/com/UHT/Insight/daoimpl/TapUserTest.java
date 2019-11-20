@@ -10,7 +10,7 @@ public class TapUserTest {
     private TapUserDao tapUserDao=new TapUserDaoImpl();
     @Test
     public void findAll() {
-          System.out.println(tapUserDao.findAll().toArray());
+          System.out.println(tapUserDao.findAll());
     }
     @Test
     public void findTapUserById() {

@@ -20,7 +20,7 @@ public class RecentPlayDaoTest {
     //根据ID查询
     @Test
     public void findRecentPlayById(){
-        System.out.println(recentPlayDao.findRecentPlayById(1111).toString());
+        System.out.println(recentPlayDao.findRecentPlayById(1111));
     }
     //根据Id修改
     @Test

@@ -39,7 +39,7 @@ public class GameTest {
     }
     @Test
     public void findGameById(){
-          System.out.println(gameDaoImpl.findGameById(1).toString());
+          System.out.println(gameDaoImpl.findGameById(1));
     }
     @Test
     public void deleteGameById(){

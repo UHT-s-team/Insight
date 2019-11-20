@@ -20,6 +20,7 @@ public class RecentPlayDaoImpl implements RecentPlayDao {
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
+            return recentPlays;
         }
         return recentPlays;
     }
@@ -33,6 +34,7 @@ public class RecentPlayDaoImpl implements RecentPlayDao {
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
+            return i;
         }
         return i;
     }
@@ -46,6 +48,7 @@ public class RecentPlayDaoImpl implements RecentPlayDao {
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
+            return recentPlay;
         }
         return recentPlay;
     }
@@ -59,6 +62,7 @@ public class RecentPlayDaoImpl implements RecentPlayDao {
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
+            return i;
         }
         return i;
     }
@@ -72,6 +76,7 @@ public class RecentPlayDaoImpl implements RecentPlayDao {
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
+            return i;
         }
         return i;
     }

@@ -6,6 +6,7 @@ import com.UHT.Insight.utils.MybatilsUtils;
 import org.apache.ibatis.session.SqlSession;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class GameDaoImpl implements GameDao {
@@ -20,6 +21,7 @@ public class GameDaoImpl implements GameDao {
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
+            return games;
         }
         return games;
     }
@@ -32,6 +34,7 @@ public class GameDaoImpl implements GameDao {
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
+            return i;
         }
         return i;
     }
@@ -44,6 +47,7 @@ public class GameDaoImpl implements GameDao {
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
+            return game;
         }
         return game;
     }
@@ -56,6 +60,7 @@ public class GameDaoImpl implements GameDao {
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
+            return i;
         }
         return i;
     }
@@ -68,18 +73,20 @@ public class GameDaoImpl implements GameDao {
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
+            return i;
         }
         return i;
     }
 
     public List<Game> selectGameListLikeName(Game game) {
-        List<Game> games=null;
+        List<Game> games=new ArrayList<>();
         try {
             games = gameDao.selectGameListLikeName(game);
             MybatilsUtils.destroy();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
+            return games;
         }
         return games;
     }
@@ -92,6 +99,7 @@ public class GameDaoImpl implements GameDao {
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
+            return i;
         }
         return i;
     }

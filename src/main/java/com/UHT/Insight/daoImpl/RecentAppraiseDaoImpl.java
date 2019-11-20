@@ -19,6 +19,7 @@ public class RecentAppraiseDaoImpl implements RecentAppraiseDao {
         }catch (Exception e) {
             e.printStackTrace();
             sqlSession.rollback();
+            return list;
         }
         return list;
     }
@@ -32,6 +33,7 @@ public class RecentAppraiseDaoImpl implements RecentAppraiseDao {
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
+            return i;
         }
         return i;
     }
@@ -45,6 +47,7 @@ public class RecentAppraiseDaoImpl implements RecentAppraiseDao {
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
+            return recentAppraise;
         }
         return recentAppraise;
     }
@@ -58,6 +61,7 @@ public class RecentAppraiseDaoImpl implements RecentAppraiseDao {
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
+            return i;
         }
         return i;
     }
@@ -71,6 +75,7 @@ public class RecentAppraiseDaoImpl implements RecentAppraiseDao {
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
+            return i;
         }
         return i;
     }

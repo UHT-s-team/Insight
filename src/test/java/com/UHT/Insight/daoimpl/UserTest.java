@@ -15,7 +15,7 @@ public class UserTest {
         }
     @Test
     public void findUserById() {
-            System.out.println(userDao.findUserById(1212).toString());
+            System.out.println(userDao.findUserById(1212));
         }
     @Test
     public void deleteUser() {

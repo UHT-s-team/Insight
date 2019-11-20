@@ -19,6 +19,7 @@ public class GameBasicDaoImpl implements GameBasicDao {
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
+            return list;
         }
         return list;
     }
@@ -31,6 +32,7 @@ public class GameBasicDaoImpl implements GameBasicDao {
         }catch(Exception e){
             e.printStackTrace();
             sqlSession.rollback();
+            return gameBasic;
         }
         return gameBasic;
     }
@@ -43,6 +45,7 @@ public class GameBasicDaoImpl implements GameBasicDao {
         }catch(Exception e){
             e.printStackTrace();
             sqlSession.rollback();
+            return i;
         }
         return i;
     }
@@ -55,6 +58,7 @@ public class GameBasicDaoImpl implements GameBasicDao {
         }catch(Exception e){
            e.printStackTrace();
             sqlSession.rollback();
+            return i;
         }
         return i;
     }
@@ -67,6 +71,7 @@ public class GameBasicDaoImpl implements GameBasicDao {
         }catch(Exception e){
            e.printStackTrace();
             sqlSession.rollback();
+            return i;
         }
         return i;
     }

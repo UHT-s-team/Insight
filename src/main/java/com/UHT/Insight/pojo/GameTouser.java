@@ -54,7 +54,7 @@ public class GameTouser implements Serializable {
     }
 
     public Date getI_TIME() {
-        return I_TIME;
+        return this.I_TIME;
     }
 
     public void setI_TIME(Date I_TIME) {

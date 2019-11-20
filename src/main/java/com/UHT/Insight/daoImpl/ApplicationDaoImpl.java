@@ -19,6 +19,7 @@ public class ApplicationDaoImpl implements ApplicationDao {
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
+            return list;
         }
 
         return list;
@@ -32,6 +33,7 @@ public class ApplicationDaoImpl implements ApplicationDao {
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
+            return i;
         }
         return i;
     }
@@ -44,6 +46,7 @@ public class ApplicationDaoImpl implements ApplicationDao {
         }catch(Exception e){
             e.printStackTrace();
             sqlSession.rollback();
+            return application;
         }
         return application;
     }
@@ -56,6 +59,7 @@ public class ApplicationDaoImpl implements ApplicationDao {
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
+            return i;
         }
         return i;
     }
@@ -68,6 +72,7 @@ public class ApplicationDaoImpl implements ApplicationDao {
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
+            return i;
         }
         return i;
     }

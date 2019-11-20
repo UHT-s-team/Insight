@@ -20,6 +20,7 @@ public class GameTouserDaoImpl implements GameTouserDao {
         }catch (Exception e) {
             e.printStackTrace();
             sqlSession.rollback();
+            return list;
         }
         return list;
     }
@@ -32,6 +33,7 @@ public class GameTouserDaoImpl implements GameTouserDao {
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
+            return i;
         }
         return i;
     }
@@ -44,6 +46,7 @@ public class GameTouserDaoImpl implements GameTouserDao {
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
+            return gameTouser;
         }
         return gameTouser;
     }
@@ -56,6 +59,7 @@ public class GameTouserDaoImpl implements GameTouserDao {
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
+            return i;
         }
         return i;
     }
@@ -68,6 +72,7 @@ public class GameTouserDaoImpl implements GameTouserDao {
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
+            return i;
         }
         return i;
     }
