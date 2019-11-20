@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.UHT.Insight.dao.RecentPlayDao">
+    <select id="findAll" resultType="com.UHT.Insight.pojo.RecentPlay">
+        select * from recentplay
+    </select>
+    <select id="findRecentPlayById" resultType="com.UHT.Insight.pojo.RecentPlay" parameterType="Integer">
+         select * from recentplay where G_ID=#{G_ID}
+    </select>
+    <insert id="saveRecentPlay" parameterType="com.UHT.Insight.pojo.RecentPlay">
+        insert into recentplay(G_ID,U_ID,G_NAME,G_TIME,T_TAGLIB)
+        values (#{G_ID},#{U_ID},#{G_NAME},#{G_TIME},#{T_TAGLIB})
+    </insert>
+    <update id="updateRecentPlay" parameterType="com.UHT.Insight.pojo.RecentPlay">
+        update recentplay
+        set U_ID=#{U_ID},G_NAME=#{G_NAME},G_TIME=#{G_TIME},T_TAGLIB=#{T_TAGLIB}
+         where G_ID=#{G_ID}
+    </update>
+    <delete id="deleteRecentPlayById" parameterType="Integer">
+        delete from recentplay where G_ID=#{G_ID}
+    </delete>
+
+
+</mapper>
