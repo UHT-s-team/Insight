@@ -1,16 +1,35 @@
 package com.UHT.Insight.daoimpl;
 
+import com.UHT.Insight.dto.PeopleDTO;
 import com.UHT.Insight.utils.FileUtils;
 import com.UHT.Insight.utils.JsonUtils;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.junit.Test;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 
 public class JsonTest {
     @Test
     public void read(){
+//        String s=FileUtils.reader("D:/学习/代码/JavaWeb/Insight/src/main/resources/static/json/game4.json");
+//        JsonUtils.getGameMap(s);
         System.out.println("C:\\Users\\Develop\\Desktop\\新建文件夹\\game1"+1+".json");
-//        for(int i=1;i<=12;i++){
-//            JsonUtils.getGameMap(FileUtils.reader("C:\\Users\\Develop\\Desktop\\新建文件夹\\game1"+i+".json"));
-//        }
-//      JsonUtils.getGameMap(FileUtils.reader("C:\\Users\\Develop\\Desktop\\新建文件夹\\game11.json"));
+
+        BufferedReader reader = null;
+        try {
+            String file="D:/学习/代码/JavaWeb/Insight/src/main/resources/static/json/game4.json";
+            reader = new BufferedReader(new FileReader(file));
+            Gson gson = new GsonBuilder().create();
+
+            PeopleDTO[] people = gson.fromJson(reader, PeopleDTO[].class);
+
+            System.out.println("Object mode: " + people[0]);
+
+        } catch (FileNotFoundException ex) {
+
+        }
     }
 }
