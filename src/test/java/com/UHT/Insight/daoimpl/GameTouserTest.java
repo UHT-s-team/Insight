@@ -14,7 +14,7 @@ public class GameTouserTest {
         try {
             Date date= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2019-11-15 16:14:0");
             System.out.println(date);
-            GameTouser gameTouser = new GameTouser(544, 1, 1, "黄牛你",date,1.1f, "", "dfd", "华为", 1, 1, 1, 1);
+            GameTouser gameTouser = new GameTouser(599, 1, 1, "黄牛你",date,1.1f, "", "dfd", "华为", 1, 1, 1, 1);
             System.out.println(gameTouserDao.saveGameTouser(gameTouser));
         }catch (Exception e){
             e.printStackTrace();
