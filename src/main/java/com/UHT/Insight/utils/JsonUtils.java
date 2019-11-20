@@ -124,14 +124,14 @@ public class JsonUtils {
         Integer REPLY;       //回复数
         GameTouser gameTouser =new GameTouser();
         GameTouserDao gameTouserDao = new GameTouserDaoImpl();
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置时间格式
-        NumberFormat numberFormat=NumberFormat.getNumberInstance();
+
         try {
                 //获取map对应属性的String，并将String类型转换为各种类型
                 gameTouser.setU_ID(U_ID=Integer.parseInt((String)map.get("用户ID").toString().trim()));        //TapTap用户ID
                 gameTouser.setG_ID(G_ID=Integer.parseInt(map.get("游戏ID").toString().trim()));        //对应游戏ID
                 gameTouser.setU_NAME(U_NAME=(String)map.get("用户名").toString());       //用户名称
-                gameTouser.setI_TIME(I_TIME=format.parse(map.get("评论时间").toString()));         //发布时间
+                Date date=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(map.get("评论时间").toString());//发布时间
+                System.out.println(gameTouser.getI_TIME());
                 gameTouser.setD_START(D_START=Float.parseFloat(map.get("评分").toString().trim()));      //评分星级
                 gameTouser.setG_TIME(G_TIME=(String)(map.get("游戏时间").toString()));       //游戏时长
                 gameTouser.setD_CONTENT(D_CONTENT=(String)map.get("评论").toString());    //评论内容
@@ -140,10 +140,6 @@ public class JsonUtils {
                 gameTouser.setD_AGRESS(D_AGRESS=Integer.parseInt(map.get("欢乐数").toString().trim()));    //欢乐数
                 gameTouser.setD_DISAGRESS(D_DISAGRESS=Integer.parseInt(map.get("点踩数").toString().trim())); //点踩数
                 gameTouser.setREPLY(REPLY=Integer.parseInt(map.get("回复数").toString().trim()));       //回复数
-
-            Properties initProp = new Properties(System.getProperties());
-            System.out.println("当前系统编码:" + initProp.getProperty("file.encoding"));
-
                 gameTouserDao.saveGameTouser(gameTouser);
         } catch (Exception e) {
             e.printStackTrace();
