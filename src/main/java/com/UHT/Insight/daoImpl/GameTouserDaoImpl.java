@@ -1,6 +1,8 @@
 package com.UHT.Insight.daoImpl;
 
 import com.UHT.Insight.dao.GameTouserDao;
+import com.UHT.Insight.pojo.GameEverydayData;
+import com.UHT.Insight.pojo.GameStarLevel;
 import com.UHT.Insight.pojo.GameTouser;
 import com.UHT.Insight.utils.MybatilsUtils;
 import org.apache.ibatis.session.SqlSession;
@@ -75,5 +77,56 @@ public class GameTouserDaoImpl implements GameTouserDao {
             return i;
         }
         return i;
+    }
+    //每天的评论数量和平均星级
+    public List<GameEverydayData> findCountEverydayAll() {
+        List<GameEverydayData> list=null;
+        try {
+            list = gameTouserDao.findCountEverydayAll();
+            MybatilsUtils.destroy();
+        }catch (Exception e) {
+            e.printStackTrace();
+            sqlSession.rollback();
+            return list;
+        }
+        return list;
+    }
+    //每天的各星级数量
+    public List<GameStarLevel> findCountByStar(Float D_START) {
+        List<GameStarLevel> list=null;
+        try {
+            list = gameTouserDao.findCountByStar(D_START);
+            MybatilsUtils.destroy();
+        }catch (Exception e) {
+            e.printStackTrace();
+            sqlSession.rollback();
+            return list;
+        }
+        return list;
+    }
+    //1-5星的每天数量
+    public List<GameStarLevel> findCountByStar() {
+        List<GameStarLevel> list=null;
+        List<GameStarLevel> list1=null;
+        List<GameStarLevel> list2=null;
+        List<GameStarLevel> list3=null;
+        List<GameStarLevel> list4=null;
+        try {
+            list = gameTouserDao.findCountByStar(1f);
+            list1 = gameTouserDao.findCountByStar(2f);
+            list2 = gameTouserDao.findCountByStar(3f);
+            list3 = gameTouserDao.findCountByStar(4f);
+            list4 = gameTouserDao.findCountByStar(5f);
+            list.addAll(list1);
+            list.addAll(list2);
+            list.addAll(list3);
+            list.addAll(list4);
+            MybatilsUtils.destroy();
+        }catch (Exception e) {
+            e.printStackTrace();
+            sqlSession.rollback();
+            return list;
+        }
+        return list;
     }
 }

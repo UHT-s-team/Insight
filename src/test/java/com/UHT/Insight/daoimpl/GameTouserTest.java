@@ -42,4 +42,16 @@ public class GameTouserTest {
     public void deleteGameTouser(){
         System.out.println(gameTouserDao.deleteGameTouser(1));
     }
+    @Test
+    public void  findCountEverydayAll(){
+        System.out.println(gameTouserDao.findCountEverydayAll());
+    }
+    @Test
+    public void findCountByStar(){
+        System.out.println(gameTouserDao.findCountByStar(1f));
+    }
+    @Test
+    public void findCountByStarAll(){
+        System.out.println(gameTouserDao.findCountByStar());
+    }
 }

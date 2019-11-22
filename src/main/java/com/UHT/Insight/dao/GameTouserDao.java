@@ -1,5 +1,7 @@
 package com.UHT.Insight.dao;
 
+import com.UHT.Insight.pojo.GameEverydayData;
+import com.UHT.Insight.pojo.GameStarLevel;
 import com.UHT.Insight.pojo.GameTouser;
 
 import java.util.List;
@@ -18,9 +20,10 @@ public interface GameTouserDao {
     Integer deleteGameTouser(Integer D_ID);
     //更新
     Integer updateGameTouser(GameTouser gameTouser);
+    //每天的评论数量和平均星级
+    List<GameEverydayData> findCountEverydayAll();
     //每天的各星级数量
-   // Integer countEveryday(Integer D_START);
-    //每天的平均星级
+    List<GameStarLevel> findCountByStar(Float D_START);
 
 
 }

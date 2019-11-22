@@ -26,4 +26,23 @@
     <delete id="deleteGameTouser" parameterType="integer">
         delete from gametouser where D_ID=#{D_ID}
     </delete>
+    <select id="findCountEverydayAll" resultMap="map">
+     SELECT DATE_FORMAT(I_TIME,'%Y-%m-%d') as'I_TIME',COUNT(0) as 'count',AVG(D_START) as 'average' FROM gametouser
+     GROUP BY I_TIME
+    </select>
+    <resultMap id="map" type="com.UHT.Insight.pojo.GameEverydayData">
+        <result column="I_TIME" property="time"/>
+        <result column="count" property="num"/>
+        <result column="average" property="average"/>
+    </resultMap>
+    <select id="findCountByStar" resultMap="mapStar" parameterType="Float">
+     SELECT DATE_FORMAT(I_TIME,'%Y-%m-%d') AS 'time',COUNT(0) AS 'count',D_START AS star FROM gametouser
+     WHERE D_START=#{D_START}
+     GROUP BY  time
+    </select>
+    <resultMap id="mapStar" type="com.UHT.Insight.pojo.GameStarLevel">
+        <result column="time" property="time"/>
+        <result column="count" property="num"/>
+        <result column="star" property="star"/>
+    </resultMap>
 </mapper>

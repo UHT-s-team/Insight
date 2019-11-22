@@ -18,9 +18,5 @@ public interface GameDao {
     Integer deleteGameById(Integer G_ID);
     //根据id修改
     Integer updateGame(Game game);
-    //分页查询
-       //---游戏列表，game的游戏名称，游戏厂商，游戏标签
-       List<Game> selectGameListLikeName(Game game);
-       //---列表游戏数量
-       Integer selectGameListCountLikeName(Game game);
+
 }

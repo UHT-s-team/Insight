@@ -62,15 +62,6 @@ public class GameTest {
                 "无");
         System.out.println(gameDaoImpl.updateGame(game));
     }
-    @Test
-    public void selectGameListCountLikeName(){
-        Game game=new Game("1","1","1");
-        System.out.println(gameDaoImpl.selectGameListLikeName(game));
-    }
-    @Test
-    public void selectGameListLikeName(){
-        Game game=new Game();
-        System.out.println(gameDaoImpl.selectGameListCountLikeName(game));
-    }
+
 
 }

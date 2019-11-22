@@ -78,29 +78,4 @@ public class GameDaoImpl implements GameDao {
         return i;
     }
 
-    public List<Game> selectGameListLikeName(Game game) {
-        List<Game> games=new ArrayList<>();
-        try {
-            games = gameDao.selectGameListLikeName(game);
-            MybatilsUtils.destroy();
-        }catch (Exception e){
-            e.printStackTrace();
-            sqlSession.rollback();
-            return games;
-        }
-        return games;
-    }
-
-    public Integer selectGameListCountLikeName(Game game) {
-        int i=-1;
-        try {
-            i=gameDao.selectGameListCountLikeName(game);
-            MybatilsUtils.destroy();
-        }catch (Exception e){
-            e.printStackTrace();
-            sqlSession.rollback();
-            return i;
-        }
-        return i;
-    }
 }
