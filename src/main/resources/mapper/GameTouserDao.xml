@@ -8,7 +8,7 @@
         select * from gametouser
     </select>
     <!--根据Id查询-->
-    <select id="findGameTouserById" parameterType="integer">
+    <select id="findGameTouserById" parameterType="Integer" resultType="com.UHT.Insight.pojo.GameTouser">
         select * from gametouser where D_ID=#{D_ID}
     </select>
     <!-- 插入-->
@@ -35,7 +35,7 @@
         <result column="count" property="num"/>
         <result column="average" property="average"/>
     </resultMap>
-    <select id="findCountByStar" resultMap="mapStar" parameterType="Float">
+    <select id="findCountByStar" resultMap="mapStar" parameterType="Integer">
      SELECT DATE_FORMAT(I_TIME,'%Y-%m-%d') AS 'time',COUNT(0) AS 'count',D_START AS star FROM gametouser
      WHERE D_START=#{D_START}
      GROUP BY  time

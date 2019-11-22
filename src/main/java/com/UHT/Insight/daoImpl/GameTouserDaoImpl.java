@@ -92,7 +92,7 @@ public class GameTouserDaoImpl implements GameTouserDao {
         return list;
     }
     //每天的各星级数量
-    public List<GameStarLevel> findCountByStar(Float D_START) {
+    public List<GameStarLevel> findCountByStar(Integer D_START) {
         List<GameStarLevel> list=null;
         try {
             list = gameTouserDao.findCountByStar(D_START);
@@ -112,11 +112,11 @@ public class GameTouserDaoImpl implements GameTouserDao {
         List<GameStarLevel> list3=null;
         List<GameStarLevel> list4=null;
         try {
-            list = gameTouserDao.findCountByStar(1f);
-            list1 = gameTouserDao.findCountByStar(2f);
-            list2 = gameTouserDao.findCountByStar(3f);
-            list3 = gameTouserDao.findCountByStar(4f);
-            list4 = gameTouserDao.findCountByStar(5f);
+            list = gameTouserDao.findCountByStar(1);
+            list1 = gameTouserDao.findCountByStar(2);
+            list2 = gameTouserDao.findCountByStar(3);
+            list3 = gameTouserDao.findCountByStar(4);
+            list4 = gameTouserDao.findCountByStar(5);
             list.addAll(list1);
             list.addAll(list2);
             list.addAll(list3);

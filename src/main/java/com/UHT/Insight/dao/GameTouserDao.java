@@ -23,7 +23,7 @@ public interface GameTouserDao {
     //每天的评论数量和平均星级
     List<GameEverydayData> findCountEverydayAll();
     //每天的各星级数量
-    List<GameStarLevel> findCountByStar(Float D_START);
+    List<GameStarLevel> findCountByStar(Integer D_START);
 
 
 }

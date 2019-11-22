@@ -5,7 +5,7 @@ import java.util.Date;
 public class GameStarLevel {
     private Date time;         //发布时间
     private Integer num;      //星级数量
-    private Float star;     //评分星级
+    private Integer star;     //评分星级
 
     public Date getTime() {
         return time;
@@ -23,11 +23,11 @@ public class GameStarLevel {
         this.num = num;
     }
 
-    public Float getStar() {
+    public Integer getStar() {
         return star;
     }
 
-    public void setStar(Float star) {
+    public void setStar(Integer star) {
         this.star = star;
     }
 }
