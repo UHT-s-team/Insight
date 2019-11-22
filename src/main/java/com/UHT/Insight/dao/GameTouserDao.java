@@ -18,5 +18,9 @@ public interface GameTouserDao {
     Integer deleteGameTouser(Integer D_ID);
     //更新
     Integer updateGameTouser(GameTouser gameTouser);
+    //每天的各星级数量
+   // Integer countEveryday(Integer D_START);
+    //每天的平均星级
+
 
 }
