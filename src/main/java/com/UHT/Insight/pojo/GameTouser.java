@@ -12,7 +12,7 @@ public class GameTouser implements Serializable {
      private Integer G_ID;        //对应游戏ID
      private String U_NAME;       //用户名称
      private Date I_TIME;         //发布时间
-     private Float D_START;       //评分星级
+     private Integer D_START;       //评分星级
      private String G_TIME;        //游戏时长
      private String D_CONTENT;    //评论内容
      private String G_EQUTPTMENT; //游戏设备
@@ -61,11 +61,11 @@ public class GameTouser implements Serializable {
         this.I_TIME = I_TIME;
     }
 
-    public Float getD_START() {
+    public Integer getD_START() {
         return D_START;
     }
 
-    public void setD_START(Float d_START) {
+    public void setD_START(Integer d_START) {
         D_START = d_START;
     }
 
@@ -126,7 +126,7 @@ public class GameTouser implements Serializable {
     }
      //构造方法
     public GameTouser() { }
-    public GameTouser(Integer d_ID, Integer u_ID, Integer g_ID, String u_NAME, Date i_TIME, Float d_START,String g_TIME, String d_CONTENT, String g_EQUTPTMENT, Integer d_HAPPY, Integer d_AGRESS, Integer d_DISAGRESS, Integer REPLY) {
+    public GameTouser(Integer d_ID, Integer u_ID, Integer g_ID, String u_NAME, Date i_TIME, Integer d_START,String g_TIME, String d_CONTENT, String g_EQUTPTMENT, Integer d_HAPPY, Integer d_AGRESS, Integer d_DISAGRESS, Integer REPLY) {
         D_ID = d_ID;
         U_ID = u_ID;
         G_ID = g_ID;

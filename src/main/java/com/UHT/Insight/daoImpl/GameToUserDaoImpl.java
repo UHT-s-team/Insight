@@ -109,11 +109,11 @@ public class GameToUserDaoImpl implements GameTouserDao {
     public List<GameStarLevel> findCountByStar() {
         List<GameStarLevel> list=new ArrayList<>();
         try {
-            list.addAll(gameTouserDao.findCountByStar(1f)) ;
-            list.addAll(gameTouserDao.findCountByStar(2f)) ;
-            list.addAll(gameTouserDao.findCountByStar(3f)) ;
-            list.addAll(gameTouserDao.findCountByStar(4f)) ;
-            list.addAll(gameTouserDao.findCountByStar(5f)) ;
+            list.addAll(gameTouserDao.findCountByStar(1)) ;
+            list.addAll(gameTouserDao.findCountByStar(2)) ;
+            list.addAll(gameTouserDao.findCountByStar(3)) ;
+            list.addAll(gameTouserDao.findCountByStar(4)) ;
+            list.addAll(gameTouserDao.findCountByStar(5)) ;
             MybatilsUtils.destroy();
         }catch (Exception e) {
             e.printStackTrace();

@@ -50,8 +50,7 @@ public class GameTouserTest {
     }
     @Test
     public void findCountByStar(){
-        List<GameStarLevel> countByStar = gameTouserDao.findCountByStar(1f);
-        System.out.println(countByStar);
+        System.out.println(gameTouserDao.findCountByStar(5));
     }
     @Test
     public void findCountByStarAll(){
