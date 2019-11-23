@@ -1,8 +1,11 @@
 package com.UHT.Insight.dao;
 
 import com.UHT.Insight.pojo.RecentPlay;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
+
 
 public interface RecentPlayDao {
     //查询所有

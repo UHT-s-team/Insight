@@ -1,14 +1,16 @@
 package com.UHT.Insight.daoimpl;
 
-import com.UHT.Insight.daoImpl.GameTouserDaoImpl;
+import com.UHT.Insight.daoImpl.GameToUserDaoImpl;
+import com.UHT.Insight.pojo.GameStarLevel;
 import com.UHT.Insight.pojo.GameTouser;
 import org.junit.Test;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class GameTouserTest {
-    private GameTouserDaoImpl gameTouserDao = new GameTouserDaoImpl();
+    private GameToUserDaoImpl gameTouserDao = new GameToUserDaoImpl();
     @Test
     public void saveGameTouser(){
         try {
@@ -48,7 +50,8 @@ public class GameTouserTest {
     }
     @Test
     public void findCountByStar(){
-        System.out.println(gameTouserDao.findCountByStar(1f));
+        List<GameStarLevel> countByStar = gameTouserDao.findCountByStar(1f);
+        System.out.println(countByStar);
     }
     @Test
     public void findCountByStarAll(){

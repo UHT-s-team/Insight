@@ -131,7 +131,7 @@ public class JsonUtils {
         Integer D_DISAGRESS; //点踩数
         Integer REPLY;       //回复数
         GameTouser gameTouser =new GameTouser();
-        GameTouserDao gameTouserDao = new GameTouserDaoImpl();
+        GameTouserDao gameTouserDao = new GameToUserDaoImpl();
 
         try {
                 //获取map对应属性的String，并将String类型转换为各种类型
