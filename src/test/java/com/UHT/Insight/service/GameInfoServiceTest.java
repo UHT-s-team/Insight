@@ -14,6 +14,5 @@ class GameInfoServiceTest {
     void getGameDayInfoList() {
         List<GameDayInfo> gameDayInfoList = gameInfoService.getGameDayInfoList(23234);
         System.out.println(gameDayInfoList);
-
     }
 }
