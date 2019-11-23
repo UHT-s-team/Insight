@@ -27,7 +27,7 @@ public class GameToUserDaoImpl implements GameTouserDao {
         }
         return list;
     }
-    //插入GammeTouser
+    //插入GameToUser
     public Integer saveGameTouser(GameTouser gameTouser){
         int i=-1;
         try {
@@ -93,7 +93,7 @@ public class GameToUserDaoImpl implements GameTouserDao {
         return list;
     }
     //每天的各星级数量
-    public List<GameStarLevel> findCountByStar(Float D_START) {
+    public List<GameStarLevel> findCountByStar(Integer D_START) {
         List<GameStarLevel> list=null;
         try {
             list = gameTouserDao.findCountByStar(D_START);
