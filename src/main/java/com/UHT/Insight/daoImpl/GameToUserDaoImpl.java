@@ -122,4 +122,17 @@ public class GameToUserDaoImpl implements GameTouserDao {
         }
         return list;
     }
+    @Override
+    public Integer addGameList(List<GameTouser> list) {
+        int i=-1;
+        try {
+            i=gameTouserDao.addGameList(list);
+            MybatilsUtils.destroy();
+        }catch (Exception e){
+            e.printStackTrace();
+            sqlSession.rollback();
+            return i;
+        }
+        return i;
+    }
 }

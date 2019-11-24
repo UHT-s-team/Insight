@@ -4,7 +4,9 @@ import com.UHT.Insight.daoImpl.GameToUserDaoImpl;
 import com.UHT.Insight.pojo.GameTouser;
 import org.junit.Test;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class GameTouserTest {
     private GameToUserDaoImpl gameTouserDao = new GameToUserDaoImpl();
@@ -52,5 +54,20 @@ public class GameTouserTest {
     @Test
     public void findCountByStarAll(){
         System.out.println(gameTouserDao.findCountByStar());
+    }
+    @Test
+    public void addGameList(){
+        try {
+            Date date= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2019-11-15 16:14:0");
+            System.out.println(date);
+            List<GameTouser> list=new ArrayList<>();
+            list.add(new GameTouser(5954, 1, 1, "黄你",date,1, "", "dfd", "华为", 1, 1, 1, 1));
+            list.add(new GameTouser(59945, 1, 1, "黄你",date,1, "", "dfd", "华为", 1, 1, 1, 1));
+            list.add(new GameTouser(59966, 1, 1, "黄你",date,1, "", "dfd", "华为", 1, 1, 1, 1));
+            list.add(new GameTouser(59961, 1, 1, "黄你",date,1, "", "dfd", "华为", 1, 1, 1, 1));
+            gameTouserDao.addGameList(list);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

@@ -24,6 +24,7 @@ public interface GameTouserDao {
     List<GameEverydayData> findCountEverydayAll();
     //每天的各星级数量
     List<GameStarLevel> findCountByStar(Integer D_START);
-
+    //批量插入
+    Integer addGameList(List<GameTouser> list);
 
 }

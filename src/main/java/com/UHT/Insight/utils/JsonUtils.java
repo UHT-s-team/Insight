@@ -5,6 +5,7 @@ import com.UHT.Insight.daoImpl.*;
 import com.UHT.Insight.pojo.*;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+import org.apache.ibatis.session.SqlSession;
 
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -17,6 +18,7 @@ public class JsonUtils {
     public static void  getGameMap(String txtStr) {
         JSONArray json = JSONArray.fromObject(txtStr.toString());
         String G_ID = null;
+        List<Map<String,String>> list=new ArrayList<>();
         //循环遍历所有json子串
         for (Object object : json) {
             JSONObject jsonObject = JSONObject.fromObject(object);
@@ -51,7 +53,6 @@ public class JsonUtils {
                 }
                 treeNodes.put("类型标签", tablib);
                 treeNodes.put("总评分", jsonObject.getString("总评分"));
-                System.out.println(treeNodes);
                 insertGame(treeNodes);
             }
             if(jsonObject.has("用户名")) {
@@ -67,11 +68,14 @@ public class JsonUtils {
                 treeNodes.put("点赞数", jsonObject.getString("点赞数").trim());
                 treeNodes.put("点踩数", jsonObject.getString("点踩数").trim());
                 treeNodes.put("回复数", jsonObject.getString("回复数").trim());
-                System.out.println(treeNodes);
-                insertGameTouser(treeNodes);
+                list.add(treeNodes);
             }
-            System.out.println(treeNodes);
+            if(list.size()>1000){
+                insertGameTouser(list);
+                list.clear();
+            }
         }
+        insertGameTouser(list);
 
     }
 
@@ -82,7 +86,9 @@ public class JsonUtils {
     //Game的数据插入
     public static void insertGame(Map<String,String> map) {
         Game game=new Game();
-        GameDao gameDao=new GameDaoImpl();
+        SqlSession sqlSession= MybatilsUtils.getSession();
+        GameDao gameDao=sqlSession.getMapper(GameDao.class);
+       // GameDao gameDao=new GameDaoImpl();
         NumberFormat numberFormat=NumberFormat.getNumberInstance();
         try{
                 game.setG_ID((Integer)Integer.parseInt((String)map.get("游戏ID").toString().trim()));
@@ -104,31 +110,36 @@ public class JsonUtils {
         }
     }
     //GameTouser的数据插入
-    public static void insertGameTouser(Map<String,String> map) {
-        GameTouser gameTouser =new GameTouser();
-        GameTouserDao gameTouserDao = new GameToUserDaoImpl();
-
-        try {
+    public static void insertGameTouser(List<Map<String,String>> list) {
+        List<GameTouser> lists=new ArrayList<>();
+        SqlSession sqlSession= MybatilsUtils.getSession();
+       GameTouserDao gameTouserDao=sqlSession.getMapper(GameTouserDao.class);
+       // GameTouserDao gameTouserDao = new GameToUserDaoImpl();
+        for (Map map:list) {
+            try {
+                GameTouser gameTouser =new GameTouser();
                 //获取map对应属性的String，并将String类型转换为各种类型
-                gameTouser.setU_ID(Integer.parseInt((String)map.get("用户ID").toString().trim()));        //TapTap用户ID
+                gameTouser.setU_ID(Integer.parseInt((String) map.get("用户ID").toString().trim()));        //TapTap用户ID
                 gameTouser.setG_ID(Integer.parseInt(map.get("游戏ID").toString().trim()));        //对应游戏ID
-                gameTouser.setU_NAME((String)map.get("用户名").toString());       //用户名称
-                Date date=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(map.get("评论时间").toString());//发布时间
+                gameTouser.setU_NAME((String) map.get("用户名").toString());       //用户名称
+                Date date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(map.get("评论时间").toString());//发布时间
                 System.out.println(date);
                 gameTouser.setI_TIME(date);
                 System.out.println(gameTouser.getI_TIME());
                 gameTouser.setD_START(Integer.parseInt(map.get("评分").toString().trim()));      //评分星级
-                gameTouser.setG_TIME((String)(map.get("游戏时间").toString()));       //游戏时长
-                gameTouser.setD_CONTENT((String)map.get("评论").toString());    //评论内容
-                gameTouser.setG_EQUTPTMENT((String)map.get("设备").toString()); //游戏设备
+                gameTouser.setG_TIME((String) (map.get("游戏时间").toString()));       //游戏时长
+                gameTouser.setD_CONTENT((String) map.get("评论").toString());    //评论内容
+                gameTouser.setG_EQUTPTMENT((String) map.get("设备").toString()); //游戏设备
                 gameTouser.setD_HAPPY(Integer.parseInt(map.get("欢乐数").toString().trim()));     //欢乐数
                 gameTouser.setD_AGRESS(Integer.parseInt(map.get("欢乐数").toString().trim()));    //欢乐数
                 gameTouser.setD_DISAGRESS(Integer.parseInt(map.get("点踩数").toString().trim())); //点踩数
                 gameTouser.setREPLY(Integer.parseInt(map.get("回复数").toString().trim()));       //回复数
-                gameTouserDao.saveGameTouser(gameTouser);
-        } catch (Exception e) {
-            e.printStackTrace();
+                lists.add(gameTouser);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
+        gameTouserDao.addGameList(lists);
     }
 
 }
