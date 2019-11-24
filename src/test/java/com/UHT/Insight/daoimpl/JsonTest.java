@@ -16,9 +16,13 @@ public class JsonTest {
     public void read() {
         Long start=System.currentTimeMillis();
         for (int i = 11; i <= 33; i++) {
-            String filePath = "F:\\Insight\\src\\main\\resources\\JsonFile\\game" + i + ".json";
+            try {
+                String filePath = "F:\\Insight\\src\\main\\resources\\JsonFile\\game" + i + ".json";
 //            String filePath = "D:\\学习\\代码\\JavaWeb\\Insight\\src\\main\\resources\\JsonFile\\game" + i + ".json";
-            JsonUtils.getGameMap(FileUtils.reader(filePath));
+                JsonUtils.getGameMap(FileUtils.reader(filePath));
+            }catch (Exception e){
+                e.printStackTrace();
+            }
             Long end=System.currentTimeMillis();
             System.out.println("到第"+i+"文件时耗时:"+(end-start)+"微秒");
         }
