@@ -7,9 +7,10 @@ import com.UHT.Insight.pojo.GameTouser;
 import com.UHT.Insight.utils.MybatilsUtils;
 import org.apache.ibatis.session.SqlSession;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 public class GameToUserDaoImpl implements GameTouserDao {
     private SqlSession sqlSession=MybatilsUtils.getSession();
@@ -92,6 +93,49 @@ public class GameToUserDaoImpl implements GameTouserDao {
         }
         return list;
     }
+    //具体某一天的评论数量和评价星级---
+    @Override
+    public GameEverydayData findCountByDay(Date I_TIME) {
+        GameEverydayData gameEverydayData=new GameEverydayData();
+        try {
+            gameEverydayData = gameTouserDao.findCountByDay(I_TIME);
+            MybatilsUtils.destroy();
+        }catch (Exception e) {
+            e.printStackTrace();
+            sqlSession.rollback();
+            return gameEverydayData;
+        }
+        return gameEverydayData;
+    }
+    //从某天开始的评论数量和星级------
+    @Override
+    public List<GameEverydayData> findCountAfterDayA(Date start) {
+        List<GameEverydayData> list=null;
+        try {
+            list = gameTouserDao.findCountAfterDayA(start);
+            MybatilsUtils.destroy();
+        }catch (Exception e) {
+            e.printStackTrace();
+            sqlSession.rollback();
+            return list;
+        }
+        return list;
+    }
+    //从某天到某天的评论数量和星级-----
+    @Override
+    public List<GameEverydayData> findCountBetweenDayAAndB(Date start, Date end) {
+        List<GameEverydayData> list=null;
+        try {
+            list = gameTouserDao.findCountBetweenDayAAndB(start,end);
+            MybatilsUtils.destroy();
+        }catch (Exception e) {
+            e.printStackTrace();
+            sqlSession.rollback();
+            return list;
+        }
+        return list;
+    }
+
     //每天的各星级数量
     public List<GameStarLevel> findCountByStar(Integer D_START) {
         List<GameStarLevel> list=null;
@@ -122,6 +166,52 @@ public class GameToUserDaoImpl implements GameTouserDao {
         }
         return list;
     }
+    /*{ Map中设定star（星级），start（开始时间）,end（结束时间）的值}
+     *时间格式 Date date= new SimpleDateFormat("yyyy-MM-dd").parse("2019-11-00");
+     * */
+    //具体一天的各星级数量----不用设置end值，star和start（这一天的星级）
+    @Override
+    public GameStarLevel findCountStarByDay(Map<String,Object> map) {
+        GameStarLevel gameStarLevel=null;
+        try {
+            gameStarLevel = gameTouserDao.findCountStarByDay(map);
+            MybatilsUtils.destroy();
+        }catch (Exception e) {
+            e.printStackTrace();
+            sqlSession.rollback();
+            return gameStarLevel;
+        }
+        return gameStarLevel;
+    }
+    //从某天开始的各星级数量----不用设置end值，star和start（从这一天开始）
+    @Override
+    public List<GameStarLevel> findCountStarAfterDay(Map<String, Object> map) {
+        List<GameStarLevel> list=null;
+        try {
+            list =gameTouserDao.findCountStarAfterDay(map);
+            MybatilsUtils.destroy();
+        }catch (Exception e) {
+            e.printStackTrace();
+            sqlSession.rollback();
+            return list;
+        }
+        return list;
+    }
+    //从某天到某天的各星级数量------map设置star（integer） start(Date) end(Date)
+    @Override
+    public List<GameStarLevel> findCountStarBetweenDay(Map<String, Object> map) {
+        List<GameStarLevel> list=null;
+        try {
+            list =gameTouserDao.findCountStarBetweenDay(map);
+            MybatilsUtils.destroy();
+        }catch (Exception e) {
+            e.printStackTrace();
+            sqlSession.rollback();
+            return list;
+        }
+        return list;
+    }
+
     @Override
     public Integer addGameList(List<GameTouser> list) {
         int i=-1;

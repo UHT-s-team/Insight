@@ -30,6 +30,21 @@
      SELECT DATE_FORMAT(I_TIME,'%Y-%m-%d') as'I_TIME',COUNT(0) as 'count',AVG(D_START) as 'average' FROM gametouser
      GROUP BY I_TIME
     </select>
+    <select id="findCountByDay" resultMap="map" parameterType="Date">
+     SELECT DATE_FORMAT(I_TIME,'%Y-%m-%d') as'I_TIME',COUNT(0) as 'count',AVG(D_START) as 'average' FROM gametouser
+     where I_TIME=#{I_TIME}
+     GROUP BY I_TIME
+    </select>
+    <select id="findCountAfterDayA" resultMap="map" parameterType="Date">
+     SELECT DATE_FORMAT(I_TIME,'%Y-%m-%d') as'I_TIME',COUNT(0) as 'count',AVG(D_START) as 'average' FROM gametouser
+     where I_TIME>#{I_TIME}
+     GROUP BY I_TIME
+    </select>
+    <select id="findCountBetweenDayAAndB" resultMap="map" parameterType="Date">
+     SELECT DATE_FORMAT(I_TIME,'%Y-%m-%d') as'I_TIME',COUNT(0) as 'count',AVG(D_START) as 'average' FROM gametouser
+     where I_TIME BETWEEN #{start} and #{end}
+     GROUP BY I_TIME
+    </select>
     <resultMap id="map" type="com.UHT.Insight.pojo.GameEverydayData">
         <result column="I_TIME" property="time"/>
         <result column="count" property="num"/>
@@ -39,6 +54,21 @@
      SELECT DATE_FORMAT(I_TIME,'%Y-%m-%d') AS 'time',COUNT(0) AS 'count',D_START AS star FROM gametouser
      WHERE D_START=#{D_START}
      GROUP BY  time
+    </select>
+    <select id="findCountStarByDay" resultMap="mapStar" parameterType="Map">
+     SELECT DATE_FORMAT(I_TIME,'%Y-%m-%d') AS 'i_time',COUNT(0) AS 'count',D_START AS star FROM gametouser
+     WHERE D_START=#{star} and i_time=#{start}
+     GROUP BY  i_time
+    </select>
+    <select id="findCountStarAfterDay" resultMap="mapStar" parameterType="Map">
+     SELECT DATE_FORMAT(I_TIME,'%Y-%m-%d') AS 'i_time',COUNT(0) AS 'count',D_START AS star FROM gametouser
+     WHERE D_START=#{star} and i_time >#{start}
+     GROUP BY  i_time
+    </select>
+    <select id="findCountStarBetweenDay" resultMap="mapStar" parameterType="Map">
+     SELECT DATE_FORMAT(I_TIME,'%Y-%m-%d') AS 'i_time',COUNT(0) AS 'count',D_START AS star FROM gametouser
+     WHERE D_START=#{star} and i_time between #{start} and #{end}
+     GROUP BY  i_time
     </select>
     <resultMap id="mapStar" type="com.UHT.Insight.pojo.GameStarLevel">
         <result column="time" property="time"/>

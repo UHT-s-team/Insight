@@ -3,10 +3,10 @@ package com.UHT.Insight.daoimpl;
 import com.UHT.Insight.daoImpl.GameToUserDaoImpl;
 import com.UHT.Insight.pojo.GameTouser;
 import org.junit.Test;
+
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class GameTouserTest {
     private GameToUserDaoImpl gameTouserDao = new GameToUserDaoImpl();
@@ -48,12 +48,86 @@ public class GameTouserTest {
         System.out.println(gameTouserDao.findCountEverydayAll());
     }
     @Test
+    public void findCountByDay(){
+        Date date=null;
+        try {
+            date= new SimpleDateFormat("yyyy-MM-dd").parse("2019-11-15");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        System.out.println(gameTouserDao.findCountByDay(date));
+    }
+    @Test
+    public void findCountAfterDayA(){
+        Date date=null;
+        try {
+            date= new SimpleDateFormat("yyyy-MM-dd").parse("2019-11-00");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        System.out.println(gameTouserDao.findCountAfterDayA(date));
+    }
+    @Test
+    public void findCountBetweenDayAAndB(){
+        Date date=null;
+        Date date1=null;
+        try {
+            date= new SimpleDateFormat("yyyy-MM-dd").parse("2019-11-00");
+            date1= new SimpleDateFormat("yyyy-MM-dd").parse("2019-11-15");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        System.out.println(gameTouserDao.findCountBetweenDayAAndB(date,date1));
+    }
+    @Test
     public void findCountByStar(){
         System.out.println(gameTouserDao.findCountByStar(5));
     }
     @Test
     public void findCountByStarAll(){
         System.out.println(gameTouserDao.findCountByStar());
+    }
+    @Test
+    public void findCountStarByDay(){
+        Date date=null;
+        try {
+            date=new SimpleDateFormat("yyyy-MM-dd").parse("2019-07-26");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Map<String,Object> map=new HashMap<>();
+        map.put("start",date);
+        map.put("star",2);
+        System.out.println(gameTouserDao.findCountStarByDay(map));
+    }
+    @Test
+    public void findCountStarAfterDay(){
+        Date date=null;
+        try {
+            date=new SimpleDateFormat("yyyy-MM-dd").parse("2019-07-26");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Map<String,Object> map=new HashMap<>();
+        map.put("start",date);
+        map.put("star",2);
+        System.out.println(gameTouserDao.findCountStarAfterDay(map));
+    }
+    @Test
+    public void findCountStarBetweenDay(){
+        Date date=null;
+        Date date1=null;
+        try {
+            date=new SimpleDateFormat("yyyy-MM-dd").parse("2019-07-26");
+            date1=new SimpleDateFormat("yyyy-MM-dd").parse("2019-09-26");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Map<String,Object> map=new HashMap<>();
+        map.put("start",date);
+        map.put("end",date1);
+        map.put("star",2);
+        System.out.println(gameTouserDao.findCountStarBetweenDay(map));
     }
     @Test
     public void addGameList(){
@@ -70,4 +144,5 @@ public class GameTouserTest {
             e.printStackTrace();
         }
     }
+
 }
