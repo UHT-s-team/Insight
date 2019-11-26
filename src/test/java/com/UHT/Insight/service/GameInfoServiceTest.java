@@ -1,11 +1,11 @@
 package com.UHT.Insight.service;
 
-import com.UHT.Insight.dto.GameDayInfo;
-import org.junit.jupiter.api.Test;
+        import com.UHT.Insight.dto.GameDayInfo;
+        import org.junit.jupiter.api.Test;
 
-import java.util.List;
+        import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+        import static org.junit.jupiter.api.Assertions.*;
 
 class GameInfoServiceTest {
 

@@ -1,10 +1,14 @@
 package com.UHT.Insight.pojo;
 
+import lombok.Data;
+
 import java.io.Serializable;
 /*
  *对应application表（应用分日信息表）
  *
  */
+
+
 public class Application implements Serializable {
     private Integer G_ID;   //应用id
     private Float S_GRADE; //统计时评分

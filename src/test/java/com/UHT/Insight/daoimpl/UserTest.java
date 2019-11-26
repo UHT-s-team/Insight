@@ -3,6 +3,7 @@ package com.UHT.Insight.daoimpl;
 import com.UHT.Insight.dao.UserDao;
 import com.UHT.Insight.daoImpl.UserDaoImpl;
 import com.UHT.Insight.pojo.Uuser;
+import com.UHT.Insight.pojo.testClass;
 import org.junit.Test;
 
 import java.util.List;
