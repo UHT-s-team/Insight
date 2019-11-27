@@ -7,11 +7,10 @@ import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
 
-public class RecentPlayDaoImpl implements RecentPlayDao {
+public class RecentPlayDaoImpl {
     private SqlSession sqlSession= MybatilsUtils.getSession();
     private RecentPlayDao recentPlayDao=sqlSession.getMapper(RecentPlayDao.class);
     //查询所有
-    @Override
     public List<RecentPlay> findAll() {
         List<RecentPlay> recentPlays=null;
         try {
@@ -25,7 +24,6 @@ public class RecentPlayDaoImpl implements RecentPlayDao {
         return recentPlays;
     }
     //插入
-    @Override
     public Integer saveRecentPlay(RecentPlay recentPlay) {
         int i=-1;
         try {
@@ -39,7 +37,6 @@ public class RecentPlayDaoImpl implements RecentPlayDao {
         return i;
     }
     //根据Id查询
-    @Override
     public RecentPlay findRecentPlayById(Integer G_ID) {
         RecentPlay recentPlay=null;
         try {
@@ -53,9 +50,8 @@ public class RecentPlayDaoImpl implements RecentPlayDao {
         return recentPlay;
     }
    //更新
-    @Override
     public Integer updateRecentPlay(RecentPlay recentPlay) {
-        int i=-1;
+        int i=0;
         try {
             i=recentPlayDao.updateRecentPlay(recentPlay);
             MybatilsUtils.destroy();
@@ -67,7 +63,6 @@ public class RecentPlayDaoImpl implements RecentPlayDao {
         return i;
     }
    //删除
-    @Override
     public Integer deleteRecentPlayById(Integer G_ID) {
         int i=-1;
         try {

@@ -1,6 +1,5 @@
 package com.UHT.Insight.pojo;
 
-import lombok.Data;
 
 import java.io.Serializable;
 /*
@@ -75,7 +74,6 @@ public class Application implements Serializable {
         this.KEYWORD = KEYWORD;
         this.EVENT = EVENT;
     }
-
     @Override
     public String toString() {
         return "Application{" +

@@ -8,7 +8,7 @@ import org.junit.Test;
 import java.util.List;
 
 public class GameBasicTest {
-    private GameBasicDao gameBasicDao=new GameBasicDaoImpl();
+    private GameBasicDaoImpl gameBasicDao=new GameBasicDaoImpl();
     @Test
     public void findAll(){
         List<GameBasic> list=gameBasicDao.findAll();

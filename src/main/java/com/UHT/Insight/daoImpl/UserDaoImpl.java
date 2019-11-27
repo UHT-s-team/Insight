@@ -7,7 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
 
-public class UserDaoImpl implements UserDao {
+public class UserDaoImpl {
     private SqlSession sqlSession= MybatilsUtils.getSession();
     private UserDao userDao=sqlSession.getMapper(UserDao.class);
 
@@ -52,7 +52,7 @@ public class UserDaoImpl implements UserDao {
     }
     //更新
     public Integer updateUser(Uuser uuser) {
-        int i=-1;
+        int i=0;
         try {
             i=userDao.updateUser(uuser);
             MybatilsUtils.destroy();

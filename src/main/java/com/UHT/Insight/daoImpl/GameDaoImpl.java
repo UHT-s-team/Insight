@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GameDaoImpl implements GameDao {
+public class GameDaoImpl  {
     private SqlSession sqlSession= MybatilsUtils.getSession();
     private GameDao gameDao=sqlSession.getMapper(GameDao.class);
     //执行查询所有方法
@@ -66,7 +66,7 @@ public class GameDaoImpl implements GameDao {
     }
       //更新
     public Integer updateGame(Game game) {
-        int i=-1;
+        int i=0;
         try {
             i=gameDao.updateGame(game);
             MybatilsUtils.destroy();

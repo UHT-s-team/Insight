@@ -95,10 +95,7 @@ public class GameTouserTest {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        Map<String,Object> map=new HashMap<>();
-        map.put("start",date);
-        map.put("star",2);
-        System.out.println(gameTouserDao.findCountStarByDay(map));
+        System.out.println(gameTouserDao.findCountStarByDay(2,date));
     }
     @Test
     public void findCountStarAfterDay(){
@@ -108,10 +105,7 @@ public class GameTouserTest {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        Map<String,Object> map=new HashMap<>();
-        map.put("start",date);
-        map.put("star",2);
-        System.out.println(gameTouserDao.findCountStarAfterDay(map));
+        System.out.println(gameTouserDao.findCountStarAfterDay(2,date));
     }
     @Test
     public void findCountStarBetweenDay(){
@@ -123,11 +117,8 @@ public class GameTouserTest {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        Map<String,Object> map=new HashMap<>();
-        map.put("start",date);
-        map.put("end",date1);
-        map.put("star",2);
-        System.out.println(gameTouserDao.findCountStarBetweenDay(map));
+
+        System.out.println(gameTouserDao.findCountStarBetweenDay(1,date,date1));
     }
     @Test
     public void addGameList(){

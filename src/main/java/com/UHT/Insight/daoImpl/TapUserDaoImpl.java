@@ -7,7 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
 
-public class TapUserDaoImpl implements TapUserDao {
+public class TapUserDaoImpl {
     private SqlSession sqlSession= MybatilsUtils.getSession();
     private TapUserDao tapUserDao=sqlSession.getMapper(TapUserDao.class);
     //查询所有
@@ -51,7 +51,7 @@ public class TapUserDaoImpl implements TapUserDao {
     }
     //更新
     public Integer updateTapUser(TapUser tapUser) {
-        int i=-1;
+        int i=0;
         try{
             i=tapUserDao.updateTapUser(tapUser);
             MybatilsUtils.destroy();

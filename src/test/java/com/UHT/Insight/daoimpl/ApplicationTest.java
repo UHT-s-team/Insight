@@ -8,7 +8,7 @@ import org.junit.Test;
 import java.util.List;
 
 public class ApplicationTest {
-    private ApplicationDao applicationDao;
+    private ApplicationDaoImpl applicationDao;
     @Test
     public void applicationFindAll(){
         //执行查询所有方法

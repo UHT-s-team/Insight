@@ -7,7 +7,7 @@ import org.junit.Test;
 
 
 public class TapUserTest {
-    private TapUserDao tapUserDao = new TapUserDaoImpl();
+    private TapUserDaoImpl tapUserDao = new TapUserDaoImpl();
 
     @Test
     public void findAll() {

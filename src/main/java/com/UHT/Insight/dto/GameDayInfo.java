@@ -1,8 +1,9 @@
 package com.UHT.Insight.dto;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class GameDayInfo {
+public class GameDayInfo implements Serializable {
     private Date time;         //发布时间
     private Integer num;      //发布条数
     private Float average;    //平均评分

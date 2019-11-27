@@ -7,10 +7,10 @@ import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
 
-public class RecentAppraiseDaoImpl implements RecentAppraiseDao {
+public class RecentAppraiseDaoImpl {
     private SqlSession sqlSession=MybatilsUtils.getSession();
     private RecentAppraiseDao recentAppraiseDao=sqlSession.getMapper(RecentAppraiseDao.class);
-    @Override
+    //查询所有
     public List<RecentAppraise> findAll() {
         List<RecentAppraise> list=null;
         try {
@@ -23,8 +23,7 @@ public class RecentAppraiseDaoImpl implements RecentAppraiseDao {
         }
         return list;
     }
-
-    @Override
+    //插入
     public Integer saveRecentAppraise(RecentAppraise recentAppraise) {
         int i=-1;
         try {
@@ -38,7 +37,7 @@ public class RecentAppraiseDaoImpl implements RecentAppraiseDao {
         return i;
     }
 
-    @Override
+   //根据ID查询
     public RecentAppraise findRecentAppraiseById(Integer R_ID) {
         RecentAppraise recentAppraise=null;
         try{
@@ -52,7 +51,7 @@ public class RecentAppraiseDaoImpl implements RecentAppraiseDao {
         return recentAppraise;
     }
 
-    @Override
+    //根据id删除
     public Integer deleteRecentAppraiseById(Integer R_ID) {
         int i=-1;
         try{
@@ -66,9 +65,9 @@ public class RecentAppraiseDaoImpl implements RecentAppraiseDao {
         return i;
     }
 
-    @Override
+    //更新
     public Integer updateRecntAppraise(RecentAppraise recentAppraise) {
-        int i=-1;
+        int i=0;
         try{
             i=recentAppraiseDao.updateRecntAppraise(recentAppraise);
             MybatilsUtils.destroy();

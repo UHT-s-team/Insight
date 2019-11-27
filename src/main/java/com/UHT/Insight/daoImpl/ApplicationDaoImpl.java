@@ -7,7 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
 
-public class ApplicationDaoImpl implements ApplicationDao {
+public class ApplicationDaoImpl {
     private SqlSession sqlSession= MybatilsUtils.getSession();
     private ApplicationDao applicationDao=sqlSession.getMapper(ApplicationDao.class);;
     //查询所有
@@ -52,7 +52,7 @@ public class ApplicationDaoImpl implements ApplicationDao {
     }
     //更新
     public Integer updateAppByApp(Application application){
-        int i=-1;
+        int i=0;
         try{
             i=applicationDao.updateAppByApp(application);
             MybatilsUtils.destroy();

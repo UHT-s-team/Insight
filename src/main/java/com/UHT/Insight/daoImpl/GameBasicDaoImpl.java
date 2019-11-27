@@ -7,7 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
 
-public class GameBasicDaoImpl implements GameBasicDao {
+public class GameBasicDaoImpl {
     private SqlSession sqlSession= MybatilsUtils.getSession();
     private GameBasicDao gameBasicDao=sqlSession.getMapper(GameBasicDao.class);
     //查询所有
@@ -51,7 +51,7 @@ public class GameBasicDaoImpl implements GameBasicDao {
     }
     //更新
     public Integer updateGameBasic(GameBasic gameBasic){
-        int i=-1;
+        int i=0;
         try{
            i=gameBasicDao.updateGameBasic(gameBasic);
            MybatilsUtils.destroy();

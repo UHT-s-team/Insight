@@ -3,13 +3,12 @@ package com.UHT.Insight.daoimpl;
 import com.UHT.Insight.dao.UserDao;
 import com.UHT.Insight.daoImpl.UserDaoImpl;
 import com.UHT.Insight.pojo.Uuser;
-import com.UHT.Insight.pojo.testClass;
 import org.junit.Test;
 
 import java.util.List;
 
 public class UserTest {
-    private UserDao userDao=new UserDaoImpl();
+    private UserDaoImpl userDao=new UserDaoImpl();
     @Test
     public void findAll() {
            System.out.println(userDao.findAll());
