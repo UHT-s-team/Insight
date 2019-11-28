@@ -78,10 +78,10 @@ public class GameToUserDaoImpl{
         return i;
     }
     //每天的评论数量和平均星级（所有）
-    public List<GameEverydayData> findCountEverydayAll() {
+    public List<GameEverydayData> findCountEverydayAll(Integer G_ID) {
         List<GameEverydayData> list=null;
         try {
-            list = gameTouserDao.findCountEverydayAll();
+            list = gameTouserDao.findCountEverydayAll(G_ID);
             MybatilsUtils.destroy();
         }catch (Exception e) {
             e.printStackTrace();
@@ -131,10 +131,10 @@ public class GameToUserDaoImpl{
     }
 
     //每天的各星级数量
-    public List<GameStarLevel> findCountByStar(Integer D_START) {
+    public List<GameStarLevel> findCountByStar(Integer D_START,Integer G_ID) {
         List<GameStarLevel> list=null;
         try {
-            list = gameTouserDao.findCountByStar(D_START);
+            list = gameTouserDao.findCountByStar(D_START,G_ID);
             MybatilsUtils.destroy();
         }catch (Exception e) {
             e.printStackTrace();
@@ -144,14 +144,14 @@ public class GameToUserDaoImpl{
         return list;
     }
     //1-5星的每天数量
-    public List<GameStarLevel> findCountByStar() {
+    public List<GameStarLevel> findCountByStar(Integer G_ID) {
         List<GameStarLevel> list=new ArrayList<>();
         try {
-            list.addAll(gameTouserDao.findCountByStar(1)) ;
-            list.addAll(gameTouserDao.findCountByStar(2)) ;
-            list.addAll(gameTouserDao.findCountByStar(3)) ;
-            list.addAll(gameTouserDao.findCountByStar(4)) ;
-            list.addAll(gameTouserDao.findCountByStar(5)) ;
+            list.addAll(gameTouserDao.findCountByStar(1,G_ID)) ;
+            list.addAll(gameTouserDao.findCountByStar(2,G_ID)) ;
+            list.addAll(gameTouserDao.findCountByStar(3,G_ID)) ;
+            list.addAll(gameTouserDao.findCountByStar(4,G_ID)) ;
+            list.addAll(gameTouserDao.findCountByStar(5,G_ID)) ;
             MybatilsUtils.destroy();
         }catch (Exception e) {
             e.printStackTrace();

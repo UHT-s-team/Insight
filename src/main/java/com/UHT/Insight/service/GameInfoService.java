@@ -16,9 +16,9 @@ public class GameInfoService {
 
     public List<GameDayInfo> getGameDayInfoList(Integer gameId){
         List<GameDayInfo> gameDayInfos=new ArrayList<>();
-        List<GameEverydayData> everydayBaseData = gameToUserDao.findCountEverydayAll();
+        List<GameEverydayData> everydayBaseData = gameToUserDao.findCountEverydayAll(gameId);
         gameToUserDao=new GameToUserDaoImpl();
-        List<GameStarLevel> everydayAllStar = gameToUserDao.findCountByStar();
+        List<GameStarLevel> everydayAllStar = gameToUserDao.findCountByStar(gameId);
         GameDayInfo gameInfo= new GameDayInfo();
         for(GameEverydayData gameEverydayData:everydayBaseData){
             BeanUtils.copyProperties(gameEverydayData, gameInfo);

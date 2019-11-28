@@ -45,7 +45,7 @@ public class GameTouserTest {
     }
     @Test
     public void  findCountEverydayAll(){
-        System.out.println(gameTouserDao.findCountEverydayAll());
+        System.out.println(gameTouserDao.findCountEverydayAll(168332));
     }
     @Test
     public void findCountByDay(){
@@ -81,11 +81,11 @@ public class GameTouserTest {
     }
     @Test
     public void findCountByStar(){
-        System.out.println(gameTouserDao.findCountByStar(5));
+        System.out.println(gameTouserDao.findCountByStar(5,168332));
     }
     @Test
     public void findCountByStarAll(){
-        System.out.println(gameTouserDao.findCountByStar());
+        System.out.println(gameTouserDao.findCountByStar(168332));
     }
     @Test
     public void findCountStarByDay(){

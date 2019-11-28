@@ -26,8 +26,9 @@
     <delete id="deleteGameTouser" parameterType="integer">
         delete from gametouser where D_ID=#{D_ID}
     </delete>
-    <select id="findCountEverydayAll" resultMap="map">
+    <select id="findCountEverydayAll" resultMap="map" parameterType="Integer">
      SELECT DATE_FORMAT(I_TIME,'%Y-%m-%d') as'I_TIME',COUNT(0) as 'count',AVG(D_START) as 'average' FROM gametouser
+     where G_ID=#{G_ID}
      GROUP BY I_TIME
     </select>
     <select id="findCountByDay" resultMap="map" parameterType="Date">
@@ -52,7 +53,7 @@
     </resultMap>
     <select id="findCountByStar" resultMap="mapStar" parameterType="Integer">
      SELECT DATE_FORMAT(I_TIME,'%Y-%m-%d') AS 'time',COUNT(0) AS 'count',D_START AS star FROM gametouser
-     WHERE D_START=#{D_START}
+     WHERE D_START=#{D_START} and G_ID=#{G_ID}
      GROUP BY  time
     </select>
     <select id="findCountStarByDay" resultMap="mapStar" parameterType="Map">

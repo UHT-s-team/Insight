@@ -2,10 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <script src="echarts.min.js"></script>
-    <script src="jquery-3.4.1.min.js"></script>
-    
+
+    <script src="/static/js/echarts.min.js"></script>
+    <script src="/static/js/jquery-3.4.1.min.js"></script>
+
     <title>无标题文档</title>
 </head>
 
@@ -126,7 +126,7 @@
 		var time = new Array;
 		
 		$(document).ready(function(){
-				$.getJSON("star.json",function(data){
+				$.getJSON("/game/123/main",function(data){
 						//alert("Data: " + data.Data[0].time + "\nStatus: " + status);
 						//alert(data.Data.length);
 						
