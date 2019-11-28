@@ -1,8 +1,9 @@
 package com.UHT.Insight.utils;
 
-import com.UHT.Insight.dao.*;
-import com.UHT.Insight.daoImpl.*;
-import com.UHT.Insight.pojo.*;
+import com.UHT.Insight.dao.GameDao;
+import com.UHT.Insight.dao.GameTouserDao;
+import com.UHT.Insight.pojo.Game;
+import com.UHT.Insight.pojo.GameTouser;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.apache.ibatis.session.SqlSession;

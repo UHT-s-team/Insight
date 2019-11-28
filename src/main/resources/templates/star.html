@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <script src="echarts.min.js"></script>
+    <script src="jquery-3.4.1.min.js"></script>
+    
+    <title>无标题文档</title>
+</head>
+
+<body>
+	<div id="main" style="width:100%; height:550px"></div>
+    <script type="text/javascript">
+		var myChart = echarts.init(document.getElementById('main'));
+		
+        myChart.setOption({
+			title: {
+				text: '单日评分图',
+				left:0,
+				top:0
+			},
+			
+			tooltip:{trigger:'axis',showContent: false},
+				
+			legend: {
+				data:['一星','二星','三星','四星','五星'],
+				top:10
+			},
+			xAxis: {
+        		//boundaryGap: false,//坐标轴两边留白策略
+				name:'时间',
+				data: []
+			},
+			yAxis: {
+				name:'人数',
+				nameGap:5,//坐标轴名称与轴线之间的距离
+				//max:10
+			},
+			
+			series: 
+			[
+				{	name: '一星',
+					type: 'line',
+					smooth:true,//是否平滑曲线
+					data: []
+				},
+				
+				{	name: '二星',
+					type: 'line',
+					smooth:true,//是否平滑曲线
+					data: []
+				},
+				
+				{	name: '三星',
+					type: 'line',
+					smooth:true,//是否平滑曲线
+					data: []
+				},
+				
+				{	name: '四星',
+					type: 'line',
+					smooth:true,//是否平滑曲线
+					data: []
+				},
+				
+				{	name: '五星',
+					type: 'line',
+					smooth:true,//是否平滑曲线
+					data: []
+				},
+				
+				/*{
+					name: '星级比例',
+					type: 'pie',
+					data:[],
+				},*/
+				
+				{
+					type: 'pie',
+					id: 'pie',
+					radius: '30%',
+					center: ['80%', '25%'],//[x,y]
+					
+					label: {formatter: '{b}: {@0} ({d}%)'},
+                encode: 
+				{
+                    itemName: 'time',
+                    value: '0',
+                    tooltip: '0'
+                },
+					/*data:
+					[
+						{name: '一星',value:1},
+						{name: '二星',value:1},
+						{name: '三星',value:1},
+						{name: '四星',value:1},
+						{name: '五星',value:1},
+					]*/
+				}
+				
+			],
+			
+			dataZoom:[//用于区域缩放的组件
+				{
+					type:'slider',
+					start:0,
+					end:25
+				},
+				{
+					type:'inside',
+				}
+			],
+		
+			tooltip:{
+				trigger:'axis'//基于X轴触发提示
+			}
+		});
+		
+		
+		var one = new Array;
+		var two = new Array;
+		var three = new Array;
+		var four = new Array;
+		var five = new Array;
+		var time = new Array;
+		
+		$(document).ready(function(){
+				$.getJSON("star.json",function(data){
+						//alert("Data: " + data.Data[0].time + "\nStatus: " + status);
+						//alert(data.Data.length);
+						
+						one[0] = "one";
+						two[0] = "two";
+						three[0] = "three";
+						four[0] = "four";
+						five[0] = "five";
+						time[0] = "time";
+						
+						for(i=1; i<data.data.length+1; i++)
+						{
+							one[i] = data.data[i-1].oneStarNum;
+							two[i] = data.data[i-1].towStarNum;
+							three[i] = data.data[i-1].threeStarNum;
+							four[i] = data.data[i-1].fourStarNum;
+							five[i] = data.data[i-1].fiveStarNum;
+							time[i] = data.data[i-1].time.substring(0,10);//获取字符串从0开始10个字符
+						}
+						//alert("Data: " + number[0] + "\nTime: " + time[2]);
+						alert(time[0]);
+						myChart.setOption
+						({
+							xAxis: {
+								data: time
+							},
+							
+							dataset:
+							{
+								
+								source: 
+								[
+									time,
+									one,
+									two,
+									three,
+									four,
+									five
+								]
+							},
+							
+							series: 
+							[
+								{	name: '一星',
+									data: one},
+									
+								{	name: '二星',
+									data: two},
+									
+								{	name: '三星',
+									data: three},
+									
+								{	name: '四星',
+									data: four},
+									
+								{	name: '五星',
+									data: five},
+								
+								
+							]
+						});
+						
+					});
+			});
+			
+		/*$(document).ready(function(){
+				$.getJSON("star.json",function(data,status){
+						//alert(status);//输出属性
+						myChart.setOption
+						({
+							xAxis: {
+								data: data.time
+							},
+							
+							series: 
+							[
+								{	name: '一星',
+									data: data.one},
+									
+								{	name: '二星',
+									data: data.two},
+									
+								{	name: '三星',
+									data: data.three},
+									
+								{	name: '四星',
+									data: data.four},
+									
+								{	name: '五星',
+									data: data.five},
+								
+								
+							]
+						});
+							
+					});
+			});*/
+			
+		myChart.on('updateAxisPointer', function (event) {
+			var xAxisInfo = event.axesInfo[0];
+			if (xAxisInfo) {
+				var dimension = xAxisInfo.value + 1;
+				myChart.setOption({
+					series: {
+						id: 'pie',
+						label: {
+							formatter: '{b}: {@[' + dimension + ']} ({d}%)'
+						},
+						encode: {
+							value: dimension,
+							tooltip: dimension
+						}
+					}
+				});
+			}
+		});
+        myChart.setOption(option);
+    </script>    
+</body>
+</html>
