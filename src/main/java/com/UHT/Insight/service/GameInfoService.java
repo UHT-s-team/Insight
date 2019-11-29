@@ -2,6 +2,8 @@ package com.UHT.Insight.service;
 
 import com.UHT.Insight.daoImpl.GameToUserDaoImpl;
 import com.UHT.Insight.dto.GameDayInfo;
+import com.UHT.Insight.exception.CustomErrorCode;
+import com.UHT.Insight.exception.CustomException;
 import com.UHT.Insight.pojo.GameEverydayData;
 import com.UHT.Insight.pojo.GameStarLevel;
 import org.springframework.beans.BeanUtils;
@@ -18,6 +20,9 @@ public class GameInfoService {
         List<GameDayInfo> gameDayInfos=new ArrayList<>();
         gameToUserDao=new GameToUserDaoImpl();
         List<GameEverydayData> everydayBaseData = gameToUserDao.findCountEverydayAll(gameId);
+        if(everydayBaseData.size()==0){
+            throw new CustomException(CustomErrorCode.GAME_NOT_FIND);
+        }
         gameToUserDao=new GameToUserDaoImpl();
         List<GameStarLevel> everydayAllStar = gameToUserDao.findCountByStar(gameId);
         GameDayInfo gameInfo= new GameDayInfo();
