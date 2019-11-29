@@ -31,6 +31,7 @@ public class GameInfoService {
             gameDayInfos.add(gameInfo);
             gameInfo=new GameDayInfo();
         }
+
         for(GameDayInfo gameDayInfo:gameDayInfos){
             for(GameStarLevel gameStarLevel:everydayAllStar){
                 int compareTo=1;
