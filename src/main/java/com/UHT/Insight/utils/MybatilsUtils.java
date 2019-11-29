@@ -32,7 +32,6 @@ public class MybatilsUtils {
         //提交事务
         sqlSession.commit();
         //6.释放资源
-        sqlSession.close();
         in.close();
     }
 }
