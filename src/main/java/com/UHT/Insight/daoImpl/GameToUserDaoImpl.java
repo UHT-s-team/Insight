@@ -91,10 +91,13 @@ public class GameToUserDaoImpl{
         return list;
     }
     //具体某一天的评论数量和评价星级---
-    public GameEverydayData findCountByDay(Date I_TIME) {
+    public GameEverydayData findCountByDay(Date I_TIME,Integer G_ID) {
         GameEverydayData gameEverydayData=new GameEverydayData();
+        Map<String,Object> map=new HashMap<>();
+        map.put("I_TIME",I_TIME);
+        map.put("G_ID",G_ID);
         try {
-            gameEverydayData = gameTouserDao.findCountByDay(I_TIME);
+            gameEverydayData = gameTouserDao.findCountByDay(map);
             MybatilsUtils.destroy();
         }catch (Exception e) {
             e.printStackTrace();
@@ -104,10 +107,13 @@ public class GameToUserDaoImpl{
         return gameEverydayData;
     }
     //从某天开始的评论数量和星级------
-    public List<GameEverydayData> findCountAfterDayA(Date start) {
+    public List<GameEverydayData> findCountAfterDayA(Date start,Integer G_ID) {
         List<GameEverydayData> list=null;
+        Map<String,Object> map=new HashMap<>();
+        map.put("start",start);
+        map.put("G_ID",G_ID);
         try {
-            list = gameTouserDao.findCountAfterDayA(start);
+            list = gameTouserDao.findCountAfterDayA(map);
             MybatilsUtils.destroy();
         }catch (Exception e) {
             e.printStackTrace();
@@ -117,10 +123,14 @@ public class GameToUserDaoImpl{
         return list;
     }
     //从某天到某天的评论数量和星级-----
-    public List<GameEverydayData> findCountBetweenDayAAndB(Date start, Date end) {
+    public List<GameEverydayData> findCountBetweenDayAAndB(Date start, Date end,Integer G_ID) {
         List<GameEverydayData> list=null;
+        Map<String,Object> map=new HashMap<>();
+        map.put("start",start);
+        map.put("end",end);
+        map.put("G_ID",G_ID);
         try {
-            list = gameTouserDao.findCountBetweenDayAAndB(start,end);
+            list = gameTouserDao.findCountBetweenDayAAndB(map);
             MybatilsUtils.destroy();
         }catch (Exception e) {
             e.printStackTrace();
@@ -164,11 +174,12 @@ public class GameToUserDaoImpl{
      *时间格式 Date date= new SimpleDateFormat("yyyy-MM-dd").parse("2019-11-00");
      * */
     //具体一天的各星级数量----star（星级） start(当天日期)
-    public GameStarLevel findCountStarByDay(Integer star,Date start) {
+    public GameStarLevel findCountStarByDay(Integer star,Date start,Integer G_ID) {
         GameStarLevel gameStarLevel=null;
         Map<String,Object> map=new HashMap<>();
         map.put("star",star);
         map.put("start",start);
+        map.put("G_ID",G_ID);
         try {
             gameStarLevel = gameTouserDao.findCountStarByDay(map);
             MybatilsUtils.destroy();
@@ -180,11 +191,12 @@ public class GameToUserDaoImpl{
         return gameStarLevel;
     }
     //从某天开始的各星级数量----star（星级） start(开始日期)
-    public List<GameStarLevel> findCountStarAfterDay(Integer star,Date start) {
+    public List<GameStarLevel> findCountStarAfterDay(Integer star,Date start,Integer G_ID) {
         List<GameStarLevel> list=null;
         Map<String,Object> map=new HashMap<>();
         map.put("star",star);
         map.put("start",start);
+        map.put("G_ID",G_ID);
         try {
             list =gameTouserDao.findCountStarAfterDay(map);
             MybatilsUtils.destroy();
@@ -196,12 +208,13 @@ public class GameToUserDaoImpl{
         return list;
     }
     //从某天到某天的各星级数量------star（星级） start(开始日期) end(结束)
-    public List<GameStarLevel> findCountStarBetweenDay(Integer star,Date start,Date end) {
+    public List<GameStarLevel> findCountStarBetweenDay(Integer star,Date start,Date end,Integer G_ID) {
         List<GameStarLevel> list=null;
         Map<String,Object> map=new HashMap<>();
         map.put("star",star);
         map.put("start",start);
         map.put("end",end);
+        map.put("G_ID",G_ID);
         try {
             list =gameTouserDao.findCountStarBetweenDay(map);
             MybatilsUtils.destroy();

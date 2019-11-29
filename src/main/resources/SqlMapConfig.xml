@@ -40,7 +40,6 @@
         <mapper resource="mapper/ApplicationDao.xml"/>
         <mapper resource="mapper/RecentAppraiseDao.xml"/>
         <mapper resource="mapper/RecentPlayDao.xml"/>
-        <mapper resource="mapper/GameDayInfoDao.xml"/>
     </mappers>
 
 </configuration>

@@ -31,19 +31,19 @@
      where G_ID=#{G_ID}
      GROUP BY I_TIME
     </select>
-    <select id="findCountByDay" resultMap="map" parameterType="Date">
+    <select id="findCountByDay" resultMap="map" parameterType="Map">
      SELECT DATE_FORMAT(I_TIME,'%Y-%m-%d') as'I_TIME',COUNT(0) as 'count',AVG(D_START) as 'average' FROM gametouser
-     where I_TIME=#{I_TIME}
+     where I_TIME=#{I_TIME} and G_ID=#{G_ID}
      GROUP BY I_TIME
     </select>
-    <select id="findCountAfterDayA" resultMap="map" parameterType="Date">
+    <select id="findCountAfterDayA" resultMap="map" parameterType="Map">
      SELECT DATE_FORMAT(I_TIME,'%Y-%m-%d') as'I_TIME',COUNT(0) as 'count',AVG(D_START) as 'average' FROM gametouser
-     where I_TIME>#{I_TIME}
+     where I_TIME>#{start} and G_ID=#{G_ID}
      GROUP BY I_TIME
     </select>
-    <select id="findCountBetweenDayAAndB" resultMap="map" parameterType="Date">
+    <select id="findCountBetweenDayAAndB" resultMap="map" parameterType="Map">
      SELECT DATE_FORMAT(I_TIME,'%Y-%m-%d') as'I_TIME',COUNT(0) as 'count',AVG(D_START) as 'average' FROM gametouser
-     where I_TIME BETWEEN #{start} and #{end}
+     where G_ID=#{G_ID} and I_TIME BETWEEN #{start} and #{end}
      GROUP BY I_TIME
     </select>
     <resultMap id="map" type="com.UHT.Insight.pojo.GameEverydayData">
@@ -52,27 +52,27 @@
         <result column="average" property="average"/>
     </resultMap>
     <select id="findCountByStar" resultMap="mapStar" parameterType="Integer">
-     SELECT DATE_FORMAT(I_TIME,'%Y-%m-%d') AS 'time',COUNT(0) AS 'count',D_START AS star FROM gametouser
+     SELECT DATE_FORMAT(I_TIME,'%Y-%m-%d') AS 'i_time',COUNT(0) AS 'count',D_START AS star FROM gametouser
      WHERE D_START=#{D_START} and G_ID=#{G_ID}
-     GROUP BY  time
+     GROUP BY  i_time
     </select>
     <select id="findCountStarByDay" resultMap="mapStar" parameterType="Map">
-     SELECT DATE_FORMAT(I_TIME,'%Y-%m-%d') AS 'i_time',COUNT(0) AS 'count',D_START AS star FROM gametouser
-     WHERE D_START=#{star} and i_time=#{start}
+     SELECT DATE_FORMAT(I_TIME,'%Y-%m-%d') AS 'i_time',COUNT(0) AS 'count',D_START AS 'star' FROM gametouser
+     WHERE D_START=#{star} and i_time=#{start} and G_ID=#{G_ID}
      GROUP BY  i_time
     </select>
     <select id="findCountStarAfterDay" resultMap="mapStar" parameterType="Map">
      SELECT DATE_FORMAT(I_TIME,'%Y-%m-%d') AS 'i_time',COUNT(0) AS 'count',D_START AS star FROM gametouser
-     WHERE D_START=#{star} and i_time >#{start}
+     WHERE D_START=#{star} and i_time >#{start} and G_ID=#{G_ID}
      GROUP BY  i_time
     </select>
     <select id="findCountStarBetweenDay" resultMap="mapStar" parameterType="Map">
      SELECT DATE_FORMAT(I_TIME,'%Y-%m-%d') AS 'i_time',COUNT(0) AS 'count',D_START AS star FROM gametouser
-     WHERE D_START=#{star} and i_time between #{start} and #{end}
+     WHERE D_START=#{star} and G_ID=#{G_ID} and i_time between #{start} and #{end}
      GROUP BY  i_time
     </select>
     <resultMap id="mapStar" type="com.UHT.Insight.pojo.GameStarLevel">
-        <result column="time" property="time"/>
+        <result column="i_time" property="time"/>
         <result column="count" property="num"/>
         <result column="star" property="star"/>
     </resultMap>

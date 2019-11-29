@@ -28,11 +28,11 @@ public interface GameTouserDao {
     *时间格式 Date date= new SimpleDateFormat("yyyy-MM-dd").parse("2019-11-00");
     *具体一天的评论数量和评价星级
     **/
-    GameEverydayData findCountByDay(Date I_TIME);
+    GameEverydayData findCountByDay(Map<String,Object> map);
     //从某天开始的评论数量和星级
-    List<GameEverydayData> findCountAfterDayA(Date I_TIME);
+    List<GameEverydayData> findCountAfterDayA(Map<String,Object> map);
     //从某天到某天的评论数量和星级
-    List<GameEverydayData> findCountBetweenDayAAndB(Date start,Date end);
+    List<GameEverydayData> findCountBetweenDayAAndB(Map<String,Object> map);
     //每天的各星级数量
     List<GameStarLevel> findCountByStar(Integer D_START,Integer G_ID);
     /*{ Map中设定star（星级），start（开始时间）,end（结束时间）的值}

@@ -16,6 +16,7 @@ public class GameInfoService {
 
     public List<GameDayInfo> getGameDayInfoList(Integer gameId){
         List<GameDayInfo> gameDayInfos=new ArrayList<>();
+        gameToUserDao=new GameToUserDaoImpl();
         List<GameEverydayData> everydayBaseData = gameToUserDao.findCountEverydayAll(gameId);
         gameToUserDao=new GameToUserDaoImpl();
         List<GameStarLevel> everydayAllStar = gameToUserDao.findCountByStar(gameId);
@@ -29,7 +30,7 @@ public class GameInfoService {
             for(GameStarLevel gameStarLevel:everydayAllStar){
                 int compareTo = gameDayInfo.getTime().compareTo(gameStarLevel.getTime());
                 if(compareTo==0){
-                    switch (gameStarLevel.getStar().intValue()){
+                    switch (gameStarLevel.getStar()){
                         case 1:
                             gameDayInfo.setOneStarNum(gameStarLevel.getNum());
                             break;

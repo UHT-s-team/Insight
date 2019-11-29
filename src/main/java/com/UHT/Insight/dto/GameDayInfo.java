@@ -79,4 +79,8 @@ public class GameDayInfo implements Serializable {
     public void setFiveStarNum(Integer fiveStarNum) {
         FiveStarNum = fiveStarNum;
     }
+
+    public void setTowStarNum(Integer towStarNum) {
+        TowStarNum = towStarNum;
+    }
 }

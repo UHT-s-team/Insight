@@ -1,6 +1,8 @@
 package com.UHT.Insight.daoimpl;
 
 import com.UHT.Insight.daoImpl.GameToUserDaoImpl;
+import com.UHT.Insight.pojo.GameEverydayData;
+import com.UHT.Insight.pojo.GameStarLevel;
 import com.UHT.Insight.pojo.GameTouser;
 import org.junit.Test;
 
@@ -45,7 +47,8 @@ public class GameTouserTest {
     }
     @Test
     public void  findCountEverydayAll(){
-        System.out.println(gameTouserDao.findCountEverydayAll(168332));
+        List<GameEverydayData> countEverydayAll = gameTouserDao.findCountEverydayAll(168332);
+        System.out.println(countEverydayAll);
     }
     @Test
     public void findCountByDay(){
@@ -55,7 +58,8 @@ public class GameTouserTest {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        System.out.println(gameTouserDao.findCountByDay(date));
+
+        System.out.println(gameTouserDao.findCountByDay(date,168332));
     }
     @Test
     public void findCountAfterDayA(){
@@ -65,7 +69,7 @@ public class GameTouserTest {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        System.out.println(gameTouserDao.findCountAfterDayA(date));
+        System.out.println(gameTouserDao.findCountAfterDayA(date,168332));
     }
     @Test
     public void findCountBetweenDayAAndB(){
@@ -77,11 +81,12 @@ public class GameTouserTest {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        System.out.println(gameTouserDao.findCountBetweenDayAAndB(date,date1));
+        System.out.println(gameTouserDao.findCountBetweenDayAAndB(date,date1,168332));
     }
     @Test
     public void findCountByStar(){
-        System.out.println(gameTouserDao.findCountByStar(5,168332));
+        List<GameStarLevel> countByStar = gameTouserDao.findCountByStar(4, 168332);
+        System.out.println(countByStar);
     }
     @Test
     public void findCountByStarAll(){
@@ -95,7 +100,9 @@ public class GameTouserTest {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        System.out.println(gameTouserDao.findCountStarByDay(2,date));
+        GameStarLevel countStarByDay = gameTouserDao.findCountStarByDay(2, date, 168332);
+
+        System.out.println(countStarByDay);
     }
     @Test
     public void findCountStarAfterDay(){
@@ -105,7 +112,7 @@ public class GameTouserTest {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        System.out.println(gameTouserDao.findCountStarAfterDay(2,date));
+        System.out.println(gameTouserDao.findCountStarAfterDay(2,date,168332));
     }
     @Test
     public void findCountStarBetweenDay(){
@@ -118,7 +125,7 @@ public class GameTouserTest {
             e.printStackTrace();
         }
 
-        System.out.println(gameTouserDao.findCountStarBetweenDay(1,date,date1));
+        System.out.println(gameTouserDao.findCountStarBetweenDay(1,date,date1,168332));
     }
     @Test
     public void addGameList(){
