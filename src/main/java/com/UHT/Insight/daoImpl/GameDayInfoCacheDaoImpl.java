@@ -41,7 +41,7 @@ public class GameDayInfoCacheDaoImpl {
         return i;
     }
 
-    //更新缓存数据
+    //更新缓存表数据
     public Integer updateGameDataCache(Integer G_ID,byte[] bytes) {
         Date date=new Date(System.currentTimeMillis());
         GameDayInfoCache gameDayInfoCache=new GameDayInfoCache(G_ID,bytes,date);
