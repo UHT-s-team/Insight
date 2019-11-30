@@ -9,4 +9,8 @@ class GameControllerTest {
     @Test
     void game_main() {
     }
+
+    @Test
+    void game() {
+    }
 }

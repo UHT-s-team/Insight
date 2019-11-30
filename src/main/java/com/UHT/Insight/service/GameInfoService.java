@@ -1,20 +1,28 @@
 package com.UHT.Insight.service;
 
+import com.UHT.Insight.daoImpl.GameDayInfoCacheDaoImpl;
 import com.UHT.Insight.daoImpl.GameToUserDaoImpl;
 import com.UHT.Insight.dto.GameDayInfo;
 import com.UHT.Insight.exception.CustomErrorCode;
 import com.UHT.Insight.exception.CustomException;
+import com.UHT.Insight.pojo.GameDayInfoCache;
 import com.UHT.Insight.pojo.GameEverydayData;
 import com.UHT.Insight.pojo.GameStarLevel;
+import com.UHT.Insight.utils.CacheUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import static com.UHT.Insight.utils.CacheUtils.obj2byte;
 
 @Service
 public class GameInfoService {
     private GameToUserDaoImpl gameToUserDao=new GameToUserDaoImpl();
+
+    private GameDayInfoCacheDaoImpl gameDayInfoCacheDao=new GameDayInfoCacheDaoImpl();
 
     public List<GameDayInfo> getGameDayInfoList(Integer gameId){
         List<GameDayInfo> gameDayInfos=new ArrayList<>();
@@ -62,5 +70,22 @@ public class GameInfoService {
             }
         }
         return gameDayInfos;
+    }
+
+    public List<GameDayInfo> findGameInfoCache(Integer id) throws Exception {
+        GameDayInfoCache gameDayInfoCache = gameDayInfoCacheDao.findGameDataCacheById(id);
+        if(gameDayInfoCache!=null){
+            List<GameDayInfo> GameDayInfo = (List<GameDayInfo>)CacheUtils.byte2obj(gameDayInfoCache.getInfoCache());
+            return GameDayInfo;
+        }
+        return null;
+    }
+
+    public void saveGameInfoCache(Integer id, List<GameDayInfo> gameDayInfoList) throws Exception {
+        GameDayInfoCache gameDayInfoCache = new GameDayInfoCache();
+        gameDayInfoCache.setG_ID(id);
+        gameDayInfoCache.setInfoCache(obj2byte(gameDayInfoList));
+        gameDayInfoCache.setCreateTime(new Date(System.currentTimeMillis()));
+        gameDayInfoCacheDao.saveGameDataCache(gameDayInfoCache);
     }
 }
