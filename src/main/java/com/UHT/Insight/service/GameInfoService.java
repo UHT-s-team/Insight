@@ -34,7 +34,12 @@ public class GameInfoService {
 
         for(GameDayInfo gameDayInfo:gameDayInfos){
             for(GameStarLevel gameStarLevel:everydayAllStar){
-                int compareTo = gameDayInfo.getTime().compareTo(gameStarLevel.getTime());
+                int compareTo=1;
+                try{
+                    compareTo = gameDayInfo.getTime().compareTo(gameStarLevel.getTime());
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
                 if(compareTo==0){
                     switch (gameStarLevel.getStar()){
                         case 1:
