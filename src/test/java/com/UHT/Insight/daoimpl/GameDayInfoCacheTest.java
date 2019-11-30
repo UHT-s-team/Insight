@@ -30,7 +30,9 @@ public class GameDayInfoCacheTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        int i=gameDayInfoCacheDao.saveGameDataCache(168332,bytes);
+        Date date=new Date(System.currentTimeMillis());
+        GameDayInfoCache gameDayInfoCache=new GameDayInfoCache(168332,bytes,date);
+        int i=gameDayInfoCacheDao.saveGameDataCache(gameDayInfoCache);
         System.out.println(i);
     }
     @Test
@@ -43,7 +45,9 @@ public class GameDayInfoCacheTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        int i=gameDayInfoCacheDao.updateGameDataCache(168332,bytes);
+        Date date=new Date(System.currentTimeMillis());
+        GameDayInfoCache gameDayInfoCache=new GameDayInfoCache(168332,bytes,date);
+        int i=gameDayInfoCacheDao.updateGameDataCache(gameDayInfoCache);
         System.out.println(i);
     }
 }

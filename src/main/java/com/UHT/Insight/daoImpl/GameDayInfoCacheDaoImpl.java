@@ -26,9 +26,7 @@ public class GameDayInfoCacheDaoImpl {
     }
 
     //保存缓存数据
-    public Integer saveGameDataCache(Integer G_ID,byte[] bytes) {
-        Date date=new Date(System.currentTimeMillis());
-        GameDayInfoCache gameDayInfoCache=new GameDayInfoCache(G_ID,bytes,date);
+    public Integer saveGameDataCache(GameDayInfoCache gameDayInfoCache) {
         int i=-1;
         try {
             i=gameDataCacheDao.saveGameDataCache(gameDayInfoCache);
@@ -42,9 +40,7 @@ public class GameDayInfoCacheDaoImpl {
     }
 
     //更新缓存表数据
-    public Integer updateGameDataCache(Integer G_ID,byte[] bytes) {
-        Date date=new Date(System.currentTimeMillis());
-        GameDayInfoCache gameDayInfoCache=new GameDayInfoCache(G_ID,bytes,date);
+    public Integer updateGameDataCache(GameDayInfoCache gameDayInfoCache) {
         int i=-1;
         try {
             i=gameDataCacheDao.updateGameDataCache(gameDayInfoCache);

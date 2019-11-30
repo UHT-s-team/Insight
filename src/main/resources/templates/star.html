@@ -13,7 +13,6 @@
 	<div id="main" style="width:100%; height:550px"></div>
     <script type="text/javascript">
 		var myChart = echarts.init(document.getElementById('main'));
-		
         myChart.setOption({
 			title: {
 				text: '单日评分图',
@@ -21,7 +20,9 @@
 				top:0
 			},
 			
-			tooltip:{trigger:'axis',showContent: false},
+			tooltip:{trigger:'axis',
+                alwaysShowContent: true
+            },
 				
 			legend: {
 				data:['一星','二星','三星','四星','五星'],
@@ -112,9 +113,9 @@
 				}
 			],
 		
-			tooltip:{
+			/*tooltip:{
 				trigger:'axis'//基于X轴触发提示
-			}
+			}*/
 		});
 		
 		
@@ -126,7 +127,7 @@
 		var time = new Array;
 		
 		$(document).ready(function(){
-				$.getJSON("/game/123/main",function(data){
+				$.getJSON("/game/168332/main",function(data){
 						//alert("Data: " + data.Data[0].time + "\nStatus: " + status);
 						//alert(data.Data.length);
 						
@@ -147,7 +148,7 @@
 							time[i] = data.data[i-1].time.substring(0,10);//获取字符串从0开始10个字符
 						}
 						//alert("Data: " + number[0] + "\nTime: " + time[2]);
-						alert(time[0]);
+						//alert(time[0]);
 						myChart.setOption
 						({
 							xAxis: {
@@ -244,6 +245,6 @@
 			}
 		});
         myChart.setOption(option);
-    </script>    
+    </script>
 </body>
 </html>
