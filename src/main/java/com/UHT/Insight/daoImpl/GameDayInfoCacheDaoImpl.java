@@ -10,6 +10,7 @@ import java.util.Date;
 
 public class GameDayInfoCacheDaoImpl {
     private SqlSession sqlSession= MybatilsUtils.getSession();
+
     private GameDayInfoCacheDao gameDataCacheDao=sqlSession.getMapper(GameDayInfoCacheDao.class);
     //根据游戏id查找缓存数据
     public GameDayInfoCache findGameDataCacheById(Integer G_ID) {
