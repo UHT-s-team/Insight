@@ -2,7 +2,6 @@ package com.UHT.Insight.daoimpl;
 
 import com.UHT.Insight.dto.PeopleDTO;
 import com.UHT.Insight.utils.FileUtils;
-import com.UHT.Insight.utils.JsonUtils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.junit.Test;
@@ -19,7 +18,7 @@ public class JsonTest {
             try {
                 String filePath = "F:\\Insight\\src\\main\\resources\\JsonFile\\game" + i + ".json";
 //            String filePath = "D:\\学习\\代码\\JavaWeb\\Insight\\src\\main\\resources\\JsonFile\\game" + i + ".json";
-                JsonUtils.getGameMap(FileUtils.reader(filePath));
+//                JsonUtils.getGameMap(FileUtils.reader(filePath));
             }catch (Exception e){
                 e.printStackTrace();
             }
