@@ -77,5 +77,18 @@ public class GameDaoImpl  {
         }
         return i;
     }
+    //批量插入
+    public Integer saveGameList(List<Game> list){
+        int i=-1;
+        try {
+            i=gameDao.saveGameList(list);
+            MybatilsUtils.destroy();
+        }catch (Exception e){
+            e.printStackTrace();
+            sqlSession.rollback();
+            return i;
+        }
+        return i;
+    }
 
 }

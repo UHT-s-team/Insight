@@ -23,4 +23,12 @@
         ,A_DRADE=#{A_DRADE},T_TAGLTB=#{T_TAGLTB},RECOMMENT=#{RECOMMENT},DOWNLOAD=#{DOWNLOAD},ATTENTION=#{ATTENTION},URL=#{URL}
         where G_ID=#{G_ID}
     </update>
+    <insert id="saveGameList" parameterType="List">
+        insert into game(G_ID,G_NAME,BREIF,R_CONTENT,R_NUMBER,C_NUMBER,VENDER,A_DRADE,T_TAGLTB,RECOMMENT,DOWNLOAD,ATTENTION,URL)
+        values
+        <foreach collection="list" item="game" separator=",">
+        (#{game.G_ID},#{game.G_NAME},#{game.BREIF},#{game.R_CONTENT},#{game.R_NUMBER},#{game.C_NUMBER},
+        #{game.VENDER},#{game.A_DRADE},#{game.T_TAGLTB},#{game.RECOMMENT},#{game.DOWNLOAD},#{game.ATTENTION},#{game.URL})
+        </foreach>
+    </insert>
 </mapper>

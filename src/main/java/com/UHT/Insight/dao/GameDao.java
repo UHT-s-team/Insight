@@ -18,5 +18,6 @@ public interface GameDao {
     Integer deleteGameById(Integer G_ID);
     //根据id修改
     Integer updateGame(Game game);
-
+    //批量插入
+    Integer saveGameList(List<Game> list);
 }
