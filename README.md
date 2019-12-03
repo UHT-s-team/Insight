@@ -7,15 +7,5 @@
 []()
 [spring拦截器文档](https://docs.spring.io/spring/docs/5.0.3.RELEASE/spring-framework-reference/web.html#spring-web)
 [mybatis generator文档](http://mybatis.org/generator/configreference/table.html)
-
-
-测试n连
-欢迎来到这里，上面是部分开发所需教程。.
-
-HN完成
-laojianfeng完成
-chenzhifeng完成
-654567998
-linzhenhui完成
-前端。。用别的编译器做小测试。。
+[Scheduled的部分使用](https://www.jianshu.com/p/c7492aeb35a1)
 

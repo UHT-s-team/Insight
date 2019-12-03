@@ -26,21 +26,25 @@ public class GameInfoService {
 
     public List<GameDayInfo> getGameDayInfoList(Integer gameId){
         List<GameDayInfo> gameDayInfos=new ArrayList<>();
-        gameToUserDao=new GameToUserDaoImpl();
+        gameToUserDao=new GameToUserDaoImpl();//用处不明，但是确实能解决问题
         List<GameEverydayData> everydayBaseData = gameToUserDao.findCountEverydayAll(gameId);
+        //根据游戏id查询游戏的基本信息
         if(everydayBaseData.size()==0){
-            throw new CustomException(CustomErrorCode.GAME_NOT_FIND);
+            throw new CustomException(CustomErrorCode.GAME_NOT_FIND);//抛出异常
         }
         gameToUserDao=new GameToUserDaoImpl();
+        //重新实例化dao对象，因为只要使用过一次，连接就会被关闭
         List<GameStarLevel> everydayAllStar = gameToUserDao.findCountByStar(gameId);
-        GameDayInfo gameInfo= new GameDayInfo();
+        //根据游戏id，获取每日的各星级数量 （从1到5）
+        GameDayInfo gameInfo= new GameDayInfo();//无意义的工具
         for(GameEverydayData gameEverydayData:everydayBaseData){
             BeanUtils.copyProperties(gameEverydayData, gameInfo);
             gameDayInfos.add(gameInfo);
-            gameInfo=new GameDayInfo();
+            gameInfo=new GameDayInfo();//重新实例化工具
         }
+        //将everydayBaseData整体数据迁移到gameDayInfos内
 
-        for(GameDayInfo gameDayInfo:gameDayInfos){
+        for(GameDayInfo gameDayInfo :gameDayInfos){//遍历gameDayInfos
             for(GameStarLevel gameStarLevel:everydayAllStar){
                 int compareTo=1;
                 try{
@@ -48,7 +52,7 @@ public class GameInfoService {
                 }catch(Exception e){
                     e.printStackTrace();
                 }
-                if(compareTo==0){
+                if(compareTo==0){//通过比对时间，将各星级数量加载到对应的gameDayInfo
                     switch (gameStarLevel.getStar()){
                         case 1:
                             gameDayInfo.setOneStarNum(gameStarLevel.getNum());

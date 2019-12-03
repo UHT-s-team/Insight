@@ -3,13 +3,12 @@ package com.UHT.Insight.daoimpl;
 
 import com.UHT.Insight.daoImpl.GameDayInfoCacheDaoImpl;
 import com.UHT.Insight.dto.GameDayInfo;
+import com.UHT.Insight.dto.T_GameDayInfoCacheDTO;
 import com.UHT.Insight.pojo.GameDayInfoCache;
 import com.UHT.Insight.service.GameInfoService;
 import com.UHT.Insight.utils.CacheUtils;
 import org.junit.Test;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -49,5 +48,10 @@ public class GameDayInfoCacheTest {
         GameDayInfoCache gameDayInfoCache=new GameDayInfoCache(168332,bytes,date);
         int i=gameDayInfoCacheDao.updateGameDataCache(gameDayInfoCache);
         System.out.println(i);
+    }
+    @Test
+    public void findAllGameDataCache(){
+        List<T_GameDayInfoCacheDTO> allGameDataCache = gameDayInfoCacheDao.findAllGameDataCache();
+        System.out.println(allGameDataCache);
     }
 }
