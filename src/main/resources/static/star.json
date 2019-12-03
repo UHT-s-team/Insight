@@ -1,0 +1,1646 @@
+{
+    "code": 200,
+    "message": "请求成功",
+    "data": [
+        {
+            "time": "2019-06-06T16:00:00.000+0000",
+            "num": 267,
+            "average": 3.6666667,
+            "oneStarNum": null,
+            "fiveStarNum": null,
+            "threeStarNum": 65,
+            "fourStarNum": 190,
+            "towStarNum": 12
+        },
+        {
+            "time": "2019-06-07T16:00:00.000+0000",
+            "num": 744,
+            "average": 3.547043,
+            "oneStarNum": null,
+            "fiveStarNum": null,
+            "threeStarNum": 205,
+            "fourStarNum": 473,
+            "towStarNum": 66
+        },
+        {
+            "time": "2019-06-08T16:00:00.000+0000",
+            "num": 619,
+            "average": 3.4378028,
+            "oneStarNum": null,
+            "fiveStarNum": null,
+            "threeStarNum": 174,
+            "fourStarNum": 358,
+            "towStarNum": 87
+        },
+        {
+            "time": "2019-06-09T16:00:00.000+0000",
+            "num": 430,
+            "average": 2.3255813,
+            "oneStarNum": 191,
+            "fiveStarNum": null,
+            "threeStarNum": 79,
+            "fourStarNum": 126,
+            "towStarNum": 34
+        },
+        {
+            "time": "2019-06-10T16:00:00.000+0000",
+            "num": 371,
+            "average": 2.328841,
+            "oneStarNum": 162,
+            "fiveStarNum": null,
+            "threeStarNum": 70,
+            "fourStarNum": 107,
+            "towStarNum": 32
+        },
+        {
+            "time": "2019-06-11T16:00:00.000+0000",
+            "num": 277,
+            "average": 2.0216606,
+            "oneStarNum": 153,
+            "fiveStarNum": null,
+            "threeStarNum": 49,
+            "fourStarNum": 55,
+            "towStarNum": 20
+        },
+        {
+            "time": "2019-06-12T16:00:00.000+0000",
+            "num": 225,
+            "average": 2.3333333,
+            "oneStarNum": 99,
+            "fiveStarNum": null,
+            "threeStarNum": 48,
+            "fourStarNum": 63,
+            "towStarNum": 15
+        },
+        {
+            "time": "2019-06-13T16:00:00.000+0000",
+            "num": 164,
+            "average": 2.5,
+            "oneStarNum": 53,
+            "fiveStarNum": null,
+            "threeStarNum": 47,
+            "fourStarNum": 44,
+            "towStarNum": 20
+        },
+        {
+            "time": "2019-06-14T16:00:00.000+0000",
+            "num": 175,
+            "average": 2.5371428,
+            "oneStarNum": 57,
+            "fiveStarNum": null,
+            "threeStarNum": 57,
+            "fourStarNum": 47,
+            "towStarNum": 14
+        },
+        {
+            "time": "2019-06-15T16:00:00.000+0000",
+            "num": 128,
+            "average": 2.703125,
+            "oneStarNum": 39,
+            "fiveStarNum": null,
+            "threeStarNum": 31,
+            "fourStarNum": 49,
+            "towStarNum": 9
+        },
+        {
+            "time": "2019-06-16T16:00:00.000+0000",
+            "num": 152,
+            "average": 2.4736843,
+            "oneStarNum": 61,
+            "fiveStarNum": null,
+            "threeStarNum": 33,
+            "fourStarNum": 50,
+            "towStarNum": 8
+        },
+        {
+            "time": "2019-06-17T16:00:00.000+0000",
+            "num": 72,
+            "average": 2.2361112,
+            "oneStarNum": 35,
+            "fiveStarNum": null,
+            "threeStarNum": 12,
+            "fourStarNum": 20,
+            "towStarNum": 5
+        },
+        {
+            "time": "2019-06-18T16:00:00.000+0000",
+            "num": 78,
+            "average": 2.525641,
+            "oneStarNum": 25,
+            "fiveStarNum": null,
+            "threeStarNum": 20,
+            "fourStarNum": 23,
+            "towStarNum": 10
+        },
+        {
+            "time": "2019-06-19T16:00:00.000+0000",
+            "num": 103,
+            "average": 2.514563,
+            "oneStarNum": 40,
+            "fiveStarNum": null,
+            "threeStarNum": 19,
+            "fourStarNum": 37,
+            "towStarNum": 7
+        },
+        {
+            "time": "2019-06-20T16:00:00.000+0000",
+            "num": 1199,
+            "average": 1.5579649,
+            "oneStarNum": 861,
+            "fiveStarNum": null,
+            "threeStarNum": 133,
+            "fourStarNum": 99,
+            "towStarNum": 106
+        },
+        {
+            "time": "2019-06-21T16:00:00.000+0000",
+            "num": 1235,
+            "average": 1.5975709,
+            "oneStarNum": 869,
+            "fiveStarNum": null,
+            "threeStarNum": 144,
+            "fourStarNum": 114,
+            "towStarNum": 108
+        },
+        {
+            "time": "2019-06-22T16:00:00.000+0000",
+            "num": 900,
+            "average": 1.67,
+            "oneStarNum": 610,
+            "fiveStarNum": null,
+            "threeStarNum": 123,
+            "fourStarNum": 95,
+            "towStarNum": 72
+        },
+        {
+            "time": "2019-06-23T16:00:00.000+0000",
+            "num": 966,
+            "average": 1.6097308,
+            "oneStarNum": 677,
+            "fiveStarNum": null,
+            "threeStarNum": 116,
+            "fourStarNum": 92,
+            "towStarNum": 81
+        },
+        {
+            "time": "2019-06-24T16:00:00.000+0000",
+            "num": 896,
+            "average": 1.5055803,
+            "oneStarNum": 671,
+            "fiveStarNum": null,
+            "threeStarNum": 98,
+            "fourStarNum": 65,
+            "towStarNum": 62
+        },
+        {
+            "time": "2019-06-25T16:00:00.000+0000",
+            "num": 822,
+            "average": 1.5863746,
+            "oneStarNum": 571,
+            "fiveStarNum": null,
+            "threeStarNum": 81,
+            "fourStarNum": 75,
+            "towStarNum": 95
+        },
+        {
+            "time": "2019-06-26T16:00:00.000+0000",
+            "num": 374,
+            "average": 1.6871657,
+            "oneStarNum": 245,
+            "fiveStarNum": null,
+            "threeStarNum": 48,
+            "fourStarNum": 40,
+            "towStarNum": 41
+        },
+        {
+            "time": "2019-06-27T16:00:00.000+0000",
+            "num": 279,
+            "average": 1.6451613,
+            "oneStarNum": 197,
+            "fiveStarNum": null,
+            "threeStarNum": 30,
+            "fourStarNum": 34,
+            "towStarNum": 18
+        },
+        {
+            "time": "2019-06-28T16:00:00.000+0000",
+            "num": 236,
+            "average": 1.5127119,
+            "oneStarNum": 173,
+            "fiveStarNum": null,
+            "threeStarNum": 28,
+            "fourStarNum": 15,
+            "towStarNum": 20
+        },
+        {
+            "time": "2019-06-29T16:00:00.000+0000",
+            "num": 234,
+            "average": 1.6282052,
+            "oneStarNum": 163,
+            "fiveStarNum": null,
+            "threeStarNum": 28,
+            "fourStarNum": 24,
+            "towStarNum": 19
+        },
+        {
+            "time": "2019-06-30T16:00:00.000+0000",
+            "num": 224,
+            "average": 1.78125,
+            "oneStarNum": 142,
+            "fiveStarNum": null,
+            "threeStarNum": 39,
+            "fourStarNum": 27,
+            "towStarNum": 16
+        },
+        {
+            "time": "2019-07-01T16:00:00.000+0000",
+            "num": 216,
+            "average": 1.7222222,
+            "oneStarNum": 139,
+            "fiveStarNum": null,
+            "threeStarNum": 33,
+            "fourStarNum": 23,
+            "towStarNum": 21
+        },
+        {
+            "time": "2019-07-02T16:00:00.000+0000",
+            "num": 209,
+            "average": 2.0,
+            "oneStarNum": 118,
+            "fiveStarNum": null,
+            "threeStarNum": 34,
+            "fourStarNum": 42,
+            "towStarNum": 15
+        },
+        {
+            "time": "2019-07-03T16:00:00.000+0000",
+            "num": 163,
+            "average": 1.981595,
+            "oneStarNum": 94,
+            "fiveStarNum": null,
+            "threeStarNum": 25,
+            "fourStarNum": 33,
+            "towStarNum": 11
+        },
+        {
+            "time": "2019-07-04T16:00:00.000+0000",
+            "num": 129,
+            "average": 2.015504,
+            "oneStarNum": 69,
+            "fiveStarNum": null,
+            "threeStarNum": 19,
+            "fourStarNum": 26,
+            "towStarNum": 15
+        },
+        {
+            "time": "2019-07-05T16:00:00.000+0000",
+            "num": 121,
+            "average": 1.9752066,
+            "oneStarNum": 64,
+            "fiveStarNum": null,
+            "threeStarNum": 29,
+            "fourStarNum": 16,
+            "towStarNum": 12
+        },
+        {
+            "time": "2019-07-06T16:00:00.000+0000",
+            "num": 133,
+            "average": 2.0902255,
+            "oneStarNum": 66,
+            "fiveStarNum": null,
+            "threeStarNum": 24,
+            "fourStarNum": 27,
+            "towStarNum": 16
+        },
+        {
+            "time": "2019-07-07T16:00:00.000+0000",
+            "num": 119,
+            "average": 2.6806722,
+            "oneStarNum": 52,
+            "fiveStarNum": 27,
+            "threeStarNum": 14,
+            "fourStarNum": 19,
+            "towStarNum": 7
+        },
+        {
+            "time": "2019-07-08T16:00:00.000+0000",
+            "num": 167,
+            "average": 3.1137724,
+            "oneStarNum": 59,
+            "fiveStarNum": 66,
+            "threeStarNum": 19,
+            "fourStarNum": 14,
+            "towStarNum": 9
+        },
+        {
+            "time": "2019-07-09T16:00:00.000+0000",
+            "num": 142,
+            "average": 3.5140846,
+            "oneStarNum": 35,
+            "fiveStarNum": 63,
+            "threeStarNum": 15,
+            "fourStarNum": 23,
+            "towStarNum": 6
+        },
+        {
+            "time": "2019-07-10T16:00:00.000+0000",
+            "num": 188,
+            "average": 3.3031914,
+            "oneStarNum": 58,
+            "fiveStarNum": 80,
+            "threeStarNum": 19,
+            "fourStarNum": 22,
+            "towStarNum": 9
+        },
+        {
+            "time": "2019-07-11T16:00:00.000+0000",
+            "num": 191,
+            "average": 3.4240837,
+            "oneStarNum": 53,
+            "fiveStarNum": 86,
+            "threeStarNum": 17,
+            "fourStarNum": 25,
+            "towStarNum": 10
+        },
+        {
+            "time": "2019-07-12T16:00:00.000+0000",
+            "num": 168,
+            "average": 3.6309524,
+            "oneStarNum": 44,
+            "fiveStarNum": 90,
+            "threeStarNum": 12,
+            "fourStarNum": 18,
+            "towStarNum": 4
+        },
+        {
+            "time": "2019-07-13T16:00:00.000+0000",
+            "num": 164,
+            "average": 3.707317,
+            "oneStarNum": 36,
+            "fiveStarNum": 91,
+            "threeStarNum": 17,
+            "fourStarNum": 13,
+            "towStarNum": 7
+        },
+        {
+            "time": "2019-07-14T16:00:00.000+0000",
+            "num": 133,
+            "average": 3.7969925,
+            "oneStarNum": 27,
+            "fiveStarNum": 71,
+            "threeStarNum": 9,
+            "fourStarNum": 22,
+            "towStarNum": 4
+        },
+        {
+            "time": "2019-07-15T16:00:00.000+0000",
+            "num": 153,
+            "average": 3.4640522,
+            "oneStarNum": 36,
+            "fiveStarNum": 68,
+            "threeStarNum": 24,
+            "fourStarNum": 16,
+            "towStarNum": 9
+        },
+        {
+            "time": "2019-07-16T16:00:00.000+0000",
+            "num": 160,
+            "average": 3.60625,
+            "oneStarNum": 35,
+            "fiveStarNum": 78,
+            "threeStarNum": 20,
+            "fourStarNum": 19,
+            "towStarNum": 8
+        },
+        {
+            "time": "2019-07-17T16:00:00.000+0000",
+            "num": 129,
+            "average": 3.7984495,
+            "oneStarNum": 23,
+            "fiveStarNum": 66,
+            "threeStarNum": 15,
+            "fourStarNum": 21,
+            "towStarNum": 4
+        },
+        {
+            "time": "2019-07-18T16:00:00.000+0000",
+            "num": 135,
+            "average": 4.014815,
+            "oneStarNum": 20,
+            "fiveStarNum": 80,
+            "threeStarNum": 16,
+            "fourStarNum": 18,
+            "towStarNum": 1
+        },
+        {
+            "time": "2019-07-19T16:00:00.000+0000",
+            "num": 161,
+            "average": 3.9813664,
+            "oneStarNum": 20,
+            "fiveStarNum": 88,
+            "threeStarNum": 17,
+            "fourStarNum": 29,
+            "towStarNum": 7
+        },
+        {
+            "time": "2019-07-20T16:00:00.000+0000",
+            "num": 149,
+            "average": 4.080537,
+            "oneStarNum": 19,
+            "fiveStarNum": 95,
+            "threeStarNum": 14,
+            "fourStarNum": 15,
+            "towStarNum": 6
+        },
+        {
+            "time": "2019-07-21T16:00:00.000+0000",
+            "num": 148,
+            "average": 3.9662163,
+            "oneStarNum": 21,
+            "fiveStarNum": 86,
+            "threeStarNum": 18,
+            "fourStarNum": 18,
+            "towStarNum": 5
+        },
+        {
+            "time": "2019-07-22T16:00:00.000+0000",
+            "num": 156,
+            "average": 4.50641,
+            "oneStarNum": 10,
+            "fiveStarNum": 124,
+            "threeStarNum": 11,
+            "fourStarNum": 9,
+            "towStarNum": 2
+        },
+        {
+            "time": "2019-07-23T16:00:00.000+0000",
+            "num": 166,
+            "average": 4.36747,
+            "oneStarNum": 14,
+            "fiveStarNum": 115,
+            "threeStarNum": 8,
+            "fourStarNum": 27,
+            "towStarNum": 2
+        },
+        {
+            "time": "2019-07-24T16:00:00.000+0000",
+            "num": 49,
+            "average": 2.857143,
+            "oneStarNum": 10,
+            "fiveStarNum": null,
+            "threeStarNum": 14,
+            "fourStarNum": 19,
+            "towStarNum": 6
+        },
+        {
+            "time": "2019-07-25T16:00:00.000+0000",
+            "num": 49,
+            "average": 2.9183674,
+            "oneStarNum": 10,
+            "fiveStarNum": null,
+            "threeStarNum": 15,
+            "fourStarNum": 20,
+            "towStarNum": 4
+        },
+        {
+            "time": "2019-07-26T16:00:00.000+0000",
+            "num": 46,
+            "average": 3.3043478,
+            "oneStarNum": 4,
+            "fiveStarNum": null,
+            "threeStarNum": 18,
+            "fourStarNum": 23,
+            "towStarNum": 1
+        },
+        {
+            "time": "2019-07-27T16:00:00.000+0000",
+            "num": 40,
+            "average": 3.075,
+            "oneStarNum": 7,
+            "fiveStarNum": null,
+            "threeStarNum": 10,
+            "fourStarNum": 20,
+            "towStarNum": 3
+        },
+        {
+            "time": "2019-07-28T16:00:00.000+0000",
+            "num": 49,
+            "average": 3.122449,
+            "oneStarNum": 8,
+            "fiveStarNum": null,
+            "threeStarNum": 13,
+            "fourStarNum": 25,
+            "towStarNum": 3
+        },
+        {
+            "time": "2019-07-29T16:00:00.000+0000",
+            "num": 42,
+            "average": 2.5952382,
+            "oneStarNum": 15,
+            "fiveStarNum": null,
+            "threeStarNum": 6,
+            "fourStarNum": 17,
+            "towStarNum": 4
+        },
+        {
+            "time": "2019-07-30T16:00:00.000+0000",
+            "num": 33,
+            "average": 2.6060605,
+            "oneStarNum": 12,
+            "fiveStarNum": null,
+            "threeStarNum": 4,
+            "fourStarNum": 14,
+            "towStarNum": 3
+        },
+        {
+            "time": "2019-07-31T16:00:00.000+0000",
+            "num": 61,
+            "average": 2.6229508,
+            "oneStarNum": 23,
+            "fiveStarNum": null,
+            "threeStarNum": 7,
+            "fourStarNum": 27,
+            "towStarNum": 4
+        },
+        {
+            "time": "2019-08-01T16:00:00.000+0000",
+            "num": 86,
+            "average": 2.3139534,
+            "oneStarNum": 38,
+            "fiveStarNum": null,
+            "threeStarNum": 17,
+            "fourStarNum": 24,
+            "towStarNum": 7
+        },
+        {
+            "time": "2019-08-02T16:00:00.000+0000",
+            "num": 135,
+            "average": 2.0814815,
+            "oneStarNum": 77,
+            "fiveStarNum": 2,
+            "threeStarNum": 14,
+            "fourStarNum": 34,
+            "towStarNum": 8
+        },
+        {
+            "time": "2019-08-03T16:00:00.000+0000",
+            "num": 353,
+            "average": 4.0509915,
+            "oneStarNum": 53,
+            "fiveStarNum": 228,
+            "threeStarNum": 29,
+            "fourStarNum": 32,
+            "towStarNum": 11
+        },
+        {
+            "time": "2019-08-04T16:00:00.000+0000",
+            "num": 337,
+            "average": 4.3204746,
+            "oneStarNum": 24,
+            "fiveStarNum": 223,
+            "threeStarNum": 25,
+            "fourStarNum": 56,
+            "towStarNum": 9
+        },
+        {
+            "time": "2019-08-05T16:00:00.000+0000",
+            "num": 361,
+            "average": 4.193906,
+            "oneStarNum": 40,
+            "fiveStarNum": 238,
+            "threeStarNum": 26,
+            "fourStarNum": 46,
+            "towStarNum": 11
+        },
+        {
+            "time": "2019-08-06T16:00:00.000+0000",
+            "num": 341,
+            "average": 4.5131965,
+            "oneStarNum": 14,
+            "fiveStarNum": 243,
+            "threeStarNum": 12,
+            "fourStarNum": 65,
+            "towStarNum": 7
+        },
+        {
+            "time": "2019-08-07T16:00:00.000+0000",
+            "num": 266,
+            "average": 4.338346,
+            "oneStarNum": 24,
+            "fiveStarNum": 191,
+            "threeStarNum": 13,
+            "fourStarNum": 30,
+            "towStarNum": 8
+        },
+        {
+            "time": "2019-08-08T16:00:00.000+0000",
+            "num": 162,
+            "average": 4.567901,
+            "oneStarNum": 6,
+            "fiveStarNum": 122,
+            "threeStarNum": 10,
+            "fourStarNum": 23,
+            "towStarNum": 1
+        },
+        {
+            "time": "2019-08-09T16:00:00.000+0000",
+            "num": 114,
+            "average": 4.2807016,
+            "oneStarNum": 8,
+            "fiveStarNum": 72,
+            "threeStarNum": 8,
+            "fourStarNum": 22,
+            "towStarNum": 4
+        },
+        {
+            "time": "2019-08-10T16:00:00.000+0000",
+            "num": 133,
+            "average": 4.2481203,
+            "oneStarNum": 16,
+            "fiveStarNum": 93,
+            "threeStarNum": 10,
+            "fourStarNum": 13,
+            "towStarNum": 1
+        },
+        {
+            "time": "2019-08-11T16:00:00.000+0000",
+            "num": 165,
+            "average": 4.551515,
+            "oneStarNum": 7,
+            "fiveStarNum": 125,
+            "threeStarNum": 9,
+            "fourStarNum": 22,
+            "towStarNum": 2
+        },
+        {
+            "time": "2019-08-12T16:00:00.000+0000",
+            "num": 228,
+            "average": 4.6973686,
+            "oneStarNum": 5,
+            "fiveStarNum": 186,
+            "threeStarNum": 6,
+            "fourStarNum": 28,
+            "towStarNum": 3
+        },
+        {
+            "time": "2019-08-13T16:00:00.000+0000",
+            "num": 248,
+            "average": 4.451613,
+            "oneStarNum": 9,
+            "fiveStarNum": 167,
+            "threeStarNum": 20,
+            "fourStarNum": 48,
+            "towStarNum": 4
+        },
+        {
+            "time": "2019-08-14T16:00:00.000+0000",
+            "num": 189,
+            "average": 4.3650794,
+            "oneStarNum": 13,
+            "fiveStarNum": 129,
+            "threeStarNum": 15,
+            "fourStarNum": 29,
+            "towStarNum": 3
+        },
+        {
+            "time": "2019-08-15T16:00:00.000+0000",
+            "num": 168,
+            "average": 4.5,
+            "oneStarNum": 8,
+            "fiveStarNum": 122,
+            "threeStarNum": 8,
+            "fourStarNum": 27,
+            "towStarNum": 3
+        },
+        {
+            "time": "2019-08-16T16:00:00.000+0000",
+            "num": 159,
+            "average": 4.6855345,
+            "oneStarNum": 2,
+            "fiveStarNum": 128,
+            "threeStarNum": 7,
+            "fourStarNum": 19,
+            "towStarNum": 3
+        },
+        {
+            "time": "2019-08-17T16:00:00.000+0000",
+            "num": 125,
+            "average": 4.48,
+            "oneStarNum": 4,
+            "fiveStarNum": 86,
+            "threeStarNum": 8,
+            "fourStarNum": 24,
+            "towStarNum": 3
+        },
+        {
+            "time": "2019-08-18T16:00:00.000+0000",
+            "num": 121,
+            "average": 4.5041323,
+            "oneStarNum": 4,
+            "fiveStarNum": 87,
+            "threeStarNum": 8,
+            "fourStarNum": 19,
+            "towStarNum": 3
+        },
+        {
+            "time": "2019-08-19T16:00:00.000+0000",
+            "num": 124,
+            "average": 4.709677,
+            "oneStarNum": 2,
+            "fiveStarNum": 103,
+            "threeStarNum": 5,
+            "fourStarNum": 12,
+            "towStarNum": 2
+        },
+        {
+            "time": "2019-08-20T16:00:00.000+0000",
+            "num": 140,
+            "average": 4.5571427,
+            "oneStarNum": 2,
+            "fiveStarNum": 96,
+            "threeStarNum": 10,
+            "fourStarNum": 31,
+            "towStarNum": 1
+        },
+        {
+            "time": "2019-08-21T16:00:00.000+0000",
+            "num": 142,
+            "average": 4.5070424,
+            "oneStarNum": 7,
+            "fiveStarNum": 104,
+            "threeStarNum": 9,
+            "fourStarNum": 21,
+            "towStarNum": 1
+        },
+        {
+            "time": "2019-08-22T16:00:00.000+0000",
+            "num": 119,
+            "average": 4.6218486,
+            "oneStarNum": 5,
+            "fiveStarNum": 97,
+            "threeStarNum": 4,
+            "fourStarNum": 11,
+            "towStarNum": 2
+        },
+        {
+            "time": "2019-08-23T16:00:00.000+0000",
+            "num": 117,
+            "average": 4.4957266,
+            "oneStarNum": 5,
+            "fiveStarNum": 78,
+            "threeStarNum": 3,
+            "fourStarNum": 30,
+            "towStarNum": 1
+        },
+        {
+            "time": "2019-08-24T16:00:00.000+0000",
+            "num": 143,
+            "average": 4.4335666,
+            "oneStarNum": 8,
+            "fiveStarNum": 98,
+            "threeStarNum": 6,
+            "fourStarNum": 28,
+            "towStarNum": 3
+        },
+        {
+            "time": "2019-08-25T16:00:00.000+0000",
+            "num": 107,
+            "average": 4.64486,
+            "oneStarNum": 2,
+            "fiveStarNum": 78,
+            "threeStarNum": 3,
+            "fourStarNum": 24,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-08-26T16:00:00.000+0000",
+            "num": 69,
+            "average": 4.6086955,
+            "oneStarNum": null,
+            "fiveStarNum": 47,
+            "threeStarNum": 5,
+            "fourStarNum": 17,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-08-27T16:00:00.000+0000",
+            "num": 88,
+            "average": 4.6477275,
+            "oneStarNum": 1,
+            "fiveStarNum": 69,
+            "threeStarNum": 5,
+            "fourStarNum": 11,
+            "towStarNum": 2
+        },
+        {
+            "time": "2019-08-28T16:00:00.000+0000",
+            "num": 102,
+            "average": 4.6862745,
+            "oneStarNum": null,
+            "fiveStarNum": 78,
+            "threeStarNum": 6,
+            "fourStarNum": 17,
+            "towStarNum": 1
+        },
+        {
+            "time": "2019-08-29T16:00:00.000+0000",
+            "num": 76,
+            "average": 4.5657897,
+            "oneStarNum": 1,
+            "fiveStarNum": 53,
+            "threeStarNum": 7,
+            "fourStarNum": 15,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-08-30T16:00:00.000+0000",
+            "num": 78,
+            "average": 4.679487,
+            "oneStarNum": 1,
+            "fiveStarNum": 64,
+            "threeStarNum": 8,
+            "fourStarNum": 5,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-08-31T16:00:00.000+0000",
+            "num": 81,
+            "average": 4.728395,
+            "oneStarNum": 1,
+            "fiveStarNum": 65,
+            "threeStarNum": 3,
+            "fourStarNum": 12,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-09-01T16:00:00.000+0000",
+            "num": 69,
+            "average": 4.5072465,
+            "oneStarNum": 4,
+            "fiveStarNum": 51,
+            "threeStarNum": 2,
+            "fourStarNum": 11,
+            "towStarNum": 1
+        },
+        {
+            "time": "2019-09-02T16:00:00.000+0000",
+            "num": 61,
+            "average": 4.7704916,
+            "oneStarNum": null,
+            "fiveStarNum": 48,
+            "threeStarNum": 1,
+            "fourStarNum": 12,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-09-03T16:00:00.000+0000",
+            "num": 63,
+            "average": 4.6349206,
+            "oneStarNum": null,
+            "fiveStarNum": 47,
+            "threeStarNum": 5,
+            "fourStarNum": 10,
+            "towStarNum": 1
+        },
+        {
+            "time": "2019-09-04T16:00:00.000+0000",
+            "num": 69,
+            "average": 4.246377,
+            "oneStarNum": 8,
+            "fiveStarNum": 49,
+            "threeStarNum": 6,
+            "fourStarNum": 5,
+            "towStarNum": 1
+        },
+        {
+            "time": "2019-09-05T16:00:00.000+0000",
+            "num": 52,
+            "average": 4.6538463,
+            "oneStarNum": 1,
+            "fiveStarNum": 39,
+            "threeStarNum": 2,
+            "fourStarNum": 10,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-09-06T16:00:00.000+0000",
+            "num": 47,
+            "average": 4.638298,
+            "oneStarNum": 2,
+            "fiveStarNum": 38,
+            "threeStarNum": 2,
+            "fourStarNum": 5,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-09-07T16:00:00.000+0000",
+            "num": 76,
+            "average": 4.631579,
+            "oneStarNum": 1,
+            "fiveStarNum": 57,
+            "threeStarNum": 4,
+            "fourStarNum": 13,
+            "towStarNum": 1
+        },
+        {
+            "time": "2019-09-08T16:00:00.000+0000",
+            "num": 46,
+            "average": 4.869565,
+            "oneStarNum": null,
+            "fiveStarNum": 41,
+            "threeStarNum": 1,
+            "fourStarNum": 4,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-09-09T16:00:00.000+0000",
+            "num": 48,
+            "average": 4.8125,
+            "oneStarNum": null,
+            "fiveStarNum": 42,
+            "threeStarNum": 3,
+            "fourStarNum": 3,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-09-10T16:00:00.000+0000",
+            "num": 52,
+            "average": 4.6153846,
+            "oneStarNum": 1,
+            "fiveStarNum": 38,
+            "threeStarNum": 3,
+            "fourStarNum": 10,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-09-11T16:00:00.000+0000",
+            "num": 56,
+            "average": 4.660714,
+            "oneStarNum": 1,
+            "fiveStarNum": 43,
+            "threeStarNum": 3,
+            "fourStarNum": 9,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-09-12T16:00:00.000+0000",
+            "num": 60,
+            "average": 4.65,
+            "oneStarNum": 1,
+            "fiveStarNum": 48,
+            "threeStarNum": 6,
+            "fourStarNum": 5,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-09-13T16:00:00.000+0000",
+            "num": 75,
+            "average": 4.5866666,
+            "oneStarNum": 1,
+            "fiveStarNum": 55,
+            "threeStarNum": 8,
+            "fourStarNum": 11,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-09-14T16:00:00.000+0000",
+            "num": 65,
+            "average": 4.830769,
+            "oneStarNum": null,
+            "fiveStarNum": 56,
+            "threeStarNum": 2,
+            "fourStarNum": 7,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-09-15T16:00:00.000+0000",
+            "num": 47,
+            "average": 4.7021275,
+            "oneStarNum": null,
+            "fiveStarNum": 37,
+            "threeStarNum": 4,
+            "fourStarNum": 6,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-09-16T16:00:00.000+0000",
+            "num": 45,
+            "average": 4.4666667,
+            "oneStarNum": 2,
+            "fiveStarNum": 32,
+            "threeStarNum": 5,
+            "fourStarNum": 6,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-09-17T16:00:00.000+0000",
+            "num": 41,
+            "average": 4.780488,
+            "oneStarNum": null,
+            "fiveStarNum": 34,
+            "threeStarNum": 2,
+            "fourStarNum": 5,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-09-18T16:00:00.000+0000",
+            "num": 52,
+            "average": 4.826923,
+            "oneStarNum": null,
+            "fiveStarNum": 46,
+            "threeStarNum": 3,
+            "fourStarNum": 3,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-09-19T16:00:00.000+0000",
+            "num": 36,
+            "average": 4.75,
+            "oneStarNum": 1,
+            "fiveStarNum": 31,
+            "threeStarNum": 1,
+            "fourStarNum": 3,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-09-20T16:00:00.000+0000",
+            "num": 32,
+            "average": 4.875,
+            "oneStarNum": 1,
+            "fiveStarNum": 31,
+            "threeStarNum": null,
+            "fourStarNum": null,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-09-21T16:00:00.000+0000",
+            "num": 52,
+            "average": 4.8076925,
+            "oneStarNum": null,
+            "fiveStarNum": 44,
+            "threeStarNum": 2,
+            "fourStarNum": 6,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-09-22T16:00:00.000+0000",
+            "num": 39,
+            "average": 4.6666665,
+            "oneStarNum": null,
+            "fiveStarNum": 26,
+            "threeStarNum": null,
+            "fourStarNum": 13,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-09-23T16:00:00.000+0000",
+            "num": 48,
+            "average": 4.8541665,
+            "oneStarNum": null,
+            "fiveStarNum": 43,
+            "threeStarNum": null,
+            "fourStarNum": 4,
+            "towStarNum": 1
+        },
+        {
+            "time": "2019-09-24T16:00:00.000+0000",
+            "num": 56,
+            "average": 4.821429,
+            "oneStarNum": null,
+            "fiveStarNum": 50,
+            "threeStarNum": 4,
+            "fourStarNum": 2,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-09-25T16:00:00.000+0000",
+            "num": 38,
+            "average": 4.5,
+            "oneStarNum": 3,
+            "fiveStarNum": 29,
+            "threeStarNum": 1,
+            "fourStarNum": 5,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-09-26T16:00:00.000+0000",
+            "num": 30,
+            "average": 4.766667,
+            "oneStarNum": null,
+            "fiveStarNum": 25,
+            "threeStarNum": 2,
+            "fourStarNum": 3,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-09-27T16:00:00.000+0000",
+            "num": 32,
+            "average": 4.8125,
+            "oneStarNum": 1,
+            "fiveStarNum": 29,
+            "threeStarNum": null,
+            "fourStarNum": 2,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-09-28T16:00:00.000+0000",
+            "num": 41,
+            "average": 4.634146,
+            "oneStarNum": 1,
+            "fiveStarNum": 32,
+            "threeStarNum": 3,
+            "fourStarNum": 5,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-09-29T16:00:00.000+0000",
+            "num": 38,
+            "average": 4.6578946,
+            "oneStarNum": null,
+            "fiveStarNum": 30,
+            "threeStarNum": 1,
+            "fourStarNum": 5,
+            "towStarNum": 2
+        },
+        {
+            "time": "2019-09-30T16:00:00.000+0000",
+            "num": 50,
+            "average": 4.78,
+            "oneStarNum": null,
+            "fiveStarNum": 43,
+            "threeStarNum": 4,
+            "fourStarNum": 3,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-10-01T16:00:00.000+0000",
+            "num": 29,
+            "average": 4.7586207,
+            "oneStarNum": null,
+            "fiveStarNum": 24,
+            "threeStarNum": 2,
+            "fourStarNum": 3,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-10-02T16:00:00.000+0000",
+            "num": 50,
+            "average": 4.64,
+            "oneStarNum": 2,
+            "fiveStarNum": 43,
+            "threeStarNum": 5,
+            "fourStarNum": null,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-10-03T16:00:00.000+0000",
+            "num": 56,
+            "average": 4.839286,
+            "oneStarNum": null,
+            "fiveStarNum": 49,
+            "threeStarNum": 2,
+            "fourStarNum": 5,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-10-04T16:00:00.000+0000",
+            "num": 40,
+            "average": 4.85,
+            "oneStarNum": null,
+            "fiveStarNum": 35,
+            "threeStarNum": 1,
+            "fourStarNum": 4,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-10-05T16:00:00.000+0000",
+            "num": 47,
+            "average": 4.617021,
+            "oneStarNum": 1,
+            "fiveStarNum": 34,
+            "threeStarNum": 2,
+            "fourStarNum": 10,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-10-06T16:00:00.000+0000",
+            "num": 31,
+            "average": 4.870968,
+            "oneStarNum": null,
+            "fiveStarNum": 27,
+            "threeStarNum": null,
+            "fourStarNum": 4,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-10-07T16:00:00.000+0000",
+            "num": 31,
+            "average": 4.774194,
+            "oneStarNum": 1,
+            "fiveStarNum": 28,
+            "threeStarNum": 1,
+            "fourStarNum": 1,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-10-08T16:00:00.000+0000",
+            "num": 41,
+            "average": 4.780488,
+            "oneStarNum": 1,
+            "fiveStarNum": 37,
+            "threeStarNum": 2,
+            "fourStarNum": 1,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-10-09T16:00:00.000+0000",
+            "num": 25,
+            "average": 4.48,
+            "oneStarNum": null,
+            "fiveStarNum": 18,
+            "threeStarNum": 2,
+            "fourStarNum": 3,
+            "towStarNum": 2
+        },
+        {
+            "time": "2019-10-10T16:00:00.000+0000",
+            "num": 30,
+            "average": 4.5666666,
+            "oneStarNum": null,
+            "fiveStarNum": 23,
+            "threeStarNum": 4,
+            "fourStarNum": 2,
+            "towStarNum": 1
+        },
+        {
+            "time": "2019-10-11T16:00:00.000+0000",
+            "num": 25,
+            "average": 4.84,
+            "oneStarNum": null,
+            "fiveStarNum": 22,
+            "threeStarNum": 1,
+            "fourStarNum": 2,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-10-12T16:00:00.000+0000",
+            "num": 30,
+            "average": 4.9,
+            "oneStarNum": null,
+            "fiveStarNum": 28,
+            "threeStarNum": 1,
+            "fourStarNum": 1,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-10-13T16:00:00.000+0000",
+            "num": 35,
+            "average": 4.571429,
+            "oneStarNum": 1,
+            "fiveStarNum": 26,
+            "threeStarNum": 3,
+            "fourStarNum": 5,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-10-14T16:00:00.000+0000",
+            "num": 49,
+            "average": 4.755102,
+            "oneStarNum": null,
+            "fiveStarNum": 40,
+            "threeStarNum": 3,
+            "fourStarNum": 6,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-10-15T16:00:00.000+0000",
+            "num": 39,
+            "average": 4.6923075,
+            "oneStarNum": 1,
+            "fiveStarNum": 32,
+            "threeStarNum": 2,
+            "fourStarNum": 4,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-10-16T16:00:00.000+0000",
+            "num": 24,
+            "average": 4.875,
+            "oneStarNum": null,
+            "fiveStarNum": 23,
+            "threeStarNum": null,
+            "fourStarNum": null,
+            "towStarNum": 1
+        },
+        {
+            "time": "2019-10-17T16:00:00.000+0000",
+            "num": 28,
+            "average": 4.857143,
+            "oneStarNum": null,
+            "fiveStarNum": 25,
+            "threeStarNum": 1,
+            "fourStarNum": 2,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-10-18T16:00:00.000+0000",
+            "num": 26,
+            "average": 4.769231,
+            "oneStarNum": 1,
+            "fiveStarNum": 23,
+            "threeStarNum": null,
+            "fourStarNum": 2,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-10-19T16:00:00.000+0000",
+            "num": 24,
+            "average": 4.9166665,
+            "oneStarNum": null,
+            "fiveStarNum": 22,
+            "threeStarNum": null,
+            "fourStarNum": 2,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-10-20T16:00:00.000+0000",
+            "num": 29,
+            "average": 4.724138,
+            "oneStarNum": 1,
+            "fiveStarNum": 24,
+            "threeStarNum": null,
+            "fourStarNum": 4,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-10-21T16:00:00.000+0000",
+            "num": 43,
+            "average": 4.627907,
+            "oneStarNum": 1,
+            "fiveStarNum": 33,
+            "threeStarNum": 1,
+            "fourStarNum": 7,
+            "towStarNum": 1
+        },
+        {
+            "time": "2019-10-22T16:00:00.000+0000",
+            "num": 191,
+            "average": 4.7434554,
+            "oneStarNum": 2,
+            "fiveStarNum": 158,
+            "threeStarNum": 10,
+            "fourStarNum": 21,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-10-23T16:00:00.000+0000",
+            "num": 224,
+            "average": 4.71875,
+            "oneStarNum": 2,
+            "fiveStarNum": 179,
+            "threeStarNum": 8,
+            "fourStarNum": 33,
+            "towStarNum": 2
+        },
+        {
+            "time": "2019-10-24T16:00:00.000+0000",
+            "num": 144,
+            "average": 4.7708335,
+            "oneStarNum": null,
+            "fiveStarNum": 122,
+            "threeStarNum": 9,
+            "fourStarNum": 12,
+            "towStarNum": 1
+        },
+        {
+            "time": "2019-10-25T16:00:00.000+0000",
+            "num": 73,
+            "average": 4.7534246,
+            "oneStarNum": null,
+            "fiveStarNum": 57,
+            "threeStarNum": 2,
+            "fourStarNum": 14,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-10-26T16:00:00.000+0000",
+            "num": 73,
+            "average": 4.6712327,
+            "oneStarNum": 1,
+            "fiveStarNum": 58,
+            "threeStarNum": 6,
+            "fourStarNum": 8,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-10-27T16:00:00.000+0000",
+            "num": 63,
+            "average": 4.730159,
+            "oneStarNum": null,
+            "fiveStarNum": 48,
+            "threeStarNum": 2,
+            "fourStarNum": 13,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-10-28T16:00:00.000+0000",
+            "num": 58,
+            "average": 4.6551723,
+            "oneStarNum": null,
+            "fiveStarNum": 43,
+            "threeStarNum": 5,
+            "fourStarNum": 10,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-10-29T16:00:00.000+0000",
+            "num": 38,
+            "average": 4.6578946,
+            "oneStarNum": 1,
+            "fiveStarNum": 31,
+            "threeStarNum": 3,
+            "fourStarNum": 3,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-10-30T16:00:00.000+0000",
+            "num": 45,
+            "average": 4.6444445,
+            "oneStarNum": null,
+            "fiveStarNum": 34,
+            "threeStarNum": 3,
+            "fourStarNum": 7,
+            "towStarNum": 1
+        },
+        {
+            "time": "2019-10-31T16:00:00.000+0000",
+            "num": 39,
+            "average": 4.794872,
+            "oneStarNum": null,
+            "fiveStarNum": 33,
+            "threeStarNum": 2,
+            "fourStarNum": 4,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-11-01T16:00:00.000+0000",
+            "num": 42,
+            "average": 4.857143,
+            "oneStarNum": null,
+            "fiveStarNum": 37,
+            "threeStarNum": 1,
+            "fourStarNum": 4,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-11-02T16:00:00.000+0000",
+            "num": 46,
+            "average": 4.5869565,
+            "oneStarNum": null,
+            "fiveStarNum": 34,
+            "threeStarNum": 5,
+            "fourStarNum": 6,
+            "towStarNum": 1
+        },
+        {
+            "time": "2019-11-03T16:00:00.000+0000",
+            "num": 28,
+            "average": 4.678571,
+            "oneStarNum": null,
+            "fiveStarNum": 22,
+            "threeStarNum": 3,
+            "fourStarNum": 3,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-11-04T16:00:00.000+0000",
+            "num": 39,
+            "average": 4.8717947,
+            "oneStarNum": null,
+            "fiveStarNum": 35,
+            "threeStarNum": 1,
+            "fourStarNum": 3,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-11-05T16:00:00.000+0000",
+            "num": 29,
+            "average": 4.7586207,
+            "oneStarNum": null,
+            "fiveStarNum": 23,
+            "threeStarNum": 1,
+            "fourStarNum": 5,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-11-06T16:00:00.000+0000",
+            "num": 31,
+            "average": 4.83871,
+            "oneStarNum": null,
+            "fiveStarNum": 28,
+            "threeStarNum": null,
+            "fourStarNum": 2,
+            "towStarNum": 1
+        },
+        {
+            "time": "2019-11-07T16:00:00.000+0000",
+            "num": 46,
+            "average": 4.6086955,
+            "oneStarNum": 1,
+            "fiveStarNum": 35,
+            "threeStarNum": 4,
+            "fourStarNum": 6,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-11-08T16:00:00.000+0000",
+            "num": 31,
+            "average": 4.580645,
+            "oneStarNum": 1,
+            "fiveStarNum": 23,
+            "threeStarNum": 2,
+            "fourStarNum": 5,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-11-09T16:00:00.000+0000",
+            "num": 41,
+            "average": 4.878049,
+            "oneStarNum": null,
+            "fiveStarNum": 36,
+            "threeStarNum": null,
+            "fourStarNum": 5,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-11-10T16:00:00.000+0000",
+            "num": 16,
+            "average": 4.6875,
+            "oneStarNum": null,
+            "fiveStarNum": 11,
+            "threeStarNum": null,
+            "fourStarNum": 5,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-11-11T16:00:00.000+0000",
+            "num": 65,
+            "average": 4.723077,
+            "oneStarNum": 2,
+            "fiveStarNum": 54,
+            "threeStarNum": 1,
+            "fourStarNum": 8,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-11-12T16:00:00.000+0000",
+            "num": 39,
+            "average": 4.717949,
+            "oneStarNum": null,
+            "fiveStarNum": 31,
+            "threeStarNum": 1,
+            "fourStarNum": 6,
+            "towStarNum": 1
+        },
+        {
+            "time": "2019-11-13T16:00:00.000+0000",
+            "num": 54,
+            "average": 4.796296,
+            "oneStarNum": null,
+            "fiveStarNum": 45,
+            "threeStarNum": 2,
+            "fourStarNum": 7,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-11-14T16:00:00.000+0000",
+            "num": 79,
+            "average": 4.886076,
+            "oneStarNum": null,
+            "fiveStarNum": 70,
+            "threeStarNum": null,
+            "fourStarNum": 9,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-11-15T16:00:00.000+0000",
+            "num": 43,
+            "average": 4.7674417,
+            "oneStarNum": null,
+            "fiveStarNum": 34,
+            "threeStarNum": 1,
+            "fourStarNum": 8,
+            "towStarNum": null
+        },
+        {
+            "time": "2019-11-16T16:00:00.000+0000",
+            "num": 35,
+            "average": 4.6857142,
+            "oneStarNum": 1,
+            "fiveStarNum": 28,
+            "threeStarNum": 1,
+            "fourStarNum": 5,
+            "towStarNum": null
+        }
+    ]
+}
