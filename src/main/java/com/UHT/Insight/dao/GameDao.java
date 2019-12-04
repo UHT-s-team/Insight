@@ -20,4 +20,6 @@ public interface GameDao {
     Integer updateGame(Game game);
     //批量插入
     Integer saveGameList(List<Game> list);
+    //根据关键字检索
+    List<Game> searchByKeyword(String keyword);
 }

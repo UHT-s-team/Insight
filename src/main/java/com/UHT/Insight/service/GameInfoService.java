@@ -1,27 +1,32 @@
 package com.UHT.Insight.service;
 
+import com.UHT.Insight.daoImpl.GameDaoImpl;
 import com.UHT.Insight.daoImpl.GameDayInfoCacheDaoImpl;
 import com.UHT.Insight.daoImpl.GameToUserDaoImpl;
 import com.UHT.Insight.dto.GameDayInfo;
 import com.UHT.Insight.exception.CustomErrorCode;
 import com.UHT.Insight.exception.CustomException;
+import com.UHT.Insight.pojo.Game;
 import com.UHT.Insight.pojo.GameDayInfoCache;
 import com.UHT.Insight.pojo.GameEverydayData;
 import com.UHT.Insight.pojo.GameStarLevel;
 import com.UHT.Insight.utils.CacheUtils;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static com.UHT.Insight.utils.CacheUtils.obj2byte;
 
 @Service
 public class GameInfoService {
     private GameToUserDaoImpl gameToUserDao=new GameToUserDaoImpl();
-
+    private GameDaoImpl gameDao = new GameDaoImpl();
     private GameDayInfoCacheDaoImpl gameDayInfoCacheDao=new GameDayInfoCacheDaoImpl();
 
     public List<GameDayInfo> getGameDayInfoList(Integer gameId){
@@ -91,5 +96,19 @@ public class GameInfoService {
         gameDayInfoCache.setInfoCache(obj2byte(gameDayInfoList));
         gameDayInfoCache.setCreateTime(new Date(System.currentTimeMillis()));
         gameDayInfoCacheDao.saveGameDataCache(gameDayInfoCache);
+    }
+
+    public List<Game> searchGameByKeyword(String keyword){
+        List<Game> games = null;
+        if (StringUtils.isNotBlank(keyword)) {
+            String[] searchs = keyword.split(" ");
+            String collect = Arrays.stream(searchs).collect(Collectors.joining("|"));
+            try {
+                games = gameDao.searchByKeyword(collect);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return games;
     }
 }

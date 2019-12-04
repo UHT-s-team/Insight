@@ -125,9 +125,11 @@
 		var four = new Array;
 		var five = new Array;
 		var time = new Array;
+		var id="168332";
 		
 		$(document).ready(function(){
-				$.getJSON("/game/168332/main",function(data){
+
+				$.getJSON("/game/"+id+"/main",function(data){
 						//alert("Data: " + data.Data[0].time + "\nStatus: " + status);
 						//alert(data.Data.length);
 						

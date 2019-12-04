@@ -39,7 +39,7 @@ public class JsonTest {
     public void readBigGameFile(){//读取game.json大文件
         Long start=System.currentTimeMillis();
         GameJson json=new GameJson();
-        json.gameJsonReaderByPath("C:\\Users\\Develop\\Desktop\\新建文件夹\\user\\game.json");
+        json.gameJsonReaderByPath("D:\\学习\\代码\\JavaWeb\\Insight\\src\\main\\resources\\JsonFile\\game.json");
         Long end=System.currentTimeMillis();
         System.out.println("总耗时:"+(end-start)+"微秒");
     }

@@ -10,30 +10,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameJson {
-    private GameDaoImpl gameDao=new GameDaoImpl();
-    public void gameJsonReaderByPath(String path){
+    private GameDaoImpl gameDao = new GameDaoImpl();
+
+    public void gameJsonReaderByPath(String path) {
         JSONReader reader = null;
         try {
-           reader=new JSONReader(new FileReader(path));
+            reader = new JSONReader(new FileReader(path));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        List<Game> list=new ArrayList<>();
+        List<Game> list = new ArrayList<>();
         reader.startArray();//第一层[]
-        while (reader.hasNext()){
+        while (reader.hasNext()) {
             reader.startObject();//[]里面的各个{}
-            Game game=new Game();
-            while (reader.hasNext()){
+            Game game = new Game();
+            while (reader.hasNext()) {
                 //对里面元素的处理，集合元素
                 //1.数组的处理
-                String key=reader.readString();
-                System.out.println("key: "+key);
+                String key = reader.readString();
+                System.out.println("key: " + key);
                 switch (key) {
                     case "游戏ID":
                         reader.startArray();
-                        String id="0";
+                        String id = "0";
                         while (reader.hasNext()) {
-                           id = reader.readString();//读取数组里的值,只有一个，不用特殊处理
+                            id = reader.readString();//读取数组里的值,只有一个，不用特殊处理
                         }
                         game.setG_ID((Integer) Integer.parseInt((String) id));
 
@@ -41,16 +42,16 @@ public class GameJson {
                         break;
                     case "简介":
                         reader.startArray();
-                        String breif="0";
+                        String breif = "0";
                         while (reader.hasNext()) {
-                            breif= reader.readString().trim();//读取数组里的值
+                            breif = reader.readString().trim();//读取数组里的值
                         }
                         game.setBREIF(breif);
                         reader.endArray();
                         break;
                     case "最近更新内容":
                         reader.startArray();
-                        String recent="0";
+                        String recent = "0";
                         while (reader.hasNext()) {
                             recent = reader.readString().trim();//读取数组里的值
                         }
@@ -59,33 +60,33 @@ public class GameJson {
                         break;
                     case "评论数":
                         reader.startArray();
-                        String r_number="0";
+                        String r_number = "0";
                         while (reader.hasNext()) {
-                            r_number= reader.readString();//读取数组里的值
+                            r_number = reader.readString();//读取数组里的值
                         }
-                        game.setR_NUMBER((Integer) Integer.parseInt((String)r_number));
+                        game.setR_NUMBER((Integer) Integer.parseInt((String) r_number));
 
                         reader.endArray();
                         break;
                     case "社区数":
                         reader.startArray();
-                        String r_com="0";
+                        String r_com = "0";
                         while (reader.hasNext()) {
-                            r_com= reader.readString();//读取数组里的值
+                            r_com = reader.readString();//读取数组里的值
                         }
-                        game.setC_NUMBER((Integer) Integer.parseInt((String)r_com));
+                        game.setC_NUMBER((Integer) Integer.parseInt((String) r_com));
                         reader.endArray();
                         break;
                     case "类型标签":
                         reader.startArray();
-                        String tablib="0";
-                        String nnp=null;
+                        String tablib = "0";
+                        String nnp = null;
                         while (reader.hasNext()) {
-                           nnp= reader.readString().trim();//读取数组里的值
-                            if(!nnp.isEmpty()){
-                                if(tablib.equals("0")){
-                                    tablib=nnp;
-                                }else {
+                            nnp = reader.readString().trim();//读取数组里的值
+                            if (!nnp.isEmpty()) {
+                                if (tablib.equals("0")) {
+                                    tablib = nnp;
+                                } else {
                                     tablib += nnp;
                                 }
                             }
@@ -95,7 +96,7 @@ public class GameJson {
                         break;
                     case "是否推荐":
                         reader.startArray();
-                        String r_pu="否";
+                        String r_pu = "否";
                         while (reader.hasNext()) {
                             r_pu = reader.readString();//读取数组里的值
                         }
@@ -104,30 +105,30 @@ public class GameJson {
                         break;
                     case "游戏名称":
                         reader.startArray();
-                        String gameName="0";
+                        String gameName = "0";
                         while (reader.hasNext()) {
-                           gameName= reader.readString();//读取数组里的值
+                            gameName = reader.readString();//读取数组里的值
                         }
                         game.setG_NAME(gameName);
                         reader.endArray();
                         break;
                     case "图片":
                         reader.startArray();
-                        String url="无";
+                        String url = "无";
                         while (reader.hasNext()) {
-                            url= reader.readString();//读取数组里的值
+                            url = reader.readString();//读取数组里的值
                         }
                         game.setURL(url);
                         reader.endArray();
                         break;
                     case "厂商":
                         reader.startArray();
-                        String create="";
-                        String mmp=null;
+                        String create = "";
+                        String mmp = null;
                         while (reader.hasNext()) {
-                            mmp=reader.readString();
-                            if(!mmp.isEmpty()){
-                                create+=mmp;
+                            mmp = reader.readString();
+                            if (!mmp.isEmpty()) {
+                                create += mmp;
                             }
                         }
                         game.setVENDER(create);
@@ -135,51 +136,47 @@ public class GameJson {
                         break;
                     case "安装数":
                         reader.startArray();
-                        String dowload="0";
-                        String attention="0";
+                        String dowload = "0";
+                        String attention = "0";
                         while (reader.hasNext()) {
-                            dowload=reader.readString();
-                            if(dowload.contains("人关注")){
-                                attention=dowload.substring(0,dowload.length()-3).trim();
-                                game.setATTENTION((Integer) Integer.parseInt((String)attention));
-                            }else if(dowload.isEmpty()){
+                            dowload = reader.readString();
+                            if (dowload.contains("人关注")) {
+                                attention = dowload.substring(0, dowload.length() - 3).trim();
+                                game.setATTENTION((Integer) Integer.parseInt((String) attention));
+                            } else if (dowload.isEmpty()) {
                                 game.setATTENTION(0);
                             }
 
-                            if(dowload.endsWith("人安装")){
-                                dowload=dowload.substring(0,dowload.length()-3).trim();
+                            if (dowload.endsWith("人安装")) {
+                                dowload = dowload.substring(0, dowload.length() - 3).trim();
                                 game.setDOWNLOAD((Integer) Integer.parseInt((String) dowload));
-                            }else  if(dowload.isEmpty()){
+                            } else if (dowload.isEmpty()) {
                                 game.setDOWNLOAD(0);
                             }
-
-
                         }
                         reader.endArray();
                         break;
                     case "总评分":
                         reader.startArray();
-                        String all="0";
+                        String all = "0";
                         while (reader.hasNext()) {
-                            all= reader.readString();//读取数组里的值
+                            all = reader.readString();//读取数组里的值
                         }
-                        game.setA_DRADE((float)Float.parseFloat((String)all));
+                        game.setA_DRADE((float) Float.parseFloat((String) all));
                         reader.endArray();
                         break;
-                     default: System.out.println("数据格式错误");
+                    default:
+                        System.out.println("数据格式错误");
                 }
-
             }
             list.add(game);
-            if(list.size()>=1000){
+            if (list.size() >= 1000) {
                 gameDao.saveGameList(list);
                 list.clear();//清空
             }
-
             reader.endObject();//结束{}
         }
         gameDao.saveGameList(list);
         reader.endArray();//结束[]
     }
-
 }

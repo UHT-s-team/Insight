@@ -91,4 +91,16 @@ public class GameDaoImpl  {
         return i;
     }
 
+    public List<Game> searchByKeyword(String keyword){
+        List<Game> games=null;
+        try {
+            games = gameDao.searchByKeyword(keyword);
+            MybatilsUtils.destroy();
+        }catch (Exception e){
+            e.printStackTrace();
+            sqlSession.rollback();
+            return null;
+        }
+        return games;
+    }
 }

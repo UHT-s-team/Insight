@@ -31,4 +31,7 @@
         #{game.VENDER},#{game.A_DRADE},#{game.T_TAGLTB},#{game.RECOMMENT},#{game.DOWNLOAD},#{game.ATTENTION},#{game.URL})
         </foreach>
     </insert>
+    <select id="searchByKeyword" parameterType="String" resultType="com.UHT.Insight.pojo.Game">
+        select * from game where G_NAME REGEXP #{collect};
+    </select>
 </mapper>
