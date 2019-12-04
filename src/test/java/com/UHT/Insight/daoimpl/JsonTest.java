@@ -1,15 +1,8 @@
 package com.UHT.Insight.daoimpl;
 
-import com.UHT.Insight.dto.GameJson;
-import com.UHT.Insight.dto.PeopleDTO;
-import com.UHT.Insight.utils.FileUtils;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.UHT.Insight.utils.GameJson;
+import com.UHT.Insight.utils.TapUserAndRecentPlayJson;
 import org.junit.Test;
-
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 
 public class JsonTest {
     @Test
@@ -40,6 +33,14 @@ public class JsonTest {
         Long start=System.currentTimeMillis();
         GameJson json=new GameJson();
         json.gameJsonReaderByPath("D:\\学习\\代码\\JavaWeb\\Insight\\src\\main\\resources\\JsonFile\\game.json");
+        Long end=System.currentTimeMillis();
+        System.out.println("总耗时:"+(end-start)+"微秒");
+    }
+    @Test
+    public void readBigUserFile(){//读取game.json大文件
+        Long start=System.currentTimeMillis();
+        TapUserAndRecentPlayJson json=new TapUserAndRecentPlayJson();
+        json.readTUARPJson("C:\\Users\\Develop\\Desktop\\新建文件夹\\user\\user.json");
         Long end=System.currentTimeMillis();
         System.out.println("总耗时:"+(end-start)+"微秒");
     }

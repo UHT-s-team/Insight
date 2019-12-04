@@ -18,4 +18,6 @@ public interface RecentPlayDao {
     Integer updateRecentPlay(RecentPlay recentPlay);
     //根据ID删除
     Integer deleteRecentPlayById(Integer G_ID);
+    //批量插入
+    Integer saveRecentPlayList(List<RecentPlay> list);
 }

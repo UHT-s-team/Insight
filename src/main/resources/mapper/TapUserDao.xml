@@ -21,4 +21,11 @@
     <delete id="deleteTapUser" parameterType="integer">
         delete from tapuser where  U_ID=#{U_ID}
     </delete>
+    <insert id="SaveTapUserList" parameterType="List">
+         INSERT into tapuser(U_ID,U_NAME,FANS,ATTENTION,COLLECT,PLAY,L_PLAY,APPRAISE,G_WEIGHT)
+         values
+         <foreach collection="list" item="TapUser" separator=",">
+         (#{TapUser.U_ID},#{TapUser.U_NAME},#{TapUser.FANS},#{TapUser.ATTENTION},#{TapUser.COLLECT},#{TapUser.PLAY},#{TapUser.L_PLAY},#{TapUser.APPRAISE},#{TapUser.G_WEIGHT})
+         </foreach>
+    </insert>
 </mapper>

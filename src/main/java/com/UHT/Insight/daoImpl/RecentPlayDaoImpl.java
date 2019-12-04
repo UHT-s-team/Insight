@@ -75,4 +75,17 @@ public class RecentPlayDaoImpl {
         }
         return i;
     }
+    //批量插入
+    public Integer saveRecentPlayList(List<RecentPlay> list) {
+        int i=-1;
+        try {
+            i=recentPlayDao.saveRecentPlayList(list);
+            MybatilsUtils.destroy();
+        }catch (Exception e){
+            e.printStackTrace();
+            sqlSession.rollback();
+            return i;
+        }
+        return i;
+    }
 }

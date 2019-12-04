@@ -75,4 +75,17 @@ public class TapUserDaoImpl {
         }
         return i;
     }
+    //批量插入
+    public Integer SaveTapUserList(List<TapUser> list) {
+        int i=-1;
+        try {
+            i=tapUserDao.SaveTapUserList(list);
+            MybatilsUtils.destroy();
+        }catch (Exception e){
+            e.printStackTrace();
+            sqlSession.rollback();
+            return i;
+        }
+        return i;
+    }
 }
