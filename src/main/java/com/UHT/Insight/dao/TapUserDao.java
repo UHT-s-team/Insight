@@ -18,4 +18,6 @@ public interface TapUserDao {
     Integer updateTapUser(TapUser tapUser);
     //插入
     Integer SaveTapUser(TapUser tapUser);
+    //批量插入
+    Integer  SaveTapUserList(List<TapUser> list);
 }

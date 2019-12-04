@@ -8,6 +8,7 @@ public class RecentPlay implements Serializable {
     private String G_NAME;//游戏名称
     private String G_TIME;//游戏时长
     private String T_TAGLIB;//游戏标签
+    private Float G_NUMBER;//游戏评分
 
     public Integer getG_ID() {
         return G_ID;
@@ -49,14 +50,23 @@ public class RecentPlay implements Serializable {
         T_TAGLIB = t_TAGLIB;
     }
 
+    public Float getG_NUMBER() {
+        return G_NUMBER;
+    }
+
+    public void setG_NUMBER(Float g_NUMBER) {
+        G_NUMBER = g_NUMBER;
+    }
+
     public RecentPlay() { }
 
-    public RecentPlay(Integer g_ID, Integer u_ID, String g_NAME, String g_TIME, String t_TAGLIB) {
+    public RecentPlay(Integer g_ID, Integer u_ID, String g_NAME, String g_TIME, String t_TAGLIB, Float g_NUMBER) {
         G_ID = g_ID;
         U_ID = u_ID;
         G_NAME = g_NAME;
         G_TIME = g_TIME;
         T_TAGLIB = t_TAGLIB;
+        G_NUMBER = g_NUMBER;
     }
 
     @Override
@@ -67,6 +77,7 @@ public class RecentPlay implements Serializable {
                 ", G_NAME='" + G_NAME + '\'' +
                 ", G_TIME='" + G_TIME + '\'' +
                 ", T_TAGLIB='" + T_TAGLIB + '\'' +
+                ", G_NUMBER=" + G_NUMBER +
                 '}';
     }
 }

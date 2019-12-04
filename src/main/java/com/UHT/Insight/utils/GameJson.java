@@ -1,4 +1,4 @@
-package com.UHT.Insight.dto;
+package com.UHT.Insight.utils;
 
 import com.UHT.Insight.daoImpl.GameDaoImpl;
 import com.UHT.Insight.pojo.Game;
@@ -21,7 +21,7 @@ public class GameJson {
         List<Game> list=new ArrayList<>();
         reader.startArray();//第一层[]
         while (reader.hasNext()){
-            reader.startObject();//[]里面的各个{}
+            reader.startObject();//[ ]里面的各个{}
             Game game=new Game();
             while (reader.hasNext()){
                 //对里面元素的处理，集合元素
