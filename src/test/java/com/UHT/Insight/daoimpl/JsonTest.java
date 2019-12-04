@@ -1,6 +1,6 @@
 package com.UHT.Insight.daoimpl;
 
-import com.UHT.Insight.utils.GameJson;
+import com.UHT.Insight.dto.GameJson;
 import com.UHT.Insight.utils.TapUserAndRecentPlayJson;
 import org.junit.Test;
 
