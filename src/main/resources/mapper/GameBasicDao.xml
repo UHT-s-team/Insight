@@ -5,7 +5,7 @@
 <mapper namespace="com.UHT.Insight.dao.GameBasicDao">
     <!--查询所有-->
     <select id="findAll" resultType="com.UHT.Insight.pojo.GameBasic">
-        select  * from GameBasic
+        select  * from gamebasic
     </select>
     <!--更新-->
     <update id="updateGameBasic" parameterType="com.UHT.Insight.pojo.GameBasic">
