@@ -32,7 +32,6 @@ public class TapUserAndRecentPlayJson {
                 while (reader.hasNext()){//读取各key值
                     String key=reader.readString();
                     System.out.println("key: "+key);
-                    Integer U_ID=0;
                     switch (key){
                         case "用户名":
                             reader.startArray();//用户名数组的读取
@@ -52,7 +51,6 @@ public class TapUserAndRecentPlayJson {
                                      id=id.substring(3,id.length());
                                  }
                              }
-                             U_ID=(Integer)Integer.parseInt(id);
                             tapUser.setU_ID((Integer)Integer.parseInt(id));
                              reader.endArray();
                             break;
@@ -87,7 +85,7 @@ public class TapUserAndRecentPlayJson {
                             reader.startArray();
                             String col="0";
                             while (reader.hasNext()){
-                                fans=reader.readString();
+                                col=reader.readString();
                             }
                             tapUser.setCOLLECT((Integer)Integer.parseInt(col));
                             reader.endArray();
@@ -118,7 +116,7 @@ public class TapUserAndRecentPlayJson {
                             break;
                         case "玩过的游戏":
                             reader.startArray();//去掉[
-                            recentPlay.setU_ID(U_ID);
+                            recentPlay.setU_ID(tapUser.getU_ID());
                             while (reader.hasNext()){//读取数组
                                 reader.startObject();
                                 while (reader.hasNext()){
@@ -178,9 +176,11 @@ public class TapUserAndRecentPlayJson {
                                             reader.endArray();
                                             break;
                                         case "游戏时长":
-
-                                            String time=reader.readString();
-
+                                            String time="无";
+                                            time = reader.readString();
+                                            if(!time.equals("0")) {
+                                                time.substring(2, time.length() - 2);
+                                            }
                                             recentPlay.setG_TIME(time);
                                             break;
                                         default:break;
