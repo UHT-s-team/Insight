@@ -37,7 +37,7 @@ public class JsonTest {
         System.out.println("总耗时:"+(end-start)+"微秒");
     }
     @Test
-    public void readBigUserFile(){//读取game.json大文件
+    public void readBigUserFile(){//读user.json大文件
         Long start=System.currentTimeMillis();
         TapUserAndRecentPlayJson json=new TapUserAndRecentPlayJson();
         json.readTUARPJson("C:\\Users\\Develop\\Desktop\\新建文件夹\\user\\user.json");
