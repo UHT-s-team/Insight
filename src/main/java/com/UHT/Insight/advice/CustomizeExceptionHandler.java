@@ -16,7 +16,7 @@ import java.io.PrintWriter;
 
 @ControllerAdvice
 public class CustomizeExceptionHandler {
-    @ExceptionHandler(CustomException.class)
+    @ExceptionHandler(Exception.class)
     ModelAndView handle(HttpServletRequest request, Throwable e , Model model,
                         HttpServletResponse response) {
         String contentType = request.getContentType();
