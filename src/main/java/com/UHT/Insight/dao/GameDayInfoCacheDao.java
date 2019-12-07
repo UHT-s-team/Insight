@@ -1,9 +1,9 @@
 package com.UHT.Insight.dao;
 
-import com.UHT.Insight.dto.T_GameDayInfoCacheDTO;
-import com.UHT.Insight.pojo.GameDayInfoCache;
+        import com.UHT.Insight.dto.T_GameDayInfoCacheDTO;
+        import com.UHT.Insight.pojo.GameDayInfoCache;
 
-import java.util.List;
+        import java.util.List;
 
 public interface GameDayInfoCacheDao {
     //读取数据

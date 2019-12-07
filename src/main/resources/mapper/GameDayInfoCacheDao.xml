@@ -8,7 +8,7 @@
             where G_ID=#{G_ID}
         </select>
     <select id="findAllGameDataCache" resultType="com.UHT.Insight.dto.T_GameDayInfoCacheDTO">
-        select * from gamedayinfocache
+        select G_ID,createTime from gamedayinfocache
     </select>
     <insert id="saveGameDataCache" parameterType="com.UHT.Insight.pojo.GameDayInfoCache">
             insert into gamedayinfocache(G_ID,InfoCache,createTime)
