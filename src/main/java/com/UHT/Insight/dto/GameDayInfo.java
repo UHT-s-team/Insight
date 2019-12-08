@@ -7,6 +7,8 @@ public class GameDayInfo implements Serializable {
     private Date time;         //发布时间
     private Integer num;      //发布条数
     private Float average;    //平均评分
+    private Float historyScore; //历史评分
+
 
     private Integer OneStarNum;
     private Integer TowStarNum;
@@ -15,6 +17,13 @@ public class GameDayInfo implements Serializable {
     private Integer FiveStarNum;
     //一到五星评分数量
 
+    public Float getHistoryScore() {
+        return historyScore;
+    }
+
+    public void setHistoryScore(Float historyScore) {
+        this.historyScore = historyScore;
+    }
 
     public Date getTime() {
         return time;

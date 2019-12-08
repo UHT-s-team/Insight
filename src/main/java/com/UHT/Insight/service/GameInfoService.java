@@ -49,6 +49,8 @@ public class GameInfoService {
         }
         //将everydayBaseData整体数据迁移到gameDayInfos内
 
+        float this_avgScore=0;//当前的平均评分
+        int this_comments=0;//当前的评价数量
         for(GameDayInfo gameDayInfo :gameDayInfos){//遍历gameDayInfos
             for(GameStarLevel gameStarLevel:everydayAllStar){
                 int compareTo=1;
@@ -77,6 +79,10 @@ public class GameInfoService {
                     }
                 }
             }
+            this_avgScore=(this_avgScore*this_comments+gameDayInfo.getAverage()*gameDayInfo.getNum())/(this_comments+gameDayInfo.getNum());
+            //当天的历史评分，依据当天的平均评分及前一天的历史评分
+            this_comments+=gameDayInfo.getNum();
+            gameDayInfo.setHistoryScore(this_avgScore);
         }
         return gameDayInfos;
     }
