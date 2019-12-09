@@ -51,6 +51,19 @@ public class GameToUserDaoImpl{
         }
         return gameTouser;
     }
+    //根据ID查询
+    public List<GameTouser> findGameTouserByGId(Integer G_ID){
+        List<GameTouser> list=new ArrayList<>();
+        try{
+            list=gameTouserDao.findGameTouserByGId(G_ID);
+            MybatilsUtils.destroy();
+        }catch (Exception e){
+            e.printStackTrace();
+            sqlSession.rollback();
+            return list;
+        }
+        return list;
+    }
     //删除
     public Integer deleteGameTouser(Integer D_ID){
         int i=-1;

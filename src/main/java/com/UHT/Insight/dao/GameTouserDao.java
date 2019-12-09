@@ -16,8 +16,10 @@ public interface GameTouserDao {
     List<GameTouser> findAll();
     //插入数据
     Integer saveGameTouser(GameTouser gameTouser);
-    //根据id查询
+    //根据评论id查询
     GameTouser findGameTouserById(Integer D_ID);
+    //根据游戏Id查询
+    List<GameTouser> findGameTouserByGId(Integer G_ID);
     //根据id删除
     Integer deleteGameTouser(Integer D_ID);
     //更新
