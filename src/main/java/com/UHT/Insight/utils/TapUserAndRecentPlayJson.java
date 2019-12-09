@@ -48,7 +48,7 @@ public class TapUserAndRecentPlayJson {
                              while (reader.hasNext()){
                                  id=reader.readString();
                                  if(id.startsWith("ID:")){
-                                     id=id.substring(3,id.length());
+                                     id=id.replace("ID:","");
                                  }
                              }
                             tapUser.setU_ID((Integer)Integer.parseInt(id));
@@ -69,6 +69,9 @@ public class TapUserAndRecentPlayJson {
                             while (reader.hasNext()){
                                 fans=reader.readString();
                             }
+                            fans.replace("[","");
+                            fans.replace("]","");
+                            fans.replace("\"","");
                             tapUser.setFANS((Integer)Integer.parseInt(fans));
                             reader.endArray();
                             break;
@@ -78,35 +81,48 @@ public class TapUserAndRecentPlayJson {
                             while (reader.hasNext()){
                                attention=reader.readString();
                             }
+                            attention.replace("[","");
+                            attention.replace("]","");
+                            attention.replace("\"","");
                             tapUser.setATTENTION((Integer)Integer.parseInt(attention));
                             reader.endArray();
                             break;
                         case "收藏数":
-                            reader.startArray();
                             String col="0";
-                            while (reader.hasNext()){
-                                col=reader.readString();
+                            col=reader.readString();
+                            col=col.replace("[\"","");
+                            col=col.replace("\"]","");
+                            if(col.isEmpty()){
+                                tapUser.setCOLLECT(0);
+                            }else {
+                                tapUser.setCOLLECT((Integer) Integer.parseInt(col));
                             }
-                            tapUser.setCOLLECT((Integer)Integer.parseInt(col));
-                            reader.endArray();
                             break;
                         case "玩过游戏数":
-                            reader.startArray();
                             String play="0";
-                            while (reader.hasNext()){
-                                play=reader.readString();
+                            play=reader.readString();
+                            play.replace("[","");
+                            play.replace("]","");
+                            play.replace("\"","");
+                            if(play.isEmpty()){
+                                tapUser.setPLAY(0);
+                            }else if(play.matches("^[0-9]*$")) {
+                                tapUser.setPLAY((Integer) Integer.parseInt(play));
+                            }else {
+                                tapUser.setPLAY(0);
                             }
-                            tapUser.setPLAY((Integer)Integer.parseInt(play));
-                            reader.endArray();
                             break;
                         case "评价数":
-                            reader.startArray();
                             String appr="0";
-                            while (reader.hasNext()){
-                                appr=reader.readString();
+                            appr=reader.readString();
+                            appr=appr.replace("[","");
+                            appr=appr.replace("]","");
+                            appr=appr.replace("\"","");
+                            if(appr.isEmpty()){
+                                tapUser.setFANS(0);
+                            }else {
+                                tapUser.setFANS((Integer) Integer.parseInt(appr));
                             }
-                            tapUser.setFANS((Integer)Integer.parseInt(appr));
-                            reader.endArray();
                             break;
                         case "帖子数":
                                 reader.readString();
@@ -147,17 +163,15 @@ public class TapUserAndRecentPlayJson {
                                             while (reader.hasNext()){
                                                 number=reader.readString();
                                             }
-                                            if(number.equals("页面已失效")){
-                                                recentPlay.setG_NUMBER(0f);
-                                                reader.endArray();
-                                                break;
-                                            }
-                                            if(number.equals("Not enough ratings")){
-                                                recentPlay.setG_NUMBER(0f);
-                                                reader.endArray();
-                                                break;
-                                            }
-                                            recentPlay.setG_NUMBER((Float)Float.parseFloat(number));
+                                            number=number.replace("页面已失效","");
+                                            number=number.replace("Not enough ratings","");
+                                           if(number.isEmpty()){
+                                               recentPlay.setG_NUMBER(0f);
+                                           }else if(number.matches("^[0-9]*$")) {
+                                               recentPlay.setG_NUMBER((Float) Float.parseFloat(number));
+                                           }else {
+                                               recentPlay.setG_NUMBER(0f);
+                                           }
                                             reader.endArray();
                                             break;
                                         case "游戏类型":
@@ -178,10 +192,14 @@ public class TapUserAndRecentPlayJson {
                                         case "游戏时长":
                                             String time="无";
                                             time = reader.readString();
-                                            if(!time.equals("0")) {
-                                                time.substring(2, time.length() - 2);
+                                            time=time.replace("[\"","");
+                                            time=time.replace("\"]","");
+                                            if(time.isEmpty()){
+                                                recentPlay.setG_TIME("无");
+                                            }else {
+                                                recentPlay.setG_TIME(time);
                                             }
-                                            recentPlay.setG_TIME(time);
+
                                             break;
                                         default:break;
                                     }

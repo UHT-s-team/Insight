@@ -1,4 +1,4 @@
-package com.UHT.Insight.dto;
+package com.UHT.Insight.utils;
 
 import com.UHT.Insight.daoImpl.GameDaoImpl;
 import com.UHT.Insight.pojo.Game;
@@ -86,7 +86,7 @@ public class GameJson {
                                 if(tablib.equals("0")){
                                     tablib=nnp;
                                 }else {
-                                    tablib += nnp;
+                                    tablib += nnp+" ";
                                 }
                             }
                         }
@@ -130,6 +130,7 @@ public class GameJson {
                                 create+=mmp;
                             }
                         }
+                        create=create.replace("厂商:","");
                         game.setVENDER(create);
                         reader.endArray();
                         break;
@@ -140,15 +141,25 @@ public class GameJson {
                         while (reader.hasNext()) {
                             dowload=reader.readString();
                             if(dowload.contains("人关注")){
-                                attention=dowload.substring(0,dowload.length()-3).trim();
-                                game.setATTENTION((Integer) Integer.parseInt((String)attention));
+                                attention=dowload.replace("人关注","");
+                                attention=attention.trim();
+                                if(attention.matches("^[0-9]*$")) {
+                                    game.setATTENTION((Integer) Integer.parseInt((String) attention));
+                                }else {
+                                    game.setATTENTION(0);
+                                }
                             }else if(dowload.isEmpty()){
                                 game.setATTENTION(0);
                             }
 
                             if(dowload.endsWith("人安装")){
-                                dowload=dowload.substring(0,dowload.length()-3).trim();
-                                game.setDOWNLOAD((Integer) Integer.parseInt((String) dowload));
+                                dowload=dowload.replace("人安装","");
+                                dowload.trim();
+                                if(dowload.matches("^[0-9]*$")){
+                                    game.setDOWNLOAD((Integer) Integer.parseInt((String) dowload));
+                                }else {
+                                    game.setDOWNLOAD(0);
+                                }
                             }else  if(dowload.isEmpty()){
                                 game.setDOWNLOAD(0);
                             }
