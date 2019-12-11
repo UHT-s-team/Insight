@@ -2,6 +2,7 @@ package com.UHT.Insight.controller;
 
 import com.UHT.Insight.daoImpl.GameDaoImpl;
 import com.UHT.Insight.dto.GameDayInfo;
+import com.UHT.Insight.dto.GameIdDTO;
 import com.UHT.Insight.dto.ResultDTO;
 import com.UHT.Insight.exception.CustomErrorCode;
 import com.UHT.Insight.exception.CustomException;
@@ -60,4 +61,5 @@ public class GameController {
         //将查询结果写入缓冲数据库中
         return ResultDTO.okOf(gameDayInfo);
     }
+    public GameIdDTO<>
 }

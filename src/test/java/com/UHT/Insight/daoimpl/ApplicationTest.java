@@ -22,14 +22,14 @@ public class ApplicationTest {
     @Test
     public void findById(){
         applicationDao=new ApplicationDaoImpl();
-        Application applications = applicationDao.findAppById(1232357);
+        Application applications = applicationDao.findAppById(1232359);
         System.out.println(applications);
 
     }
     @Test
     public void updateAppByApp(){
         applicationDao=new ApplicationDaoImpl();
-        Application application=new Application(1232357,23123.2f,12121,"1.1.1","老鼠爱大米","老鼠事件");
+        Application application=new Application(1232359,23123.2f,12121,"1.1.1","老鼠爱大米","老鼠事件");
         int applications = applicationDao.updateAppByApp(application);
         System.out.println(applications);
 
@@ -37,7 +37,7 @@ public class ApplicationTest {
     @Test
     public void saveApp(){
         applicationDao=new ApplicationDaoImpl();
-        Application applications =new Application(1232357,23123.2f,12121,"1.1.1","老鼠爱大米","老鼠事件");
+        Application applications =new Application(1232359,23123.2f,12121,"1.1.1","老鼠爱大米","老鼠事件");
         applicationDao.saveApp(applications);
     }
 

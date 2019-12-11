@@ -1,15 +1,14 @@
 package com.UHT.Insight.service;
 
+import com.UHT.Insight.dao.GameTouserDao;
 import com.UHT.Insight.daoImpl.GameDaoImpl;
 import com.UHT.Insight.daoImpl.GameDayInfoCacheDaoImpl;
 import com.UHT.Insight.daoImpl.GameToUserDaoImpl;
 import com.UHT.Insight.dto.GameDayInfo;
+import com.UHT.Insight.dto.GameIdDTO;
 import com.UHT.Insight.exception.CustomErrorCode;
 import com.UHT.Insight.exception.CustomException;
-import com.UHT.Insight.pojo.Game;
-import com.UHT.Insight.pojo.GameDayInfoCache;
-import com.UHT.Insight.pojo.GameEverydayData;
-import com.UHT.Insight.pojo.GameStarLevel;
+import com.UHT.Insight.pojo.*;
 import com.UHT.Insight.utils.CacheUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeanUtils;
@@ -116,5 +115,10 @@ public class GameInfoService {
             }
         }
         return games;
+    }
+    public List<GameIdDTO> getGameIdDTOList(Integer gameId) {
+        List<GameIdDTO> gameIdDTOS = new ArrayList<>();
+        List<GameTouser> gameIdCommentData = gameToUserDao.
+        return gameIdDTOS;
     }
 }
