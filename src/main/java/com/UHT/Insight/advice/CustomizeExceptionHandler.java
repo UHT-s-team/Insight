@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-//@ControllerAdvice
+@ControllerAdvice
 public class CustomizeExceptionHandler {
     @ExceptionHandler(CustomException.class)
     ModelAndView handle(HttpServletRequest request, Throwable e , Model model,
@@ -22,7 +22,7 @@ public class CustomizeExceptionHandler {
         String contentType = request.getContentType();
         if("application/json".equals(contentType)){//判断请求的是否是json格式
             //返回json
-            ResultDTO resultDTO=null;
+            ResultDTO resultDTO;
             if(e instanceof CustomException){
                 resultDTO= (ResultDTO) ResultDTO.errorOf((CustomException)e);
             } else {
@@ -37,6 +37,7 @@ public class CustomizeExceptionHandler {
                 writer.close();
 
             } catch (IOException ex) {
+                e.printStackTrace();
             }
             return null;
         }

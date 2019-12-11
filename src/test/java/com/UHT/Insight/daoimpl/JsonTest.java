@@ -4,6 +4,8 @@ import com.UHT.Insight.utils.GameJson;
 import com.UHT.Insight.utils.GameToUserJson;
 import com.UHT.Insight.utils.TapUserAndRecentPlayJson;
 import org.junit.Test;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.transaction.annotation.Transactional;
 
 public class JsonTest {
     @Test
@@ -22,11 +24,13 @@ public class JsonTest {
         Long end=System.currentTimeMillis();
         System.out.println("总耗时:"+(end-start)+"微秒");
     }
+
     @Test
+    @Transactional
     public void readBigGameToUserFile(){//读取gametosuer.json大文件
         Long start=System.currentTimeMillis();
         GameToUserJson gameToUserJson=new GameToUserJson();
-        gameToUserJson.gameToUserJsonReaderByPath("C:\\Users\\Develop\\Desktop\\130651.json");
+        gameToUserJson.gameToUserJsonReaderByPath("C:\\Users\\ASUS\\Desktop\\130651.json");
         Long end=System.currentTimeMillis();
         System.out.println("总耗时:"+(end-start)+"微秒");
     }

@@ -19,8 +19,8 @@ import java.util.List;
 public class GameController {
 
 
-    @Autowired
-    private GameInfoService gameInfoService;
+
+    private GameInfoService gameInfoService=new GameInfoService();
 
     private GameDaoImpl gameDao=new GameDaoImpl();
 
