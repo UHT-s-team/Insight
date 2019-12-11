@@ -1,11 +1,14 @@
 package com.UHT.Insight.controller;
 
 import com.UHT.Insight.daoImpl.GameDaoImpl;
+import com.UHT.Insight.daoImpl.GameToUserDaoImpl;
 import com.UHT.Insight.dto.GameDayInfo;
 import com.UHT.Insight.dto.ResultDTO;
 import com.UHT.Insight.exception.CustomErrorCode;
 import com.UHT.Insight.exception.CustomException;
 import com.UHT.Insight.pojo.Game;
+import com.UHT.Insight.pojo.GameTouser;
+import com.UHT.Insight.pojo.Uuser;
 import com.UHT.Insight.service.GameInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +26,7 @@ public class GameController {
     private GameInfoService gameInfoService=new GameInfoService();
 
     private GameDaoImpl gameDao=new GameDaoImpl();
+    private GameToUserDaoImpl gameToUserDao=new GameToUserDaoImpl();
 
 
     @GetMapping("/game/{id}")
@@ -38,6 +42,16 @@ public class GameController {
             throw new CustomException(CustomErrorCode.GAME_NOT_FIND);
         }
         return ResultDTO.okOf(gameById);
+    }
+
+    @ResponseBody
+    @GetMapping("/game/{id}/Comment")
+    public ResultDTO<GameTouser> gameTouserComment(@PathVariable(name = "id") Integer id){
+        GameTouser gameIdComment = gameToUserDao.findGameTouserById(id);
+        if (gameIdComment ==null){
+            throw new CustomException(CustomErrorCode.GAME_NOT_FIND);
+        }
+        return ResultDTO.okOf(gameIdComment);
     }
 
     @ResponseBody
