@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 public class MybatilsUtils {
     private static SqlSessionFactory sqlSessionFactory=null;
-    private static SqlSession sqlSession=null;
+//    private static SqlSession sqlSession=null;
 //    private static InputStream in=null;
     static {
         try {
@@ -28,13 +28,14 @@ public class MybatilsUtils {
     }
     //获取SqlSession对象的静态方法
     public static SqlSession getSession(){
-        return sqlSession=sqlSessionFactory.openSession();
+//        return sqlSession=sqlSessionFactory.openSession();
+        return sqlSessionFactory.openSession();
     }
     public static void destroy(){
-        //提交事务
-        sqlSession.commit();
-        sqlSession=null;
-        //6.释放资源
-        System.out.println();
+//        //提交事务
+//        sqlSession.commit();
+////        sqlSession=null;
+//        //6.释放资源
+//        System.out.println();
     }
 }
