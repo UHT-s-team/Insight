@@ -46,8 +46,8 @@ public class GameController {
 
     @ResponseBody
     @GetMapping("/game/{id}/Comment")
-    public ResultDTO<GameTouser> gameTouserComment(@PathVariable(name = "id") Integer id){
-        GameTouser gameIdComment = gameToUserDao.findGameTouserById(id);
+    public ResultDTO<List<GameTouser>> gameTouserComment(@PathVariable(name = "id") Integer id){
+        List<GameTouser> gameIdComment = gameToUserDao.findGameTouserByGId(id);
         if (gameIdComment ==null){
             throw new CustomException(CustomErrorCode.GAME_NOT_FIND);
         }
