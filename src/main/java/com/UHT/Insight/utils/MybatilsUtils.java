@@ -4,10 +4,8 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import sun.rmi.runtime.Log;
 
 import java.io.InputStream;
-import java.sql.SQLException;
 
 public class MybatilsUtils {
     private static SqlSessionFactory sqlSessionFactory=null;
@@ -34,7 +32,7 @@ public class MybatilsUtils {
     public static void destroy(){
 //        //提交事务
 //        sqlSession.commit();
-////        sqlSession=null;
+//        sqlSession=null;
 //        //6.释放资源
 //        System.out.println();
     }
