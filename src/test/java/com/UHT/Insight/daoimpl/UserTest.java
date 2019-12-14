@@ -23,8 +23,8 @@ public class UserTest {
         }
     @Test
     public void updateUser() {
-        Uuser uuser=new Uuser(1221,"小把","242","2321323",1,"213","2321");
-        System.out.println(userDao.updateUser(uuser));
+//        Uuser uuser=new Uuser(1221,"小把","242","2321323",1,"213","2321");
+//        System.out.println(userDao.updateUser(uuser));
         }
     @Test
     public void saveUser() {
