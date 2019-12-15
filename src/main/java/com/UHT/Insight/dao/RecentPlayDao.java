@@ -13,11 +13,11 @@ public interface RecentPlayDao {
     //插入
     Integer saveRecentPlay(RecentPlay recentPlay);
     //根据ID查询
-    RecentPlay findRecentPlayById(Integer G_ID);
+    RecentPlay findRecentPlayById(Integer R_ID);
     //根据Id修改
     Integer updateRecentPlay(RecentPlay recentPlay);
     //根据ID删除
-    Integer deleteRecentPlayById(Integer G_ID);
+    Integer deleteRecentPlayById(Integer R_ID);
     //批量插入
     Integer saveRecentPlayList(List<RecentPlay> list);
 }
