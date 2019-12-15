@@ -131,83 +131,84 @@ public class TapUserAndRecentPlayJson {
                                 reader.readString();
                             break;
                         case "玩过的游戏":
-                            reader.startArray();//去掉[
-                            recentPlay.setU_ID(tapUser.getU_ID());
-                            while (reader.hasNext()){//读取数组
-                                reader.startObject();
-                                while (reader.hasNext()){
-                                    String key1=reader.readString();
-                                    System.out.println("key: "+key1);
-                                    switch (key1){
-                                        case "游戏名称":
-                                            reader.startArray();
-                                            String gameName="";
-                                            String mmp="";
-                                            while (reader.hasNext()){
-                                                mmp=reader.readString();
-                                                if(!mmp.isEmpty()&&gameName.isEmpty()){
-                                                    gameName+=mmp+",";
-                                                }else if (gameName.isEmpty()){
-                                                    gameName=mmp;
-                                                }
-                                            }
-                                            if(gameName.endsWith(",")) {
-                                                gameName.substring(0, gameName.length() - 1);
-                                            }
-                                            recentPlay.setG_NAME(gameName);
-                                            reader.endArray();
-                                            break;
-                                        case "游戏评分":
-                                            reader.startArray();
-                                            String number="0";
-                                            while (reader.hasNext()){
-                                                number=reader.readString();
-                                            }
-                                            number=number.replace("页面已失效","");
-                                            number=number.replace("Not enough ratings","");
-                                           if(number.isEmpty()){
-                                               recentPlay.setG_NUMBER(0f);
-                                           }else if(number.matches("^[0-9]*$")) {
-                                               recentPlay.setG_NUMBER((Float) Float.parseFloat(number));
-                                           }else {
-                                               recentPlay.setG_NUMBER(0f);
-                                           }
-                                            reader.endArray();
-                                            break;
-                                        case "游戏类型":
-                                            reader.startArray();
-                                            String type="";
-                                            String nnp="";
-                                            while (reader.hasNext()){
-                                                nnp=reader.readString();
-                                                if (type.isEmpty()&&!nnp.isEmpty()){
-                                                    type=nnp;
-                                                }else if (!nnp.isEmpty()){
-                                                    type+=nnp;
-                                                }
-                                            }
-                                            recentPlay.setT_TAGLIB(type);
-                                            reader.endArray();
-                                            break;
-                                        case "游戏时长":
-                                            String time="无";
-                                            time = reader.readString();
-                                            time=time.replace("[\"","");
-                                            time=time.replace("\"]","");
-                                            if(time.isEmpty()){
-                                                recentPlay.setG_TIME("无");
-                                            }else {
-                                                recentPlay.setG_TIME(time);
-                                            }
-
-                                            break;
-                                        default:break;
-                                    }
-                                }
-                                reader.endObject();
-                            }
-                            playList.add(recentPlay);
-                            reader.endArray();
+                            reader.readString();
+//                            reader.startArray();//去掉[
+//                            recentPlay.setU_ID(tapUser.getU_ID());
+//                            while (reader.hasNext()){//读取数组
+//                                reader.startObject();
+//                                while (reader.hasNext()){
+//                                    String key1=reader.readString();
+//                                    System.out.println("key: "+key1);
+//                                    switch (key1){
+//                                        case "游戏名称":
+//                                            reader.startArray();
+//                                            String gameName="";
+//                                            String mmp="";
+//                                            while (reader.hasNext()){
+//                                                mmp=reader.readString();
+//                                                if(!mmp.isEmpty()&&gameName.isEmpty()){
+//                                                    gameName+=mmp+",";
+//                                                }else if (gameName.isEmpty()){
+//                                                    gameName=mmp;
+//                                                }
+//                                            }
+//                                            if(gameName.endsWith(",")) {
+//                                                gameName.substring(0, gameName.length() - 1);
+//                                            }
+//                                            recentPlay.setG_NAME(gameName);
+//                                            reader.endArray();
+//                                            break;
+//                                        case "游戏评分":
+//                                            reader.startArray();
+//                                            String number="0";
+//                                            while (reader.hasNext()){
+//                                                number=reader.readString();
+//                                            }
+//                                            number=number.replace("页面已失效","");
+//                                            number=number.replace("Not enough ratings","");
+//                                           if(number.isEmpty()){
+//                                               recentPlay.setG_NUMBER(0f);
+//                                           }else if(number.matches("^[0-9]*$")) {
+//                                               recentPlay.setG_NUMBER((Float) Float.parseFloat(number));
+//                                           }else {
+//                                               recentPlay.setG_NUMBER(0f);
+//                                           }
+//                                            reader.endArray();
+//                                            break;
+//                                        case "游戏类型":
+//                                            reader.startArray();
+//                                            String type="";
+//                                            String nnp="";
+//                                            while (reader.hasNext()){
+//                                                nnp=reader.readString();
+//                                                if (type.isEmpty()&&!nnp.isEmpty()){
+//                                                    type=nnp;
+//                                                }else if (!nnp.isEmpty()){
+//                                                    type+=nnp;
+//                                                }
+//                                            }
+//                                            recentPlay.setT_TAGLIB(type);
+//                                            reader.endArray();
+//                                            break;
+//                                        case "游戏时长":
+//                                            String time="无";
+//                                            time = reader.readString();
+//                                            time=time.replace("[\"","");
+//                                            time=time.replace("\"]","");
+//                                            if(time.isEmpty()){
+//                                                recentPlay.setG_TIME("无");
+//                                            }else {
+//                                                recentPlay.setG_TIME(time);
+//                                            }
+//
+//                                            break;
+//                                        default:break;
+//                                    }
+//                                }
+//                                reader.endObject();
+//                            }
+//                            playList.add(recentPlay);
+//                            reader.endArray();
                             break;
                         default:break;
                     }

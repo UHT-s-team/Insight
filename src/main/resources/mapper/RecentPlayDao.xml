@@ -7,25 +7,25 @@
         select * from recentplay
     </select>
     <select id="findRecentPlayById" resultType="com.UHT.Insight.pojo.RecentPlay" parameterType="Integer">
-         select * from recentplay where G_ID=#{G_ID}
+         select * from recentplay where R_ID=#{R_ID}
     </select>
     <insert id="saveRecentPlay" parameterType="com.UHT.Insight.pojo.RecentPlay">
-        insert into recentplay(G_ID,U_ID,G_NAME,G_TIME,T_TAGLIB,G_NUMBER)
-        values (#{G_ID},#{U_ID},#{G_NAME},#{G_TIME},#{T_TAGLIB},#{G_NUMBER})
+        insert into recentplay(G_ID,U_ID,R_ID,G_TIME)
+        values (#{G_ID},#{U_ID},#{R_ID},#{G_TIME})
     </insert>
     <update id="updateRecentPlay" parameterType="com.UHT.Insight.pojo.RecentPlay">
         update recentplay
-        set U_ID=#{U_ID},G_NAME=#{G_NAME},G_TIME=#{G_TIME},T_TAGLIB=#{T_TAGLIB},G_NUMBER=#{G_NUMBER}
-         where G_ID=#{G_ID}
+        set U_ID=#{U_ID},G_ID=#{G_ID},G_TIME=#{G_TIME}
+         where R_ID=#{R_ID}
     </update>
     <delete id="deleteRecentPlayById" parameterType="Integer">
-        delete from recentplay where G_ID=#{G_ID}
+        delete from recentplay where R_ID=#{R_ID}
     </delete>
     <insert id="saveRecentPlayList" parameterType="List">
-        insert into recentplay(G_ID,U_ID,G_NAME,G_TIME,T_TAGLIB,G_NUMBER)
+        insert into recentplay(G_ID,U_ID,R_ID,G_TIME)
         values
         <foreach collection="list" item="recentPlay" separator=",">
-        (#{recentPlay.G_ID},#{recentPlay.U_ID},#{recentPlay.G_NAME},#{recentPlay.G_TIME},#{recentPlay.T_TAGLIB},#{recentPlay.G_NUMBER})
+        (#{recentPlay.G_ID},#{recentPlay.U_ID},#{recentPlay.R_ID},#{recentPlay.G_TIME})
         </foreach>
     </insert>
 

@@ -37,10 +37,10 @@ public class RecentPlayDaoImpl {
         return i;
     }
     //根据Id查询
-    public RecentPlay findRecentPlayById(Integer G_ID) {
+    public RecentPlay findRecentPlayById(Integer R_ID) {
         RecentPlay recentPlay=null;
         try {
-            recentPlay=recentPlayDao.findRecentPlayById(G_ID);
+            recentPlay=recentPlayDao.findRecentPlayById(R_ID);
             MybatilsUtils.destroy();
         }catch (Exception e){
             e.printStackTrace();
@@ -63,10 +63,10 @@ public class RecentPlayDaoImpl {
         return i;
     }
    //删除
-    public Integer deleteRecentPlayById(Integer G_ID) {
+    public Integer deleteRecentPlayById(Integer R_ID) {
         int i=-1;
         try {
-            i=recentPlayDao.deleteRecentPlayById(G_ID);
+            i=recentPlayDao.deleteRecentPlayById(R_ID);
             MybatilsUtils.destroy();
         }catch (Exception e){
             e.printStackTrace();
