@@ -25,6 +25,8 @@ public class GameToUserDaoImpl{
         }
         return list;
     }
+
+
     //插入GameToUser
     public Integer saveGameTouser(GameTouser gameTouser){
         int i=-1;
