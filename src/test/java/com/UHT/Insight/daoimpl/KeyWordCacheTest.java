@@ -42,6 +42,7 @@ public class KeyWordCacheTest {
         List<GameDayInfo> list=gameInfoService.getGameDayInfoList(168332);
         byte[] bytes=null;
         try {
+
             bytes= CacheUtils.obj2byte(list);
         } catch (Exception e) {
             e.printStackTrace();
