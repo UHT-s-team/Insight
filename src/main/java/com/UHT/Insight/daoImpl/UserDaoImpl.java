@@ -16,11 +16,13 @@ public class UserDaoImpl {
         List<Uuser> list=null;
         try {
             list = userDao.findAll();
-            MybatilsUtils.destroy();
+           sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return list;
+        }finally {
+            sqlSession.close();
         }
         return list;
     }
@@ -29,11 +31,13 @@ public class UserDaoImpl {
         Uuser uuser=null;
         try {
             uuser=userDao.findUserById(UU_ID);
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return uuser;
+        }finally {
+            sqlSession.close();
         }
         return uuser;
     }
@@ -42,11 +46,13 @@ public class UserDaoImpl {
         int i=-1;
         try {
             i=userDao.deleteUser(UU_ID);
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return i;
+        }finally {
+            sqlSession.close();
         }
         return i;
     }
@@ -55,11 +61,13 @@ public class UserDaoImpl {
         int i=0;
         try {
             i=userDao.updateUser(uuser);
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return i;
+        }finally {
+            sqlSession.close();
         }
         return i;
     }
@@ -68,11 +76,13 @@ public class UserDaoImpl {
         int i=-1;
         try {
             i=userDao.saveUser(uuser);
-            MybatilsUtils.destroy();
+           sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return i;
+        }finally {
+            sqlSession.close();
         }
         return i;
     }
