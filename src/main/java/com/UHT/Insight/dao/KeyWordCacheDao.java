@@ -11,7 +11,7 @@ public interface KeyWordCacheDao {
     public Integer saveKeyWordDataCache(KeyWordCache keyWordCache);
     //更新数据
     public Integer updateKeyWordDataCache(KeyWordCache keyWordCache);
-    //查找所有的id及创建时间
+    //查找所有的id及创建时间，没有缓存数据
     public List<KeyWordCache> findAllKeyWordDataCache();
 
 }
