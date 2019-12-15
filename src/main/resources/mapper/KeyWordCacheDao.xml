@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.UHT.Insight.dao.KeyWordCacheDao">
+    <select id="findKeyWordCacheById" parameterType="Integer" resultType="com.UHT.Insight.pojo.KeyWordCache">
+            select K_ID,keyWordCache,createTime from keywordcache
+            where K_ID=#{K_ID}
+        </select>
+    <select id="findAllKeyWordDataCache" resultType="com.UHT.Insight.pojo.KeyWordCache">
+        select K_ID,keyWordCache,createTime from keywordcache
+    </select>
+    <insert id="saveKeyWordDataCache" parameterType="com.UHT.Insight.pojo.KeyWordCache">
+            insert into keywordcache(K_ID,keyWordCache,createTime)
+            values (#{K_ID},#{keyWordCache},#{createTime})
+        </insert>
+    <update id="updateKeyWordDataCache" parameterType="com.UHT.Insight.pojo.KeyWordCache">
+            update keywordcache
+            set keyWordCache=#{keyWordCache},createTime=#{createTime}
+            where K_ID=#{K_ID}
+        </update>
+</mapper>

@@ -41,6 +41,7 @@
         <mapper resource="mapper/RecentAppraiseDao.xml"/>
         <mapper resource="mapper/RecentPlayDao.xml"/>
         <mapper resource="mapper/GameDayInfoCacheDao.xml"/>
+        <mapper resource="mapper/KeyWordCacheDao.xml"/>
     </mappers>
 
 </configuration>

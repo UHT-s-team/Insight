@@ -3,30 +3,29 @@ package com.UHT.Insight.controller;
 import com.UHT.Insight.daoImpl.GameDaoImpl;
 import com.UHT.Insight.daoImpl.GameToUserDaoImpl;
 import com.UHT.Insight.dto.GameDayInfo;
+import com.UHT.Insight.dto.GameDayKeywordDTO;
 import com.UHT.Insight.dto.ResultDTO;
 import com.UHT.Insight.exception.CustomErrorCode;
 import com.UHT.Insight.exception.CustomException;
 import com.UHT.Insight.pojo.Game;
 import com.UHT.Insight.pojo.GameTouser;
-import com.UHT.Insight.pojo.Uuser;
 import com.UHT.Insight.service.GameInfoService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.UHT.Insight.service.HanLPService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.io.IOException;
 import java.util.List;
 
 @Controller
 public class GameController {
 
-
-
     private GameInfoService gameInfoService=new GameInfoService();
-
     private GameDaoImpl gameDao=new GameDaoImpl();
     private GameToUserDaoImpl gameToUserDao=new GameToUserDaoImpl();
+    private HanLPService hanLPService=new HanLPService();
 
 
     @GetMapping("/game/{id}")
@@ -52,6 +51,15 @@ public class GameController {
             throw new CustomException(CustomErrorCode.GAME_NOT_FIND);
         }
         return ResultDTO.okOf(gameIdComment);
+    }
+
+    @ResponseBody
+    @GetMapping("/game/{id}/Keyword")
+    public ResultDTO<GameTouser> gameDailyKeyword(@PathVariable(name = "id") Integer id) throws IOException {
+        List<GameDayKeywordDTO> gameDayKeywords=hanLPService.getGameDayKeyword(id);
+
+
+        return ResultDTO.okOf();
     }
 
     @ResponseBody

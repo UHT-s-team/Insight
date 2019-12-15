@@ -25,6 +25,8 @@ public class GameToUserDaoImpl{
         }
         return list;
     }
+
+
     //插入GameToUser
     public Integer saveGameTouser(GameTouser gameTouser){
         int i=-1;
@@ -50,6 +52,18 @@ public class GameToUserDaoImpl{
             return gameTouser;
         }
         return gameTouser;
+    }
+    public Integer findGameTouserCountByGId(Integer G_ID){
+        Integer i=-1;
+        try{
+            i=gameTouserDao.findGameTouserCountByGId(G_ID);
+            MybatilsUtils.destroy();
+        }catch (Exception e){
+            e.printStackTrace();
+            sqlSession.rollback();
+            return i;
+        }
+        return i;
     }
     //根据ID查询
     public List<GameTouser> findGameTouserByGId(Integer G_ID){

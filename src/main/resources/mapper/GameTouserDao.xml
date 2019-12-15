@@ -7,6 +7,10 @@
     <select id="findAll" resultType="com.UHT.Insight.pojo.GameTouser">
         select * from gametouser
     </select>
+    <!--根据G_Id查询-->
+    <select id="findGameTouserCountByGId" parameterType="Integer" resultType="Integer" >
+        select COUNT(*) from gametouser where G_ID=#{G_ID}
+    </select>
     <!--根据Id查询-->
     <select id="findGameTouserById" parameterType="Integer" resultType="com.UHT.Insight.pojo.GameTouser">
         select * from gametouser where D_ID=#{D_ID}

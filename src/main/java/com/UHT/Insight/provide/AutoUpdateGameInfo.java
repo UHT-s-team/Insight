@@ -50,11 +50,11 @@ public class AutoUpdateGameInfo {
         System.out.println("更新成功");
     }
 
-    @Scheduled(cron = "0 0 2,8,14,20 * * ?" )//每隔六个小时访问一下数据库，防止数据库连接关闭
-    //https://blog.csdn.net/hcleon66/article/details/84422007
-    public void UNExceptionConnectionClose(){
-        List<T_GameDayInfoCacheDTO> allGameDataCache = gameDayInfoCacheDao.findAllGameDataCache();
-    }
+//    @Scheduled(cron = "0 0 2,8,14,20 * * ?" )//每隔六个小时访问一下数据库，防止数据库连接关闭
+//    //https://blog.csdn.net/hcleon66/article/details/84422007
+//    public void UNExceptionConnectionClose(){
+//        List<T_GameDayInfoCacheDTO> allGameDataCache = gameDayInfoCacheDao.findAllGameDataCache();
+//    }
 
     private static Date GetAnyTime(Integer t) {//获得基于当前时间的前几天后几天之类的工具
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
