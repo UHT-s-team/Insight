@@ -2,6 +2,7 @@ package com.UHT.Insight.controller;
 
 import com.UHT.Insight.daoImpl.GameDaoImpl;
 import com.UHT.Insight.daoImpl.GameToUserDaoImpl;
+import com.UHT.Insight.daoImpl.KeyWordCacheDaoImpl;
 import com.UHT.Insight.dto.GameDayInfo;
 import com.UHT.Insight.dto.GameDayKeywordDTO;
 import com.UHT.Insight.dto.ResultDTO;
@@ -9,8 +10,10 @@ import com.UHT.Insight.exception.CustomErrorCode;
 import com.UHT.Insight.exception.CustomException;
 import com.UHT.Insight.pojo.Game;
 import com.UHT.Insight.pojo.GameTouser;
+import com.UHT.Insight.pojo.KeyWordCache;
 import com.UHT.Insight.service.GameInfoService;
 import com.UHT.Insight.service.HanLPService;
+import com.UHT.Insight.utils.CacheUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,6 +29,7 @@ public class GameController {
     private GameDaoImpl gameDao=new GameDaoImpl();
     private GameToUserDaoImpl gameToUserDao=new GameToUserDaoImpl();
     private HanLPService hanLPService=new HanLPService();
+    private KeyWordCacheDaoImpl keyWordCacheDao=new KeyWordCacheDaoImpl();
 
 
     @GetMapping("/game/{id}")
@@ -55,11 +59,21 @@ public class GameController {
 
     @ResponseBody
     @GetMapping("/game/{id}/Keyword")
-    public ResultDTO<GameTouser> gameDailyKeyword(@PathVariable(name = "id") Integer id) throws IOException {
-        List<GameDayKeywordDTO> gameDayKeywords=hanLPService.getGameDayKeyword(id);
-
-
-        return ResultDTO.okOf();
+    public ResultDTO<List<GameDayKeywordDTO>> gameDailyKeyword(@PathVariable(name = "id") Integer id) throws Exception {
+        //List<GameDayKeywordDTO> gameDayKeywords=hanLPService.getGameDayKeyword(id);
+        KeyWordCache keyWordCache=null;
+        try {
+            keyWordCache = keyWordCacheDao.findKeyWordCacheById(id);
+        }catch (NullPointerException e){
+            throw new CustomException(CustomErrorCode.GAME_NOT_FIND);
+        }
+        if(keyWordCache==null){
+            return ResultDTO.errorOf(CustomErrorCode.GAME_NOT_FIND);
+        }
+        else {
+            List<GameDayKeywordDTO> gameDayKeywords= (List<GameDayKeywordDTO>) CacheUtils.byte2obj(keyWordCache.getKeyWordCache());
+            return ResultDTO.okOf(gameDayKeywords);
+        }
     }
 
     @ResponseBody
