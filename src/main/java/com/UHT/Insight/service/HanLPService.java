@@ -75,8 +75,8 @@ public class HanLPService {
         //用于储存游戏评论的hashMap及时间
         List<GameTouser> CommentByGIdList = gameToUserDao.findGameTouserByGId(gameId);
         //获得对应游戏的所有评论
-//
-        int i = 0; //这一行 连同下面76行均为测试时取消注释
+
+//        int i = 0; //这一行 连同下面76行均为测试时取消注释
 
         CommentKeywordDTO keywordTime = new CommentKeywordDTO();//工具
         for (GameTouser gameTouser : CommentByGIdList) {
@@ -90,11 +90,11 @@ public class HanLPService {
             commentKeywordMaps.add(keywordTime);
             keywordTime = new CommentKeywordDTO();
 
-            if (i < 50) {
-                i++;
-            } else {
-                break;
-            }
+//            if (i < 1000) {
+//                i++;
+//            } else {
+//                break;
+//            }
 
         }
 

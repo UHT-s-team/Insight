@@ -15,11 +15,13 @@ public class GameBasicDaoImpl {
         List<GameBasic> list=null;
         try {
             list = gameBasicDao.findAll();
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return list;
+        }finally {
+            sqlSession.close();
         }
         return list;
     }
@@ -28,11 +30,13 @@ public class GameBasicDaoImpl {
         GameBasic gameBasic=null;
         try{
             gameBasic=gameBasicDao.findGBById(G_ID);
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch(Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return gameBasic;
+        }finally {
+            sqlSession.close();
         }
         return gameBasic;
     }
@@ -41,11 +45,13 @@ public class GameBasicDaoImpl {
         int i=-1;
         try{
           gameBasicDao.deleteGameBasic(G_ID);
-            MybatilsUtils.destroy();
+           sqlSession.commit();
         }catch(Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return i;
+        }finally {
+            sqlSession.close();
         }
         return i;
     }
@@ -54,11 +60,13 @@ public class GameBasicDaoImpl {
         int i=0;
         try{
            i=gameBasicDao.updateGameBasic(gameBasic);
-           MybatilsUtils.destroy();
+           sqlSession.commit();
         }catch(Exception e){
            e.printStackTrace();
             sqlSession.rollback();
             return i;
+        }finally {
+            sqlSession.close();
         }
         return i;
     }
@@ -67,11 +75,13 @@ public class GameBasicDaoImpl {
         int i=-1;
         try{
            i=gameBasicDao.saveGameBasic(gameBasic);
-            MybatilsUtils.destroy();
+           sqlSession.commit();
         }catch(Exception e){
            e.printStackTrace();
             sqlSession.rollback();
             return i;
+        }finally {
+            sqlSession.close();
         }
         return i;
     }

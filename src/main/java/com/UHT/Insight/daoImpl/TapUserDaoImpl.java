@@ -15,11 +15,13 @@ public class TapUserDaoImpl {
         List<TapUser> list=null;
         try {
             list = tapUserDao.findAll();
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e) {
             e.printStackTrace();
             sqlSession.rollback();
             return list;
+        }finally {
+            sqlSession.close();
         }
         return list;
     }
@@ -28,11 +30,13 @@ public class TapUserDaoImpl {
         TapUser tapUser=null;
         try{
             tapUser=tapUserDao.findTapUserById(U_ID);
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return tapUser;
+        }finally {
+            sqlSession.close();
         }
         return tapUser;
     }
@@ -41,11 +45,13 @@ public class TapUserDaoImpl {
         int i=-1;
         try{
             i=tapUserDao.deleteTapUser(U_ID);
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return i;
+        }finally {
+            sqlSession.close();
         }
         return i;
     }
@@ -54,11 +60,13 @@ public class TapUserDaoImpl {
         int i=0;
         try{
             i=tapUserDao.updateTapUser(tapUser);
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return i;
+        }finally {
+            sqlSession.close();
         }
         return i;
     }
@@ -67,11 +75,13 @@ public class TapUserDaoImpl {
         int i=-1;
         try {
             i=tapUserDao.SaveTapUser(tapUser);
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return i;
+        }finally {
+            sqlSession.close();
         }
         return i;
     }
@@ -80,11 +90,13 @@ public class TapUserDaoImpl {
         int i=-1;
         try {
             i=tapUserDao.SaveTapUserList(list);
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return i;
+        }finally {
+            sqlSession.close();
         }
         return i;
     }

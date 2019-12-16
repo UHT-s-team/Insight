@@ -15,11 +15,13 @@ public class RecentAppraiseDaoImpl {
         List<RecentAppraise> list=null;
         try {
             list = recentAppraiseDao.findAll();
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e) {
             e.printStackTrace();
             sqlSession.rollback();
             return list;
+        }finally {
+            sqlSession.close();
         }
         return list;
     }
@@ -28,11 +30,13 @@ public class RecentAppraiseDaoImpl {
         int i=-1;
         try {
             i=recentAppraiseDao.saveRecentAppraise(recentAppraise);
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return i;
+        }finally {
+            sqlSession.close();
         }
         return i;
     }
@@ -42,11 +46,13 @@ public class RecentAppraiseDaoImpl {
         RecentAppraise recentAppraise=null;
         try{
             recentAppraise=recentAppraiseDao.findRecentAppraiseById(R_ID);
-            MybatilsUtils.destroy();
+           sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return recentAppraise;
+        }finally {
+            sqlSession.close();
         }
         return recentAppraise;
     }
@@ -56,11 +62,13 @@ public class RecentAppraiseDaoImpl {
         int i=-1;
         try{
             i=recentAppraiseDao.deleteRecentAppraiseById(R_ID);
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return i;
+        }finally {
+            sqlSession.close();
         }
         return i;
     }
@@ -70,11 +78,13 @@ public class RecentAppraiseDaoImpl {
         int i=0;
         try{
             i=recentAppraiseDao.updateRecntAppraise(recentAppraise);
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return i;
+        }finally {
+            sqlSession.close();
         }
         return i;
     }

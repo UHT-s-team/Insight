@@ -19,11 +19,13 @@ public class GameDayInfoCacheDaoImpl {
         GameDayInfoCache gameDayInfoCache=null;
         try {
             gameDayInfoCache=gameDataCacheDao.findGameDataCacheById(G_ID);
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return gameDayInfoCache;
+        }finally {
+            sqlSession.close();
         }
         return gameDayInfoCache;
     }
@@ -33,11 +35,13 @@ public class GameDayInfoCacheDaoImpl {
         int i=-1;
         try {
             i=gameDataCacheDao.saveGameDataCache(gameDayInfoCache);
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return i;
+        }finally {
+            sqlSession.close();
         }
         return i;
     }
@@ -47,11 +51,13 @@ public class GameDayInfoCacheDaoImpl {
         int i=-1;
         try {
             i=gameDataCacheDao.updateGameDataCache(gameDayInfoCache);
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return i;
+        }finally {
+            sqlSession.close();
         }
         return i;
     }
@@ -60,11 +66,13 @@ public class GameDayInfoCacheDaoImpl {
         List<T_GameDayInfoCacheDTO> t_gameDayInfoCacheDtoList=null;
         try {
             t_gameDayInfoCacheDtoList=gameDataCacheDao.findAllGameDataCache();
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return t_gameDayInfoCacheDtoList;
+        }finally {
+            sqlSession.close();
         }
         return t_gameDayInfoCacheDtoList;
     }

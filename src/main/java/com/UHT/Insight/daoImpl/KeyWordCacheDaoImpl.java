@@ -15,11 +15,13 @@ public class KeyWordCacheDaoImpl {
         KeyWordCache keyWordCache=null;
         try {
             keyWordCache=keyWordCacheDao.findKeyWordCacheById(K_ID);
-            MybatilsUtils.destroy();
+            session.commit();
         }catch (Exception e){
             e.printStackTrace();
             session.rollback();
             return keyWordCache;
+        }finally {
+            session.close();
         }
         return keyWordCache;
     }
@@ -33,6 +35,8 @@ public class KeyWordCacheDaoImpl {
             e.printStackTrace();
             session.rollback();
             return i;
+        }finally {
+            session.close();
         }
         return i;
     }
@@ -41,11 +45,13 @@ public class KeyWordCacheDaoImpl {
         Integer i=-1;
         try {
             i=keyWordCacheDao.updateKeyWordDataCache(keyWordCache);
-            MybatilsUtils.destroy();
+            session.commit();
         }catch (Exception e){
             e.printStackTrace();
             session.rollback();
             return i;
+        }finally {
+            session.close();
         }
         return i;
     }
@@ -54,11 +60,13 @@ public class KeyWordCacheDaoImpl {
         List<KeyWordCache> list=null;
         try {
             list=keyWordCacheDao.findAllKeyWordDataCache();
-            MybatilsUtils.destroy();
+            session.commit();
         }catch (Exception e){
             e.printStackTrace();
             session.rollback();
             return list;
+        }finally {
+            session.close();
         }
         return list;
     }

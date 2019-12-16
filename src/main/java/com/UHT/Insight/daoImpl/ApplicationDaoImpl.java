@@ -15,11 +15,13 @@ public class ApplicationDaoImpl {
         List<Application> list=null;
         try {
             list = applicationDao.findAll();
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return list;
+        }finally {
+            sqlSession.close();
         }
 
         return list;
@@ -29,11 +31,13 @@ public class ApplicationDaoImpl {
         int i=-1;
         try {
             i=applicationDao.saveApp(application);
-            MybatilsUtils.destroy();
+           sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return i;
+        }finally {
+            sqlSession.close();
         }
         return i;
     }
@@ -42,11 +46,13 @@ public class ApplicationDaoImpl {
         Application application=null;
         try{
             application=applicationDao.findAppById(G_ID);
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch(Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return application;
+        }finally {
+            sqlSession.close();
         }
         return application;
     }
@@ -55,11 +61,13 @@ public class ApplicationDaoImpl {
         int i=0;
         try{
             i=applicationDao.updateAppByApp(application);
-            MybatilsUtils.destroy();
+           sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return i;
+        }finally {
+            sqlSession.close();
         }
         return i;
     }
@@ -68,11 +76,13 @@ public class ApplicationDaoImpl {
         int i=-1;
         try {
             i=applicationDao.deleteAppById(G_ID);
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return i;
+        }finally {
+            sqlSession.close();
         }
         return i;
     }

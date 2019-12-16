@@ -29,11 +29,4 @@ public class MybatilsUtils {
 //        return sqlSession=sqlSessionFactory.openSession();
         return sqlSessionFactory.openSession();
     }
-    public static void destroy(){
-//        //提交事务
-//        sqlSession.commit();
-//        sqlSession=null;
-//        //6.释放资源
-//        System.out.println();
-    }
 }

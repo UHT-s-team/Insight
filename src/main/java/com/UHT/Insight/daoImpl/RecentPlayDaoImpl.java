@@ -15,11 +15,13 @@ public class RecentPlayDaoImpl {
         List<RecentPlay> recentPlays=null;
         try {
             recentPlays=recentPlayDao.findAll();
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return recentPlays;
+        }finally {
+            sqlSession.close();
         }
         return recentPlays;
     }
@@ -28,11 +30,13 @@ public class RecentPlayDaoImpl {
         int i=-1;
         try {
             i=recentPlayDao.saveRecentPlay(recentPlay);
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return i;
+        }finally {
+            sqlSession.close();
         }
         return i;
     }
@@ -41,11 +45,13 @@ public class RecentPlayDaoImpl {
         RecentPlay recentPlay=null;
         try {
             recentPlay=recentPlayDao.findRecentPlayById(R_ID);
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return recentPlay;
+        }finally {
+            sqlSession.close();
         }
         return recentPlay;
     }
@@ -54,11 +60,13 @@ public class RecentPlayDaoImpl {
         int i=0;
         try {
             i=recentPlayDao.updateRecentPlay(recentPlay);
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return i;
+        }finally {
+            sqlSession.close();
         }
         return i;
     }
@@ -67,11 +75,13 @@ public class RecentPlayDaoImpl {
         int i=-1;
         try {
             i=recentPlayDao.deleteRecentPlayById(R_ID);
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return i;
+        }finally {
+            sqlSession.close();
         }
         return i;
     }
@@ -80,11 +90,13 @@ public class RecentPlayDaoImpl {
         int i=-1;
         try {
             i=recentPlayDao.saveRecentPlayList(list);
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return i;
+        }finally {
+            sqlSession.close();
         }
         return i;
     }

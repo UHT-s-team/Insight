@@ -17,11 +17,13 @@ public class GameToUserDaoImpl{
         List<GameTouser> list=null;
         try {
             list = gameTouserDao.findAll();
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e) {
             e.printStackTrace();
             sqlSession.rollback();
             return list;
+        }finally {
+            sqlSession.close();
         }
         return list;
     }
@@ -32,11 +34,13 @@ public class GameToUserDaoImpl{
         int i=-1;
         try {
             i=gameTouserDao.saveGameTouser(gameTouser);
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return i;
+        }finally {
+            sqlSession.close();
         }
         return i;
     }
@@ -45,11 +49,13 @@ public class GameToUserDaoImpl{
         GameTouser gameTouser=null;
         try{
             gameTouser=gameTouserDao.findGameTouserById(D_ID);
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return gameTouser;
+        }finally {
+            sqlSession.close();
         }
         return gameTouser;
     }
@@ -57,11 +63,13 @@ public class GameToUserDaoImpl{
         Integer i=-1;
         try{
             i=gameTouserDao.findGameTouserCountByGId(G_ID);
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return i;
+        }finally {
+            sqlSession.close();
         }
         return i;
     }
@@ -70,11 +78,13 @@ public class GameToUserDaoImpl{
         List<GameTouser> list=new ArrayList<>();
         try{
             list=gameTouserDao.findGameTouserByGId(G_ID);
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return list;
+        }finally {
+            sqlSession.close();
         }
         return list;
     }
@@ -83,11 +93,13 @@ public class GameToUserDaoImpl{
         int i=-1;
         try{
            i=gameTouserDao.deleteGameTouser(D_ID);
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return i;
+        }finally {
+            sqlSession.close();
         }
         return i;
     }
@@ -96,11 +108,13 @@ public class GameToUserDaoImpl{
         int i=0;
         try{
            i=gameTouserDao.updateGameTouser(gameTouser);
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return i;
+        }finally {
+            sqlSession.close();
         }
         return i;
     }
@@ -109,11 +123,13 @@ public class GameToUserDaoImpl{
         List<GameEverydayData> list=null;
         try {
             list = gameTouserDao.findCountEverydayAll(G_ID);
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e) {
             e.printStackTrace();
             sqlSession.rollback();
             return list;
+        }finally {
+            sqlSession.close();
         }
         return list;
     }
@@ -125,11 +141,13 @@ public class GameToUserDaoImpl{
         map.put("G_ID",G_ID);
         try {
             gameEverydayData = gameTouserDao.findCountByDay(map);
-            MybatilsUtils.destroy();
+           sqlSession.commit();
         }catch (Exception e) {
             e.printStackTrace();
             sqlSession.rollback();
             return gameEverydayData;
+        }finally {
+            sqlSession.close();
         }
         return gameEverydayData;
     }
@@ -141,11 +159,13 @@ public class GameToUserDaoImpl{
         map.put("G_ID",G_ID);
         try {
             list = gameTouserDao.findCountAfterDayA(map);
-            MybatilsUtils.destroy();
+           sqlSession.commit();
         }catch (Exception e) {
             e.printStackTrace();
             sqlSession.rollback();
             return list;
+        }finally {
+            sqlSession.close();
         }
         return list;
     }
@@ -158,11 +178,13 @@ public class GameToUserDaoImpl{
         map.put("G_ID",G_ID);
         try {
             list = gameTouserDao.findCountBetweenDayAAndB(map);
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e) {
             e.printStackTrace();
             sqlSession.rollback();
             return list;
+        }finally {
+            sqlSession.close();
         }
         return list;
     }
@@ -172,11 +194,13 @@ public class GameToUserDaoImpl{
         List<GameStarLevel> list=null;
         try {
             list = gameTouserDao.findCountByStar(D_START,G_ID);
-            MybatilsUtils.destroy();
+           sqlSession.commit();
         }catch (Exception e) {
             e.printStackTrace();
             sqlSession.rollback();
             return list;
+        }finally {
+            sqlSession.close();
         }
         return list;
     }
@@ -189,11 +213,13 @@ public class GameToUserDaoImpl{
             list.addAll(gameTouserDao.findCountByStar(3,G_ID)) ;
             list.addAll(gameTouserDao.findCountByStar(4,G_ID)) ;
             list.addAll(gameTouserDao.findCountByStar(5,G_ID)) ;
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e) {
             e.printStackTrace();
             sqlSession.rollback();
             return list;
+        }finally {
+            sqlSession.close();
         }
         return list;
     }
@@ -209,11 +235,13 @@ public class GameToUserDaoImpl{
         map.put("G_ID",G_ID);
         try {
             gameStarLevel = gameTouserDao.findCountStarByDay(map);
-            MybatilsUtils.destroy();
+           sqlSession.commit();
         }catch (Exception e) {
             e.printStackTrace();
             sqlSession.rollback();
             return gameStarLevel;
+        }finally {
+            sqlSession.close();
         }
         return gameStarLevel;
     }
@@ -226,11 +254,13 @@ public class GameToUserDaoImpl{
         map.put("G_ID",G_ID);
         try {
             list =gameTouserDao.findCountStarAfterDay(map);
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e) {
             e.printStackTrace();
             sqlSession.rollback();
             return list;
+        }finally {
+            sqlSession.close();
         }
         return list;
     }
@@ -244,11 +274,13 @@ public class GameToUserDaoImpl{
         map.put("G_ID",G_ID);
         try {
             list =gameTouserDao.findCountStarBetweenDay(map);
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e) {
             e.printStackTrace();
             sqlSession.rollback();
             return list;
+        }finally {
+            sqlSession.close();
         }
         return list;
     }
@@ -257,11 +289,13 @@ public class GameToUserDaoImpl{
         int i=-1;
         try {
             i=gameTouserDao.addGameList(list);
-            MybatilsUtils.destroy();
+           sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return i;
+        }finally {
+            sqlSession.close();
         }
         return i;
     }

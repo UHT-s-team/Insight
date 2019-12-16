@@ -17,11 +17,13 @@ public class GameDaoImpl  {
         List<Game> games=null;
         try {
            games = gameDao.findAll();
-            MybatilsUtils.destroy();
+           sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return games;
+        }finally {
+            sqlSession.close();
         }
         return games;
     }
@@ -30,11 +32,13 @@ public class GameDaoImpl  {
         int i=-1;
         try {
             i=gameDao.saveGame(game);
-            MybatilsUtils.destroy();
+           sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return i;
+        }finally {
+            sqlSession.close();
         }
         return i;
     }
@@ -43,11 +47,13 @@ public class GameDaoImpl  {
         Game game=null;
         try {
             game=gameDao.findGameById(G_ID);
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return game;
+        }finally {
+            sqlSession.close();
         }
         return game;
     }
@@ -56,11 +62,13 @@ public class GameDaoImpl  {
         int i=-1;
         try {
             i=gameDao.deleteGameById(G_ID);
-            MybatilsUtils.destroy();
+           sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return i;
+        }finally {
+            sqlSession.close();
         }
         return i;
     }
@@ -69,11 +77,13 @@ public class GameDaoImpl  {
         int i=0;
         try {
             i=gameDao.updateGame(game);
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return i;
+        }finally {
+            sqlSession.close();
         }
         return i;
     }
@@ -82,11 +92,13 @@ public class GameDaoImpl  {
         int i=-1;
         try {
             i=gameDao.saveGameList(list);
-            MybatilsUtils.destroy();
+           sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
             return i;
+        }finally {
+            sqlSession.close();
         }
         return i;
     }
@@ -95,11 +107,13 @@ public class GameDaoImpl  {
         List<Game> games=null;
         try {
             games = gameDao.searchByKeyword(keyword);
-            MybatilsUtils.destroy();
+            sqlSession.commit();
         }catch (Exception e){
             e.printStackTrace();
             sqlSession.rollback();
-            return null;
+            return games;
+        }finally {
+            sqlSession.close();
         }
         return games;
     }
