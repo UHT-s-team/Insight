@@ -29,7 +29,7 @@ public class ApplicationTest {
     @Test
     public void updateAppByApp(){
         applicationDao=new ApplicationDaoImpl();
-        Application application=new Application(1232359,23123.2f,12121,"1.1.1","老鼠爱大米","老鼠事件");
+        Application application=new Application(1232359,123.2f,12121,"1.1.1","老鼠爱大米","老鼠事件");
         int applications = applicationDao.updateAppByApp(application);
         System.out.println(applications);
 

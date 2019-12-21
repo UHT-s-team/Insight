@@ -20,6 +20,8 @@ public interface GameTouserDao {
     GameTouser findGameTouserById(Integer D_ID);
     //根据游戏id查询条数
     Integer findGameTouserCountByGId(Integer G_ID);
+    //根据游戏Id分页查询  start--开始位置  size---查询条数
+    List<GameTouser> findGameTouserPageByGId(Integer G_ID,Integer start,Integer size);
     //根据游戏Id查询
     List<GameTouser> findGameTouserByGId(Integer G_ID);
     //根据id删除

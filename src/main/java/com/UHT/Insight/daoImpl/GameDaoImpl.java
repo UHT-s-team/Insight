@@ -10,7 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameDaoImpl  {
-    private SqlSession sqlSession= MybatilsUtils.getSession();
+    private MybatilsUtils mybatilsUtils=new MybatilsUtils();
+    private SqlSession sqlSession= mybatilsUtils.getSession();
     private GameDao gameDao=sqlSession.getMapper(GameDao.class);
     //执行查询所有方法
     public List<Game> findAll(){
@@ -22,8 +23,6 @@ public class GameDaoImpl  {
             e.printStackTrace();
             sqlSession.rollback();
             return games;
-        }finally {
-            sqlSession.close();
         }
         return games;
     }
@@ -37,8 +36,6 @@ public class GameDaoImpl  {
             e.printStackTrace();
             sqlSession.rollback();
             return i;
-        }finally {
-            sqlSession.close();
         }
         return i;
     }
@@ -52,8 +49,6 @@ public class GameDaoImpl  {
             e.printStackTrace();
             sqlSession.rollback();
             return game;
-        }finally {
-            sqlSession.close();
         }
         return game;
     }
@@ -67,8 +62,6 @@ public class GameDaoImpl  {
             e.printStackTrace();
             sqlSession.rollback();
             return i;
-        }finally {
-            sqlSession.close();
         }
         return i;
     }
@@ -82,8 +75,6 @@ public class GameDaoImpl  {
             e.printStackTrace();
             sqlSession.rollback();
             return i;
-        }finally {
-            sqlSession.close();
         }
         return i;
     }
@@ -97,8 +88,6 @@ public class GameDaoImpl  {
             e.printStackTrace();
             sqlSession.rollback();
             return i;
-        }finally {
-            sqlSession.close();
         }
         return i;
     }
@@ -112,8 +101,6 @@ public class GameDaoImpl  {
             e.printStackTrace();
             sqlSession.rollback();
             return games;
-        }finally {
-            sqlSession.close();
         }
         return games;
     }

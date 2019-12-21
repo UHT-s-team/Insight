@@ -8,7 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import java.util.List;
 
 public class UserDaoImpl {
-    private SqlSession sqlSession= MybatilsUtils.getSession();
+    private MybatilsUtils mybatilsUtils=new MybatilsUtils();
+    private SqlSession sqlSession= mybatilsUtils.getSession();
     private UserDao userDao=sqlSession.getMapper(UserDao.class);
 
     //查询所有
@@ -21,8 +22,6 @@ public class UserDaoImpl {
             e.printStackTrace();
             sqlSession.rollback();
             return list;
-        }finally {
-            sqlSession.close();
         }
         return list;
     }
@@ -36,8 +35,6 @@ public class UserDaoImpl {
             e.printStackTrace();
             sqlSession.rollback();
             return uuser;
-        }finally {
-            sqlSession.close();
         }
         return uuser;
     }
@@ -51,8 +48,6 @@ public class UserDaoImpl {
             e.printStackTrace();
             sqlSession.rollback();
             return i;
-        }finally {
-            sqlSession.close();
         }
         return i;
     }
@@ -66,8 +61,6 @@ public class UserDaoImpl {
             e.printStackTrace();
             sqlSession.rollback();
             return i;
-        }finally {
-            sqlSession.close();
         }
         return i;
     }
@@ -81,9 +74,20 @@ public class UserDaoImpl {
             e.printStackTrace();
             sqlSession.rollback();
             return i;
-        }finally {
-            sqlSession.close();
         }
         return i;
+    }
+    //根据phone查询
+    public Uuser findUserByPhone(String uuPhone){
+        Uuser uuser=null;
+        try {
+            uuser=userDao.findUserByPhone(uuPhone);
+            sqlSession.commit();
+        }catch (Exception e){
+            e.printStackTrace();
+            sqlSession.rollback();
+            return uuser;
+        }
+        return uuser;
     }
 }

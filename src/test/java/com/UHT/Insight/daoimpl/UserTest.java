@@ -15,8 +15,13 @@ public class UserTest {
         }
     @Test
     public void findUserById() {
-            System.out.println(userDao.findUserById(1212));
-        }
+        System.out.println(userDao.findUserById(1212));
+    }
+    @Test
+    public void findUserByPhone() {
+        Uuser user=userDao.findUserByPhone("18814233820");
+        System.out.println(user.getUu_phone());
+    }
     @Test
     public void deleteUser() {
         System.out.println(userDao.deleteUser(1212));

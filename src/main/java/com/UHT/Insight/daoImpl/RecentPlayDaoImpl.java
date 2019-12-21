@@ -8,7 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import java.util.List;
 
 public class RecentPlayDaoImpl {
-    private SqlSession sqlSession= MybatilsUtils.getSession();
+    private MybatilsUtils mybatilsUtils=new MybatilsUtils();
+    private SqlSession sqlSession= mybatilsUtils.getSession();
     private RecentPlayDao recentPlayDao=sqlSession.getMapper(RecentPlayDao.class);
     //查询所有
     public List<RecentPlay> findAll() {
@@ -20,8 +21,6 @@ public class RecentPlayDaoImpl {
             e.printStackTrace();
             sqlSession.rollback();
             return recentPlays;
-        }finally {
-            sqlSession.close();
         }
         return recentPlays;
     }
@@ -35,8 +34,6 @@ public class RecentPlayDaoImpl {
             e.printStackTrace();
             sqlSession.rollback();
             return i;
-        }finally {
-            sqlSession.close();
         }
         return i;
     }
@@ -50,8 +47,6 @@ public class RecentPlayDaoImpl {
             e.printStackTrace();
             sqlSession.rollback();
             return recentPlay;
-        }finally {
-            sqlSession.close();
         }
         return recentPlay;
     }
@@ -65,8 +60,6 @@ public class RecentPlayDaoImpl {
             e.printStackTrace();
             sqlSession.rollback();
             return i;
-        }finally {
-            sqlSession.close();
         }
         return i;
     }
@@ -80,8 +73,6 @@ public class RecentPlayDaoImpl {
             e.printStackTrace();
             sqlSession.rollback();
             return i;
-        }finally {
-            sqlSession.close();
         }
         return i;
     }
@@ -95,8 +86,6 @@ public class RecentPlayDaoImpl {
             e.printStackTrace();
             sqlSession.rollback();
             return i;
-        }finally {
-            sqlSession.close();
         }
         return i;
     }

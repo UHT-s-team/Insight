@@ -22,4 +22,7 @@
     <delete id="deleteUser" parameterType="integer">
         delete from uuser  where UU_ID=#{UU_ID}
     </delete>
+    <select id="findUserByPhone" parameterType="string" resultType="com.UHT.Insight.pojo.Uuser">
+        select * from uuser where UU_PHONE=#{uuPhone}
+    </select>
 </mapper>

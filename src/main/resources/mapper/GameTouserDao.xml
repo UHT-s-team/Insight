@@ -7,9 +7,14 @@
     <select id="findAll" resultType="com.UHT.Insight.pojo.GameTouser">
         select * from gametouser
     </select>
-    <!--根据G_Id查询-->
+    <!--根据G_Id查询总数-->
     <select id="findGameTouserCountByGId" parameterType="Integer" resultType="Integer" >
         select COUNT(*) from gametouser where G_ID=#{G_ID}
+    </select>
+    <!--根据游戏Id分页查询-->
+    <select id="findGameTouserPageByGId" parameterType="Integer" resultType="com.UHT.Insight.pojo.GameTouser">
+        select * from gametouser where G_ID=#{G_ID}
+        limit ${start},${size}
     </select>
     <!--根据Id查询-->
     <select id="findGameTouserById" parameterType="Integer" resultType="com.UHT.Insight.pojo.GameTouser">

@@ -8,7 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import java.util.List;
 
 public class GameBasicDaoImpl {
-    private SqlSession sqlSession= MybatilsUtils.getSession();
+    private MybatilsUtils mybatilsUtils=new MybatilsUtils();
+    private SqlSession sqlSession= mybatilsUtils.getSession();
     private GameBasicDao gameBasicDao=sqlSession.getMapper(GameBasicDao.class);
     //查询所有
     public List<GameBasic> findAll(){
@@ -20,8 +21,6 @@ public class GameBasicDaoImpl {
             e.printStackTrace();
             sqlSession.rollback();
             return list;
-        }finally {
-            sqlSession.close();
         }
         return list;
     }
@@ -35,8 +34,6 @@ public class GameBasicDaoImpl {
             e.printStackTrace();
             sqlSession.rollback();
             return gameBasic;
-        }finally {
-            sqlSession.close();
         }
         return gameBasic;
     }
@@ -50,8 +47,6 @@ public class GameBasicDaoImpl {
             e.printStackTrace();
             sqlSession.rollback();
             return i;
-        }finally {
-            sqlSession.close();
         }
         return i;
     }
@@ -65,8 +60,6 @@ public class GameBasicDaoImpl {
            e.printStackTrace();
             sqlSession.rollback();
             return i;
-        }finally {
-            sqlSession.close();
         }
         return i;
     }
@@ -80,8 +73,6 @@ public class GameBasicDaoImpl {
            e.printStackTrace();
             sqlSession.rollback();
             return i;
-        }finally {
-            sqlSession.close();
         }
         return i;
     }

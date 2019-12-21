@@ -36,6 +36,10 @@ public class GameTouserTest {
         System.out.println(gameTouserDao.findGameTouserCountByGId(168332));
     }
     @Test
+    public void findGameTouserPageByGId(){
+        System.out.println(gameTouserDao.findGameTouserPageByGId(168332,1,10));
+    }
+    @Test
     public void updateGameTouser(){
         try {
             Date date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2019-11-15 16:14:0");

@@ -4,6 +4,7 @@ import com.UHT.Insight.daoImpl.GameDaoImpl;
 import com.UHT.Insight.daoImpl.GameDayInfoCacheDaoImpl;
 import com.UHT.Insight.daoImpl.GameToUserDaoImpl;
 import com.UHT.Insight.dto.GameDayInfo;
+import com.UHT.Insight.dto.PageDTO;
 import com.UHT.Insight.exception.CustomErrorCode;
 import com.UHT.Insight.exception.CustomException;
 import com.UHT.Insight.pojo.*;
@@ -113,5 +114,27 @@ public class GameInfoService {
             }
         }
         return games;
+    }
+
+    public PageDTO list(Integer gameId,Integer currentPage,Integer pageSize){
+        PageDTO<GameTouser> pageDTO =new PageDTO<GameTouser>();
+        Integer totalPage;
+        Integer countComment = gameToUserDao.findGameTouserCountByGId(gameId);
+        if(countComment % pageSize ==0){
+            totalPage = countComment /pageSize;
+        }else {
+            totalPage =countComment /pageSize+1;
+        }
+
+        if (currentPage<1){
+            currentPage=1;
+        }
+        if(currentPage>totalPage){
+            currentPage=totalPage;
+        }
+        pageDTO.setPage(totalPage,currentPage);
+        List<GameTouser> gameTouserList=gameToUserDao.findGameTouserPageByGId(gameId,(currentPage-1)*pageSize,pageSize);
+        pageDTO.setData(gameTouserList);
+        return  pageDTO;
     }
 }

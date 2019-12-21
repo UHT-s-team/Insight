@@ -22,4 +22,6 @@ public interface UserDao {
     Integer updateUser(Uuser uuser);
     //插入
     Integer saveUser(Uuser uuser);
+    //根据phone
+    Uuser findUserByPhone(String uuPhone);
 }

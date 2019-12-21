@@ -11,7 +11,8 @@ import java.util.Date;
 import java.util.List;
 
 public class GameDayInfoCacheDaoImpl {
-    private SqlSession sqlSession= MybatilsUtils.getSession();
+    private MybatilsUtils mybatilsUtils=new MybatilsUtils();
+    private SqlSession sqlSession= mybatilsUtils.getSession();
 
     private GameDayInfoCacheDao gameDataCacheDao=sqlSession.getMapper(GameDayInfoCacheDao.class);
     //根据游戏id查找缓存数据
@@ -24,8 +25,6 @@ public class GameDayInfoCacheDaoImpl {
             e.printStackTrace();
             sqlSession.rollback();
             return gameDayInfoCache;
-        }finally {
-            sqlSession.close();
         }
         return gameDayInfoCache;
     }
@@ -40,8 +39,6 @@ public class GameDayInfoCacheDaoImpl {
             e.printStackTrace();
             sqlSession.rollback();
             return i;
-        }finally {
-            sqlSession.close();
         }
         return i;
     }
@@ -56,8 +53,6 @@ public class GameDayInfoCacheDaoImpl {
             e.printStackTrace();
             sqlSession.rollback();
             return i;
-        }finally {
-            sqlSession.close();
         }
         return i;
     }
@@ -71,8 +66,6 @@ public class GameDayInfoCacheDaoImpl {
             e.printStackTrace();
             sqlSession.rollback();
             return t_gameDayInfoCacheDtoList;
-        }finally {
-            sqlSession.close();
         }
         return t_gameDayInfoCacheDtoList;
     }

@@ -10,7 +10,8 @@ import org.apache.ibatis.session.SqlSession;
 import java.util.*;
 
 public class GameToUserDaoImpl{
-    private SqlSession sqlSession=MybatilsUtils.getSession();
+    private MybatilsUtils mybatilsUtils=new MybatilsUtils();
+    private SqlSession sqlSession=mybatilsUtils.getSession();
     private GameTouserDao gameTouserDao=sqlSession.getMapper(GameTouserDao.class);
     //查询所有GameTouser
     public List<GameTouser> findAll(){
@@ -68,10 +69,21 @@ public class GameToUserDaoImpl{
             e.printStackTrace();
             sqlSession.rollback();
             return i;
-        }finally {
-            sqlSession.close();
         }
         return i;
+    }
+    //根据ID分页查询
+    public List<GameTouser> findGameTouserPageByGId(Integer G_ID,Integer start,Integer size){
+        List<GameTouser> list=new ArrayList<>();
+        try{
+            list=gameTouserDao.findGameTouserPageByGId(G_ID,start,size);
+            sqlSession.commit();
+        }catch (Exception e){
+            e.printStackTrace();
+            sqlSession.rollback();
+            return list;
+        }
+        return list;
     }
     //根据ID查询
     public List<GameTouser> findGameTouserByGId(Integer G_ID){
@@ -83,8 +95,6 @@ public class GameToUserDaoImpl{
             e.printStackTrace();
             sqlSession.rollback();
             return list;
-        }finally {
-            sqlSession.close();
         }
         return list;
     }
@@ -98,8 +108,6 @@ public class GameToUserDaoImpl{
             e.printStackTrace();
             sqlSession.rollback();
             return i;
-        }finally {
-            sqlSession.close();
         }
         return i;
     }
@@ -113,8 +121,6 @@ public class GameToUserDaoImpl{
             e.printStackTrace();
             sqlSession.rollback();
             return i;
-        }finally {
-            sqlSession.close();
         }
         return i;
     }
@@ -128,8 +134,6 @@ public class GameToUserDaoImpl{
             e.printStackTrace();
             sqlSession.rollback();
             return list;
-        }finally {
-            sqlSession.close();
         }
         return list;
     }
@@ -146,8 +150,6 @@ public class GameToUserDaoImpl{
             e.printStackTrace();
             sqlSession.rollback();
             return gameEverydayData;
-        }finally {
-            sqlSession.close();
         }
         return gameEverydayData;
     }
@@ -164,8 +166,6 @@ public class GameToUserDaoImpl{
             e.printStackTrace();
             sqlSession.rollback();
             return list;
-        }finally {
-            sqlSession.close();
         }
         return list;
     }
@@ -183,8 +183,6 @@ public class GameToUserDaoImpl{
             e.printStackTrace();
             sqlSession.rollback();
             return list;
-        }finally {
-            sqlSession.close();
         }
         return list;
     }
@@ -199,8 +197,6 @@ public class GameToUserDaoImpl{
             e.printStackTrace();
             sqlSession.rollback();
             return list;
-        }finally {
-            sqlSession.close();
         }
         return list;
     }
@@ -218,8 +214,6 @@ public class GameToUserDaoImpl{
             e.printStackTrace();
             sqlSession.rollback();
             return list;
-        }finally {
-            sqlSession.close();
         }
         return list;
     }
@@ -240,8 +234,6 @@ public class GameToUserDaoImpl{
             e.printStackTrace();
             sqlSession.rollback();
             return gameStarLevel;
-        }finally {
-            sqlSession.close();
         }
         return gameStarLevel;
     }
@@ -259,8 +251,6 @@ public class GameToUserDaoImpl{
             e.printStackTrace();
             sqlSession.rollback();
             return list;
-        }finally {
-            sqlSession.close();
         }
         return list;
     }
@@ -279,8 +269,6 @@ public class GameToUserDaoImpl{
             e.printStackTrace();
             sqlSession.rollback();
             return list;
-        }finally {
-            sqlSession.close();
         }
         return list;
     }
@@ -294,8 +282,6 @@ public class GameToUserDaoImpl{
             e.printStackTrace();
             sqlSession.rollback();
             return i;
-        }finally {
-            sqlSession.close();
         }
         return i;
     }

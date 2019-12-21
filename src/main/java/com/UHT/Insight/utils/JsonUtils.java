@@ -87,7 +87,8 @@ public class JsonUtils {
     //Game的数据插入
     public static void insertGame(Map<String,String> map) {
         Game game=new Game();
-        SqlSession sqlSession= MybatilsUtils.getSession();
+        MybatilsUtils mybatilsUtils=new MybatilsUtils();
+        SqlSession sqlSession= mybatilsUtils.getSession();
         GameDao gameDao=sqlSession.getMapper(GameDao.class);
        // GameDao gameDao=new GameDaoImpl();
         NumberFormat numberFormat=NumberFormat.getNumberInstance();
@@ -113,7 +114,8 @@ public class JsonUtils {
     //GameTouser的数据插入
     public static void insertGameTouser(List<Map<String,String>> list) {
         List<GameTouser> lists=new ArrayList<>();
-        SqlSession sqlSession= MybatilsUtils.getSession();
+        MybatilsUtils mybatilsUtils=new MybatilsUtils();
+        SqlSession sqlSession= mybatilsUtils.getSession();
        GameTouserDao gameTouserDao=sqlSession.getMapper(GameTouserDao.class);
        // GameTouserDao gameTouserDao = new GameToUserDaoImpl();
         for (Map map:list) {

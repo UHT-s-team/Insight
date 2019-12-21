@@ -8,7 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import java.util.List;
 
 public class RecentAppraiseDaoImpl {
-    private SqlSession sqlSession=MybatilsUtils.getSession();
+    private MybatilsUtils mybatilsUtils=new MybatilsUtils();
+    private SqlSession sqlSession=mybatilsUtils.getSession();
     private RecentAppraiseDao recentAppraiseDao=sqlSession.getMapper(RecentAppraiseDao.class);
     //查询所有
     public List<RecentAppraise> findAll() {
@@ -20,8 +21,6 @@ public class RecentAppraiseDaoImpl {
             e.printStackTrace();
             sqlSession.rollback();
             return list;
-        }finally {
-            sqlSession.close();
         }
         return list;
     }
@@ -35,8 +34,6 @@ public class RecentAppraiseDaoImpl {
             e.printStackTrace();
             sqlSession.rollback();
             return i;
-        }finally {
-            sqlSession.close();
         }
         return i;
     }
@@ -51,8 +48,6 @@ public class RecentAppraiseDaoImpl {
             e.printStackTrace();
             sqlSession.rollback();
             return recentAppraise;
-        }finally {
-            sqlSession.close();
         }
         return recentAppraise;
     }
@@ -67,8 +62,6 @@ public class RecentAppraiseDaoImpl {
             e.printStackTrace();
             sqlSession.rollback();
             return i;
-        }finally {
-            sqlSession.close();
         }
         return i;
     }
@@ -83,8 +76,6 @@ public class RecentAppraiseDaoImpl {
             e.printStackTrace();
             sqlSession.rollback();
             return i;
-        }finally {
-            sqlSession.close();
         }
         return i;
     }

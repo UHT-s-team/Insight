@@ -3,9 +3,7 @@ package com.UHT.Insight.controller;
 import com.UHT.Insight.daoImpl.GameDaoImpl;
 import com.UHT.Insight.daoImpl.GameToUserDaoImpl;
 import com.UHT.Insight.daoImpl.KeyWordCacheDaoImpl;
-import com.UHT.Insight.dto.GameDayInfo;
-import com.UHT.Insight.dto.GameDayKeywordDTO;
-import com.UHT.Insight.dto.ResultDTO;
+import com.UHT.Insight.dto.*;
 import com.UHT.Insight.exception.CustomErrorCode;
 import com.UHT.Insight.exception.CustomException;
 import com.UHT.Insight.pojo.Game;
@@ -15,10 +13,9 @@ import com.UHT.Insight.service.GameInfoService;
 import com.UHT.Insight.service.HanLPService;
 import com.UHT.Insight.utils.CacheUtils;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.List;
 
@@ -55,6 +52,16 @@ public class GameController {
             throw new CustomException(CustomErrorCode.GAME_NOT_FIND);
         }
         return ResultDTO.okOf(gameIdComment);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/page",method = RequestMethod.POST)
+    public Object page(@RequestBody GamePageDTO gamePageDTO){
+        Integer gameId = gamePageDTO.getGameId();
+        Integer currentPage =gamePageDTO.getCurrentPage();
+        Integer pageSize =gamePageDTO.getPageSize();
+        PageDTO<GameTouser> pageDTO = gameInfoService.list(gameId,currentPage,pageSize);
+        return pageDTO;
     }
 
     @ResponseBody
