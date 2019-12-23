@@ -20,7 +20,7 @@ public class UserTest {
     @Test
     public void findUserByPhone() {
         Uuser user=userDao.findUserByPhone("18814233820");
-        System.out.println(user.getUu_phone());
+        System.out.println(user.getUU_PHONE());
     }
     @Test
     public void deleteUser() {

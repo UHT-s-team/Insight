@@ -26,6 +26,18 @@ public class ResultDTO<T> {
         resultDTO.setMessage("请求成功");
         return resultDTO;
     }
+    public static ResultDTO login() {
+        ResultDTO resultDTO = new ResultDTO();
+        resultDTO.setCode(200);
+        resultDTO.setMessage("登录成功");
+        return resultDTO;
+    }
+    public static ResultDTO Registration() {
+        ResultDTO resultDTO = new ResultDTO();
+        resultDTO.setCode(200);
+        resultDTO.setMessage("注册成功");
+        return resultDTO;
+    }
 
     public static <T>ResultDTO okOf(T t) {
         ResultDTO resultDTO = new ResultDTO();

@@ -9,9 +9,6 @@ import com.UHT.Insight.pojo.Uuser;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 @Controller
 public class UserController {
     private UserDaoImpl userDao = new UserDaoImpl();
@@ -22,10 +19,27 @@ public class UserController {
         Uuser uuser = userDao.findUserByPhone(userLoginDTO.getPhone());
         if (uuser==null){
             throw new CustomException(CustomErrorCode.USER_NOT_FOUND);
-        }else if (!userLoginDTO.getPassword().equals(uuser.getPassword())){
+        }else if (!userLoginDTO.getPassword().equals(uuser.getPASSWORD())){
             throw new CustomException(CustomErrorCode.PASSWORD_WRONG);
         }else {
-            return ResultDTO.okOf();
+            return ResultDTO.login();
+        }
+    }
+    @ResponseBody
+    @RequestMapping(value = "/",method = RequestMethod.POST)
+    public  Object Registration(@RequestBody UserLoginDTO userLoginDTO){
+        String phone = userLoginDTO.getPhone();
+        String password = userLoginDTO.getPassword();
+        Uuser user = new Uuser();
+        user.setUU_PHONE(phone);
+        user.setPASSWORD(password);
+
+        Uuser uuser = userDao.findUserByPhone(phone);
+        if (uuser != null){
+            return "该手机号已经注册过了";
+        }else {
+            userDao.saveUser(user);
+            return ResultDTO.Registration();
         }
     }
 }
