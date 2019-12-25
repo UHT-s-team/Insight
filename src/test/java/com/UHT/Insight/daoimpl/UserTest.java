@@ -33,7 +33,10 @@ public class UserTest {
         }
     @Test
     public void saveUser() {
-        //Uuser uuser=new Uuser(12888,"小艾","2232133132","2321323",1,"213","2321");
+        Uuser uuser=new Uuser();
+        uuser.setUU_PHONE("18814233822");
+        uuser.setPASSWORD("123456");
+        userDao.saveUser(uuser);
         //System.out.println(userDao.saveUser(uuser));
         //利用MBG生成了Uuser 的内容，以往测试用例已失效 --HN
         }

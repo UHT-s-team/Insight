@@ -12,7 +12,13 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class UserController {
     private UserDaoImpl userDao = new UserDaoImpl();
-
+    @ResponseBody
+    @RequestMapping(value = "/login",method = RequestMethod.POST)
+    public Object loginPost(@RequestBody UserLoginDTO userLoginDTO) {
+        Uuser uuser = userDao.findUserByPhone(userLoginDTO.getPhone());
+        return uuser;
+    }
+/*
     @ResponseBody
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public Object loginPost(@RequestBody UserLoginDTO userLoginDTO) {
@@ -25,8 +31,11 @@ public class UserController {
             return ResultDTO.login();
         }
     }
+*/
+
+
     @ResponseBody
-    @RequestMapping(value = "/",method = RequestMethod.POST)
+    @RequestMapping(value = "/register",method = RequestMethod.POST)
     public  Object Registration(@RequestBody UserLoginDTO userLoginDTO){
         String phone = userLoginDTO.getPhone();
         String password = userLoginDTO.getPassword();
