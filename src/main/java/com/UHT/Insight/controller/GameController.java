@@ -91,8 +91,7 @@ public class GameController {
         //先检查缓存数据表是否存在对应数据,若存在则从缓存数据表内提取
         if(gameDayInfo !=null){
             return ResultDTO.okOf(gameDayInfo);
-        }
-        else {
+        } else {
             //若不存在则查询应用数据表
             gameDayInfo = gameInfoService.getGameDayInfoList(id);
         }

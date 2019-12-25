@@ -9,6 +9,6 @@
 [mybatis+spring boot文档](http://mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/)
 [Scheduled的部分使用](https://www.jianshu.com/p/c7492aeb35a1)
 
-
+不要乱动application.properties的东西
 
 mvn mybatis-generator:generate -e
