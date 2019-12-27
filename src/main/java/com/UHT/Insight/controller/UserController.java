@@ -30,8 +30,6 @@ public class UserController {
             return ResultDTO.login();
         }
     }
-
-
     @ResponseBody
     @RequestMapping(value = "/register",method = RequestMethod.POST)
     public  Object Registration(@RequestBody UserLoginDTO userLoginDTO){
@@ -49,4 +47,5 @@ public class UserController {
             return ResultDTO.Registration();
         }
     }
+    
 }
