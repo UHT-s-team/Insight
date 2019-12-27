@@ -29,3 +29,4 @@ build/
 
 ### VS Code ###
 .vscode/
+/src/main/java/com/UHT/Insight/Python_scrapy/scrapy/xx.log
