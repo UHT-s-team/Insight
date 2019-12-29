@@ -13,19 +13,23 @@ public class AutoUpdataGameToUser {
 
     private GameToUserDaoImpl gameToUserDao=new GameToUserDaoImpl();
 
-    @Scheduled()
+//    @Scheduled()
     public void UpdataGameToUser(){
 
         int gameId=181583;
         String path=null;
-        if(true){
+        if(isWindows()){
             //判断运行在linux服务器上还是windows本机
             path="D:\\学习\\代码\\JavaWeb\\Insight\\src\\main\\java\\com\\UHT\\Insight\\Python_scrapy\\scrapy";
         }else {
             //运行在linux服务器上
+            path="/root/Insight/src/main/java/com/UHT/Insight/Python_scrapy/scrapy";
         }
         gameToUserDao.deleteGameTouserByGameId(gameId);
         scrapyService.buildScrapyStartFile(gameId,"tap",path);
         scrapyService.runScrapyStartFile(gameId,path);
+    }
+    public boolean isWindows() {
+        return System.getProperties().getProperty("os.name").toUpperCase().indexOf("WINDOWS") != -1;
     }
 }
