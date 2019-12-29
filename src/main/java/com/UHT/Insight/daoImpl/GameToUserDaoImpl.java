@@ -111,6 +111,21 @@ public class GameToUserDaoImpl{
         }
         return i;
     }
+
+    //根据游戏id删除评论
+    public Integer deleteGameTouserByGameId(Integer G_ID){
+        int i=-1;
+        try{
+            i=gameTouserDao.deleteGameTouserByGameId(G_ID);
+            sqlSession.commit();
+        }catch (Exception e){
+            e.printStackTrace();
+            sqlSession.rollback();
+            return i;
+        }
+        return i;
+    }
+
     //更新
     public Integer updateGameTouser(GameTouser gameTouser){
         int i=0;

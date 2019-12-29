@@ -39,6 +39,10 @@
     <delete id="deleteGameTouser" parameterType="integer">
         delete from gametouser where D_ID=#{D_ID}
     </delete>
+
+    <delete id="deleteGameTouserByGameId" parameterType="integer">
+        delete from gametouser where G_ID=#{G_ID}
+    </delete>
     <select id="findCountEverydayAll" resultMap="map" parameterType="Integer">
      SELECT DATE_FORMAT(I_TIME,'%Y-%m-%d') as'I_TIME',COUNT(0) as 'count',AVG(D_START) as 'average' FROM gametouser
      where G_ID=#{G_ID}
