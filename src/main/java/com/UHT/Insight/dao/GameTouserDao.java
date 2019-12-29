@@ -26,6 +26,8 @@ public interface GameTouserDao {
     List<GameTouser> findGameTouserByGId(Integer G_ID);
     //根据id删除
     Integer deleteGameTouser(Integer D_ID);
+    //根据游戏id删除
+    Integer deleteGameTouserByGameId(Integer G_ID);
     //更新
     Integer updateGameTouser(GameTouser gameTouser);
     //每天的评论数量和平均星级所有

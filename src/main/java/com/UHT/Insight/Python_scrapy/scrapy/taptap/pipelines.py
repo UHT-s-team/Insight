@@ -53,9 +53,13 @@ class TaptapPipeline(object):
             回复数 = 回复数1
             print("回复数1", 回复数1)
 
-        # print(用户ID, 用户名, 粉丝数, 关注数, 收藏数, 玩过的游戏数, 评价数)
+        print("wwwww",用户ID)
+        print("wwwww",游戏ID)
+        
+        print("wwwww",游戏时间)
+        
         UserSql = "insert into gametouser(U_ID, G_ID, U_name, I_TIME, D_START, G_TIME, D_CONTENT, G_EQUTPTMENT, D_HAPPY, D_AGRESS, D_DISAGRESS, REPLY) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);"
-        self.cursor.execute(UserSql, (用户ID[0], 游戏ID[0], 用户名[0], 评论时间[0], 评分, 游戏时间[0], 评论[0], 设备[0], 欢乐数[0], 点赞数[0], 点踩数[0], 回复数[0]))
+        self.cursor.execute(UserSql, (用户ID[0], 游戏ID, 用户名[0], 评论时间[0], 评分, 游戏时间, 评论[0], 设备[0], 欢乐数[0], "0", 点踩数, "0"))
         self.connect.commit()
         # except:
         #     print("错误！！！")
