@@ -29,7 +29,7 @@ public class AutoUpdataGameToUser {
         scrapyService.runScrapyStartFile(gameId,path);
     }
 
-    //    @Scheduled()
+    @Scheduled(cron = "0 0,30 * * * ?")
     public void UpdataGameToUser(){
         int gameId;
         gameId= (int) (Math.random() * 179428);

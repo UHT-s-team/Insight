@@ -37,13 +37,16 @@ public class ScrapyService {
         Process process;
         try {
             String executePath;
+            String[] cmdArr;
             if(isWindows()) {
                 executePath = startFilePath + "\\" + gameId + "start.py";
+                cmdArr = new String[]{"python", executePath};
             }else {
                 executePath = startFilePath + "/" + gameId + "start.py";
+                cmdArr = new String[]{"python3", executePath};
             }
             System.out.println(executePath);
-            String[] cmdArr = new String[]{"python", executePath};
+
             process = Runtime.getRuntime().
                     exec(cmdArr, null, new File(startFilePath));
             InputStream inputStream = process.getInputStream();
