@@ -9,14 +9,30 @@ import org.springframework.stereotype.Component;
 @Component
 public class AutoUpdataGameToUser {
 
-    private ScrapyService scrapyService=new ScrapyService();
+    @Autowired
+    private ScrapyService scrapyService;
 
     private GameToUserDaoImpl gameToUserDao=new GameToUserDaoImpl();
 
-//    @Scheduled()
-    public void UpdataGameToUser(){
 
-        int gameId=181583;
+    public void UpdataGameToUser(int gameId){
+        String path=null;
+        if(isWindows()){
+            //判断运行在linux服务器上还是windows本机
+            path="D:\\学习\\代码\\JavaWeb\\Insight\\src\\main\\java\\com\\UHT\\Insight\\Python_scrapy\\scrapy";
+        }else {
+            //运行在linux服务器上
+            path="/root/Insight/src/main/java/com/UHT/Insight/Python_scrapy/scrapy";
+        }
+        gameToUserDao.deleteGameTouserByGameId(gameId);
+        scrapyService.buildScrapyStartFile(gameId,"tap",path);
+        scrapyService.runScrapyStartFile(gameId,path);
+    }
+
+    //    @Scheduled()
+    public void UpdataGameToUser(){
+        int gameId;
+        gameId= (int) (Math.random() * 179428);
         String path=null;
         if(isWindows()){
             //判断运行在linux服务器上还是windows本机

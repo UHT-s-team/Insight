@@ -46,7 +46,6 @@ public class GameInfoService {
             gameInfo=new GameDayInfo();//重新实例化工具
         }
         //将everydayBaseData整体数据迁移到gameDayInfos内
-
         float this_avgScore=0;//当前的平均评分
         int this_comments=0;//当前的评价数量
         for(GameDayInfo gameDayInfo :gameDayInfos){//遍历gameDayInfos
@@ -88,7 +87,8 @@ public class GameInfoService {
     public List<GameDayInfo> findGameInfoCache(Integer id) throws Exception {
         GameDayInfoCache gameDayInfoCache = gameDayInfoCacheDao.findGameDataCacheById(id);
         if(gameDayInfoCache!=null){
-            List<GameDayInfo> GameDayInfo = (List<GameDayInfo>)CacheUtils.byte2obj(gameDayInfoCache.getInfoCache());
+            List<GameDayInfo> GameDayInfo =
+                    (List<GameDayInfo>)CacheUtils.byte2obj(gameDayInfoCache.getInfoCache());
             return GameDayInfo;
         }
         return null;
