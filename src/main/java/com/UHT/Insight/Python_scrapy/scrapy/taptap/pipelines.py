@@ -27,7 +27,7 @@ class TaptapPipeline(object):
 
     def __init__(self):
         self.connect = pq.connect(host='116.62.159.13', user='root',
-                                  passwd='81234567', db='mybatis', charset='utf8')
+                                  passwd='81234567', db='mybatis', charset='utf8mb4')
         self.cursor = self.connect.cursor()
 
     def process_item(self, item, spider):
@@ -72,7 +72,7 @@ class TapusrPipeline(object):
         # self.file = open('user.json', 'wb')
         # self.file.write('['.encode('utf-8'))
         self.connect = pq.connect(host='116.62.159.13', user='root',
-                                  passwd='81234567', db='mybatis', charset='utf8')
+                                  passwd='81234567', db='mybatis', charset='utf8mb4')
         self.cursor = self.connect.cursor()
 
     def process_item(self, item, spider):
@@ -138,7 +138,7 @@ class TapgamePipeline(object):
 
     def __init__(self):
         self.connect = pq.connect(host='116.62.159.13', user='root',
-                                  passwd='81234567', db='mybatis', charset='utf8')
+                                  passwd='81234567', db='mybatis', charset='utf8mb4')
         self.cursor = self.connect.cursor()
 
     def process_item(self, item, spider):
