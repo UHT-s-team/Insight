@@ -12,7 +12,12 @@ import java.nio.file.Paths;
 public class ScrapyService {
     //    此服务主要是用于调用爬虫
     public boolean buildScrapyStartFile(int gameId, String scrapyType, String startFilePath) {
-        String filePath = startFilePath + "\\" + gameId + "start.py";
+        String filePath;
+        if(isWindows()){
+             filePath = startFilePath + "\\" + gameId + "start.py";
+        }else {
+            filePath = startFilePath + "/" + gameId + "start.py";
+        }
         //构建启动文本
         String build1 = "from scrapy import cmdline\n";
         String build2 = "cmdline.execute(\"scrapy crawl "
@@ -31,7 +36,12 @@ public class ScrapyService {
     public void runScrapyStartFile(int gameId, String startFilePath) {
         Process process;
         try {
-            String executePath = startFilePath + "\\" + gameId + "start.py";
+            String executePath;
+            if(isWindows()) {
+                executePath = startFilePath + "\\" + gameId + "start.py";
+            }else {
+                executePath = startFilePath + "/" + gameId + "start.py";
+            }
             System.out.println(executePath);
             String[] cmdArr = new String[]{"python", executePath};
             process = Runtime.getRuntime().
@@ -49,5 +59,9 @@ public class ScrapyService {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public boolean isWindows() {
+        return System.getProperties().getProperty("os.name").toUpperCase().indexOf("WINDOWS") != -1;
     }
 }
