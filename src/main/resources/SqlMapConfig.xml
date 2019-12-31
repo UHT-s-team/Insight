@@ -29,7 +29,7 @@
                 <property name="username" value="root"/>
                 <property name="password" value="81234567"/>
                 <property name="poolMaximumActiveConnections" value="1000"/>
-                <property name="poolMaximumIdleConnections" value="5"/>
+                <property name="poolMaximumIdleConnections" value="500"/>
             </dataSource>
         </environment>
     </environments>

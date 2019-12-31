@@ -13,4 +13,5 @@
 
 https://blog.csdn.net/probelover/article/details/84555267
 mvn mybatis-generator:generate -e
+
 set global wait_timeout=28800;
