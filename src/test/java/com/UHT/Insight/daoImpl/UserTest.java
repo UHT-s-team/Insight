@@ -1,11 +1,7 @@
-package com.UHT.Insight.daoimpl;
+package com.UHT.Insight.daoImpl;
 
-import com.UHT.Insight.dao.UserDao;
-import com.UHT.Insight.daoImpl.UserDaoImpl;
 import com.UHT.Insight.pojo.Uuser;
 import org.junit.Test;
-
-import java.util.List;
 
 public class UserTest {
     private UserDaoImpl userDao=new UserDaoImpl();

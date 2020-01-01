@@ -1,7 +1,5 @@
-package com.UHT.Insight.daoimpl;
+package com.UHT.Insight.daoImpl;
 
-import com.UHT.Insight.dao.TapUserDao;
-import com.UHT.Insight.daoImpl.TapUserDaoImpl;
 import com.UHT.Insight.pojo.TapUser;
 import org.junit.Test;
 

@@ -1,6 +1,5 @@
-package com.UHT.Insight.daoimpl;
+package com.UHT.Insight.daoImpl;
 
-import com.UHT.Insight.daoImpl.RecentAppraiseDaoImpl;
 import com.UHT.Insight.pojo.RecentAppraise;
 import org.junit.Test;
 

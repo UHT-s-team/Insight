@@ -1,6 +1,5 @@
-package com.UHT.Insight.daoimpl;
+package com.UHT.Insight.daoImpl;
 
-import com.UHT.Insight.daoImpl.KeyWordCacheDaoImpl;
 import com.UHT.Insight.dto.GameDayInfo;
 import com.UHT.Insight.pojo.KeyWordCache;
 import com.UHT.Insight.service.GameInfoService;

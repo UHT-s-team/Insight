@@ -1,6 +1,5 @@
-package com.UHT.Insight.daoimpl;
+package com.UHT.Insight.daoImpl;
 
-import com.UHT.Insight.daoImpl.GameToUserDaoImpl;
 import com.UHT.Insight.pojo.GameEverydayData;
 import com.UHT.Insight.pojo.GameStarLevel;
 import com.UHT.Insight.pojo.GameTouser;

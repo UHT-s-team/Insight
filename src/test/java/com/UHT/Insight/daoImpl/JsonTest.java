@@ -1,10 +1,9 @@
-package com.UHT.Insight.daoimpl;
+package com.UHT.Insight.daoImpl;
 
 import com.UHT.Insight.utils.GameJson;
 import com.UHT.Insight.utils.GameToUserJson;
 import com.UHT.Insight.utils.TapUserAndRecentPlayJson;
 import org.junit.Test;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
 public class JsonTest {

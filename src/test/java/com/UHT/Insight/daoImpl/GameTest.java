@@ -1,6 +1,5 @@
-package com.UHT.Insight.daoimpl;
+package com.UHT.Insight.daoImpl;
 
-import com.UHT.Insight.daoImpl.GameDaoImpl;
 import com.UHT.Insight.pojo.Game;
 import org.junit.Test;
 

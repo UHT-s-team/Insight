@@ -1,7 +1,6 @@
-package com.UHT.Insight.daoimpl;
+package com.UHT.Insight.daoImpl;
 
 
-import com.UHT.Insight.daoImpl.GameDayInfoCacheDaoImpl;
 import com.UHT.Insight.dto.GameDayInfo;
 import com.UHT.Insight.dto.T_GameDayInfoCacheDTO;
 import com.UHT.Insight.pojo.GameDayInfoCache;

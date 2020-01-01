@@ -1,4 +1,4 @@
-package com.UHT.Insight.daoimpl;
+package com.UHT.Insight.daoImpl;
 
 import com.UHT.Insight.pojo.GameTouser;
 import org.junit.Test;
