@@ -45,7 +45,7 @@ public class GameController {
     }
 
     @ResponseBody
-    @GetMapping("/game/{id}/Comment")
+    @GetMapping("/game/{id}/comment")
     public ResultDTO<List<GameTouser>> gameTouserComment(@PathVariable(name = "id") Integer id){
         List<GameTouser> gameIdComment = gameToUserDao.findGameTouserByGId(id);
         if (gameIdComment ==null){
@@ -56,12 +56,14 @@ public class GameController {
 
     @ResponseBody
     @RequestMapping(value = "/page",method = RequestMethod.POST)
-    public Object page(@RequestBody GamePageDTO gamePageDTO){
+    public Object page(@RequestBody GamePageDTO gamePageDTO) {
         Integer gameId = gamePageDTO.getGameId();
-        Integer currentPage =gamePageDTO.getCurrentPage();
-        Integer pageSize =gamePageDTO.getPageSize();
-        PageDTO<GameTouser> pageDTO = gameInfoService.list(gameId,currentPage,pageSize);
-        return pageDTO;
+        Integer currentPage = gamePageDTO.getCurrentPage();
+        Integer pageSize = gamePageDTO.getPageSize();
+        PageDTO<GameTouser> pageDTO = gameInfoService.list(gameId, currentPage, pageSize);
+
+        return ResultDTO.okOf(pageDTO);
+
     }
 
     @ResponseBody

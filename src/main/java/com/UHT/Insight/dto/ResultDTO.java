@@ -38,6 +38,18 @@ public class ResultDTO<T> {
         resultDTO.setMessage("注册成功");
         return resultDTO;
     }
+    public static ResultDTO UpdateUserInfo() {
+        ResultDTO resultDTO = new ResultDTO();
+        resultDTO.setCode(200);
+        resultDTO.setMessage("信息修改成功");
+        return resultDTO;
+    }
+    public static ResultDTO UpdatePassword() {
+        ResultDTO resultDTO = new ResultDTO();
+        resultDTO.setCode(201);
+        resultDTO.setMessage("密码修改成功");
+        return resultDTO;
+    }
 
     public static <T>ResultDTO okOf(T t) {
         ResultDTO resultDTO = new ResultDTO();
