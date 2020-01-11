@@ -301,6 +301,7 @@ public class GameToUserDaoImpl{
         }
         return i;
     }
+
     //tapUser表与gameToUser表的联合查询,Integer属性不查填-1，float填-1.0f，String为null 字符串为模糊查询
     public List<TapUserAndGameToUser> findUnionByGId(Integer G_ID,Integer U_ID,String U_NAME,Integer FANS,
          Integer ATTENTION,Integer COLLECT,Integer PLAY,Integer L_PLAY,Float G_WEIGHT,Integer APPRAISE){
