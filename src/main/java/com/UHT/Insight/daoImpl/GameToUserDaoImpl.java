@@ -301,11 +301,23 @@ public class GameToUserDaoImpl{
         }
         return i;
     }
-    //tapUser表与gameToUser表的联合查询
-    public List<TapUserAndGameToUser> findUnionByGId(Integer G_ID){
+    //tapUser表与gameToUser表的联合查询,Integer属性不查填-1，float填-1.0f，String为null 字符串为模糊查询
+    public List<TapUserAndGameToUser> findUnionByGId(Integer G_ID,Integer U_ID,String U_NAME,Integer FANS,
+         Integer ATTENTION,Integer COLLECT,Integer PLAY,Integer L_PLAY,Float G_WEIGHT,Integer APPRAISE){
         List<TapUserAndGameToUser> list=null;
+        Map<String,Object> map=new HashMap<>();
+        map.put("G_ID",G_ID);
+        map.put("U_ID",U_ID);
+        map.put("U_NAME",U_NAME);
+        map.put("FANS",FANS);
+        map.put("ATTENTION",ATTENTION);
+        map.put("COLLECT",COLLECT);
+        map.put("PLAY",PLAY);
+        map.put("L_PLAY",L_PLAY);
+        map.put("G_WEIGHT",G_WEIGHT);
+        map.put("APPRAISE",APPRAISE);
         try {
-            list = gameTouserDao.findUnionByGId(G_ID);
+            list = gameTouserDao.findUnionByGId(map);
             sqlSession.commit();
         }catch (Exception e) {
             e.printStackTrace();

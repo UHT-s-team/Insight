@@ -55,7 +55,7 @@ public interface GameTouserDao {
     List<GameStarLevel> findCountStarBetweenDay(Map<String,Object> map);
     //批量插入
     Integer addGameList(List<GameTouser> list);
-    //tapUser表与gameToUser表的联合查询
-    List<TapUserAndGameToUser> findUnionByGId(Integer G_ID);
+    //tapUser表与gameToUser表的联合查询，map设置G_ID和TapUser的所有元素
+    List<TapUserAndGameToUser> findUnionByGId(Map<String,Object> map);
 
 }
