@@ -3,6 +3,7 @@ package com.UHT.Insight.dao;
 import com.UHT.Insight.pojo.GameEverydayData;
 import com.UHT.Insight.pojo.GameStarLevel;
 import com.UHT.Insight.pojo.GameTouser;
+import com.UHT.Insight.pojo.TapUserAndGameToUser;
 
 import java.util.Date;
 import java.util.List;
@@ -54,5 +55,7 @@ public interface GameTouserDao {
     List<GameStarLevel> findCountStarBetweenDay(Map<String,Object> map);
     //批量插入
     Integer addGameList(List<GameTouser> list);
+    //tapUser表与gameToUser表的联合查询
+    List<TapUserAndGameToUser> findUnionByGId(Integer G_ID);
 
 }

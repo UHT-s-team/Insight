@@ -4,6 +4,7 @@ import com.UHT.Insight.dao.GameTouserDao;
 import com.UHT.Insight.pojo.GameEverydayData;
 import com.UHT.Insight.pojo.GameStarLevel;
 import com.UHT.Insight.pojo.GameTouser;
+import com.UHT.Insight.pojo.TapUserAndGameToUser;
 import com.UHT.Insight.utils.MybatilsUtils;
 import org.apache.ibatis.session.SqlSession;
 
@@ -299,5 +300,20 @@ public class GameToUserDaoImpl{
             return i;
         }
         return i;
+    }
+    //tapUser表与gameToUser表的联合查询
+    public List<TapUserAndGameToUser> findUnionByGId(Integer G_ID){
+        List<TapUserAndGameToUser> list=null;
+        try {
+            list = gameTouserDao.findUnionByGId(G_ID);
+            sqlSession.commit();
+        }catch (Exception e) {
+            e.printStackTrace();
+            sqlSession.rollback();
+            return list;
+        }finally {
+            sqlSession.close();
+        }
+        return list;
     }
 }

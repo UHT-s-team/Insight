@@ -1,8 +1,7 @@
 package com.UHT.Insight.daoImpl;
 
-import com.UHT.Insight.pojo.GameEverydayData;
-import com.UHT.Insight.pojo.GameStarLevel;
-import com.UHT.Insight.pojo.GameTouser;
+import com.UHT.Insight.pojo.*;
+import com.sun.xml.internal.bind.v2.runtime.output.SAXOutput;
 import org.junit.Test;
 
 import java.text.ParseException;
@@ -150,5 +149,9 @@ public class GameTouserTest {
             e.printStackTrace();
         }
     }
-
+    @Test
+    public void findUnionByGId(){
+        List<TapUserAndGameToUser> list=gameTouserDao.findUnionByGId(168332);
+        System.out.println(list);
+    }
 }
