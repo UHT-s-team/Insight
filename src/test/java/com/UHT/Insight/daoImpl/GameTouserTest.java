@@ -153,5 +153,6 @@ public class GameTouserTest {
     public void findUnionByGId(){
         List<TapUserAndGameToUser> list=gameTouserDao.findUnionByGId(168332);
         System.out.println(list);
+
     }
 }

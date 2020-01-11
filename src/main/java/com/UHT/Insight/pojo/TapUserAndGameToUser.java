@@ -24,6 +24,7 @@ public class TapUserAndGameToUser {
     private Integer D_DISAGRESS; //点踩数
     private Integer REPLY;       //回复数
 
+
     public Integer getU_ID() {
         return U_ID;
     }
