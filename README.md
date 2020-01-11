@@ -11,7 +11,9 @@
 
 不要乱动application.properties的东西
 
-https://blog.csdn.net/probelover/article/details/84555267
+
+[java调用scrapy](https://blog.csdn.net/probelover/article/details/84555267)
+
 mvn mybatis-generator:generate -e
 
 set global wait_timeout=28800;
