@@ -25,17 +25,19 @@
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
 
-        <sqlMapGenerator targetPackage="mappers"  targetProject="src/main/resources">
+        <sqlMapGenerator targetPackage="mapper"  targetProject="src/main/resources">
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
 
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.UHT.Insight.mapper"  targetProject="src/main/java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.UHT.Insight.dao"  targetProject="src/main/java">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 
         <table schema="DB2ADMIN" tableName="uuser" domainObjectName="Uuser" >
             <generatedKey column="UU_ID" sqlStatement="Mysql" identity="true"/>
         </table>
-
+        <table schema="DB2ADMIN" tableName="gamegrade" domainObjectName="gameGrade">
+            <generatedKey column="G_ID" sqlStatement="Mysql" identity="true"/>
+        </table>
     </context>
 </generatorConfiguration>

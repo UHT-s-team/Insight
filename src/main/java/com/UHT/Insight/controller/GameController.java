@@ -104,4 +104,5 @@ public class GameController {
         //将查询结果写入缓冲数据库中
         return ResultDTO.okOf(gameDayInfo);
     }
+
 }
