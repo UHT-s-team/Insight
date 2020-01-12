@@ -307,16 +307,18 @@ public class GameToUserDaoImpl{
          Integer ATTENTION,Integer COLLECT,Integer PLAY,Integer L_PLAY,Float G_WEIGHT,Integer APPRAISE){
         List<TapUserAndGameToUser> list=null;
         Map<String,Object> map=new HashMap<>();
-        map.put("G_ID",G_ID);
-        map.put("U_ID",U_ID);
-        map.put("U_NAME",U_NAME);
-        map.put("FANS",FANS);
-        map.put("ATTENTION",ATTENTION);
-        map.put("COLLECT",COLLECT);
-        map.put("PLAY",PLAY);
-        map.put("L_PLAY",L_PLAY);
-        map.put("G_WEIGHT",G_WEIGHT);
-        map.put("APPRAISE",APPRAISE);
+        {
+            map.put("G_ID",G_ID);
+            map.put("U_ID",U_ID);
+            map.put("U_NAME",U_NAME);
+            map.put("FANS",FANS);
+            map.put("ATTENTION",ATTENTION);
+            map.put("COLLECT",COLLECT);
+            map.put("PLAY",PLAY);
+            map.put("L_PLAY",L_PLAY);
+            map.put("G_WEIGHT",G_WEIGHT);
+            map.put("APPRAISE",APPRAISE);
+        }
         try {
             list = gameTouserDao.findUnionByGId(map);
             sqlSession.commit();

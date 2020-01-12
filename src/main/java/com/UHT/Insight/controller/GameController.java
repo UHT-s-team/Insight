@@ -6,9 +6,7 @@ import com.UHT.Insight.daoImpl.KeyWordCacheDaoImpl;
 import com.UHT.Insight.dto.*;
 import com.UHT.Insight.exception.CustomErrorCode;
 import com.UHT.Insight.exception.CustomException;
-import com.UHT.Insight.pojo.Game;
-import com.UHT.Insight.pojo.GameTouser;
-import com.UHT.Insight.pojo.KeyWordCache;
+import com.UHT.Insight.pojo.*;
 import com.UHT.Insight.service.GameInfoService;
 import com.UHT.Insight.service.HanLPService;
 import com.UHT.Insight.utils.CacheUtils;
@@ -103,6 +101,14 @@ public class GameController {
         gameInfoService.saveGameInfoCache(id, gameDayInfo);
         //将查询结果写入缓冲数据库中
         return ResultDTO.okOf(gameDayInfo);
+    }
+
+    @ResponseBody
+    @PostMapping("/search/{id}/advancedQuery")
+    public ResultDTO<String> advancedQuery(@RequestBody TapUser tapUser,
+                                           @PathVariable(name = "id") Integer id){
+//        gameToUserDao.findUnionByGId(id,null,null,tapUser.getFANS(),)
+        return null;
     }
 
 }
