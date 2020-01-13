@@ -8,7 +8,7 @@
         select * from gametouser
     </select>
     <!--根据G_Id查询总数-->
-    <select id="findGameTouserCountByGId" parameterType="Integer" resultType="Integer">
+    <select id="findGameTouserCountByGId" parameterType="Integer" resultType="Integer" >
         select COUNT(*) from gametouser where G_ID=#{G_ID}
     </select>
     <!--根据游戏Id分页查询-->
@@ -94,8 +94,7 @@
         <result column="star" property="star"/>
     </resultMap>
     <insert id="addGameList" parameterType="List">
-        insert into
-        gametouser(D_ID,U_ID,G_ID,U_NAME,I_TIME,D_START,G_TIME,D_CONTENT,G_EQUTPTMENT,D_HAPPY,D_AGRESS,D_DISAGRESS,REPLY)
+        insert into gametouser(D_ID,U_ID,G_ID,U_NAME,I_TIME,D_START,G_TIME,D_CONTENT,G_EQUTPTMENT,D_HAPPY,D_AGRESS,D_DISAGRESS,REPLY)
         values
         <foreach collection="list" item="gametouser" separator=",">
             (#{gametouser.D_ID},#{gametouser.U_ID},#{gametouser.G_ID},#{gametouser.U_NAME},#{gametouser.I_TIME},#{gametouser.D_START},#{gametouser.G_TIME}
@@ -104,39 +103,37 @@
     </insert>
     <!--tapUser表与GameToUser表的联合查询-->
     <select id="findUnionByGId" parameterType="Map" resultType="com.UHT.Insight.pojo.TapUserAndGameToUser">
-        SELECT
-        a.U_ID,a.U_NAME,FANS,ATTENTION,a.`COLLECT`,PLAY,L_PLAY,G_WEIGHT,a.`APPRAISE`,D_ID,G_ID,I_TIME,D_START,G_TIME,D_CONTENT,b.`G_EQUTPTMENT`,b.`D_HAPPY`,b.`D_AGRESS`,b.`D_DISAGRESS`,b.`REPLY`
-        FROM tapuser AS a,gametouser b
-        WHERE a.`U_ID`=b.`U_ID`
-        <if test="G_ID!=-1">
-            AND b.`G_ID`=#{G_ID}
-        </if>
-        <if test="U_ID!=-1">
+     SELECT a.U_ID,a.U_NAME,FANS,ATTENTION,a.`COLLECT`,PLAY,L_PLAY,G_WEIGHT,a.`APPRAISE`,D_ID,G_ID,I_TIME,D_START,G_TIME,D_CONTENT,b.`G_EQUTPTMENT`,b.`D_HAPPY`,b.`D_AGRESS`,b.`D_DISAGRESS`,b.`REPLY` FROM tapuser AS a,gametouser b
+     WHERE a.`U_ID`=b.`U_ID`
+     <if test="G_ID!=-1">
+     AND b.`G_ID`=#{G_ID}
+     </if>
+     <if test="U_ID!=-1">
             AND a.`U_ID`=#{U_ID}
-        </if>
-        <if test="U_NAME!=NULL">
+     </if>
+     <if test="U_NAME!=NULL">
             AND a.`U_NAME`like "%"#{U_NAME}"%"
-        </if>
-        <if test="FANS!=-1">
-            AND a.`FANS`=#{FANS}
-        </if>
-        <if test="ATTENTION!=-1">
-            AND a.`ATTENTION`=#{FANS}
-        </if>
-        <if test="COLLECT!=-1">
-            AND a.`COLLECT`=#{COLLECT}
-        </if>
-        <if test="PLAY!=-1">
-            AND a.`PLAY`=#{PLAY}
-        </if>
-        <if test="L_PLAY!=-1">
-            AND a.`L_PLAY`=#{L_PLAY}
-        </if>
-        <if test="G_WEIGHT!=-1.0">
-            AND a.`G_WEIGHT`=#{G_WEIGHT}
-        </if>
-        <if test="APPRAISE!=-1">
-            AND a.`APPRAISE`=#{APPRAISE}
-        </if>
+     </if>
+     <if test="FANS!=-1">
+            AND a.`FANS`&gt;=#{FANS}
+     </if>
+     <if test="ATTENTION!=-1">
+            AND a.`ATTENTION`&gt;=#{FANS}
+     </if>
+     <if test="COLLECT!=-1">
+            AND a.`COLLECT`&gt;=#{COLLECT}
+     </if>
+     <if test="PLAY!=-1">
+            AND a.`PLAY`&gt;=#{PLAY}
+     </if>
+     <if test="L_PLAY!=-1">
+            AND a.`L_PLAY`&gt;=#{L_PLAY}
+     </if>
+     <if test="G_WEIGHT!=-1.0">
+            AND a.`G_WEIGHT`&gt;=#{G_WEIGHT}
+     </if>
+     <if test="APPRAISE!=-1">
+            AND a.`APPRAISE`&gt;=#{APPRAISE}
+     </if>
     </select>
 </mapper>
