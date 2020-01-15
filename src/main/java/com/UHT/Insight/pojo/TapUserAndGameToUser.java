@@ -12,6 +12,9 @@ public class TapUserAndGameToUser {
     private Integer L_PLAY;      //玩得最久游戏数
     private Integer APPRAISE;         //评价数
     private  Float G_WEIGHT;       //评分权重
+    private Integer P_FLAY;       //玩家属性标记  1为疑似水军   2为核心玩家    3为普通玩家
+    private String T_FLAY;        //玩家类型标记
+    private Date UPDATETIME;      //玩家信息更新时间
     private Integer D_ID;        //评论id
     private Integer G_ID;        //对应游戏ID
     private Date I_TIME;         //发布时间
@@ -183,5 +186,29 @@ public class TapUserAndGameToUser {
 
     public void setREPLY(Integer REPLY) {
         this.REPLY = REPLY;
+    }
+
+    public Integer getP_FLAY() {
+        return P_FLAY;
+    }
+
+    public void setP_FLAY(Integer p_FLAY) {
+        P_FLAY = p_FLAY;
+    }
+
+    public String getT_FLAY() {
+        return T_FLAY;
+    }
+
+    public void setT_FLAY(String t_FLAY) {
+        T_FLAY = t_FLAY;
+    }
+
+    public Date getUPDATETIME() {
+        return UPDATETIME;
+    }
+
+    public void setUPDATETIME(Date UPDATETIME) {
+        this.UPDATETIME = UPDATETIME;
     }
 }

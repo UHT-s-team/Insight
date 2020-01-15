@@ -10,22 +10,22 @@
          select * from tapuser where U_ID=#{U_ID}
     </select>
     <insert id="SaveTapUser" parameterType="com.UHT.Insight.pojo.TapUser">
-         INSERT into tapuser(U_ID,U_NAME,FANS,ATTENTION,COLLECT,PLAY,L_PLAY,APPRAISE,G_WEIGHT)
-         values (#{U_ID},#{U_NAME},#{FANS},#{ATTENTION},#{COLLECT},#{PLAY},#{L_PLAY},#{APPRAISE},#{G_WEIGHT})
+         INSERT into tapuser(U_ID,U_NAME,FANS,ATTENTION,COLLECT,PLAY,L_PLAY,APPRAISE,G_WEIGHT,P_FLAY,T_FLAY,UPDATETIME)
+         values (#{U_ID},#{U_NAME},#{FANS},#{ATTENTION},#{COLLECT},#{PLAY},#{L_PLAY},#{APPRAISE},#{G_WEIGHT},#{P_FLAY},#{T_FLAY},#{UPDATETIME})
     </insert>
     <update id="updateTapUser" parameterType="com.UHT.Insight.pojo.TapUser">
         update tapuser
-        set U_NAME=#{U_NAME},FANS=#{FANS},ATTENTION=#{ATTENTION},COLLECT=#{COLLECT},PLAY=#{PLAY},L_PLAY=#{L_PLAY},APPRAISE=#{APPRAISE},G_WEIGHT=#{G_WEIGHT}
+        set U_NAME=#{U_NAME},FANS=#{FANS},ATTENTION=#{ATTENTION},COLLECT=#{COLLECT},PLAY=#{PLAY},L_PLAY=#{L_PLAY},APPRAISE=#{APPRAISE},G_WEIGHT=#{G_WEIGHT},P_FLAY=#{P_FLAY},T_FLAY=#{T_FLAY},UPDATETIME=#{UPDATETIME}
         where  U_ID=#{U_ID}
     </update>
     <delete id="deleteTapUser" parameterType="integer">
         delete from tapuser where  U_ID=#{U_ID}
     </delete>
     <insert id="SaveTapUserList" parameterType="List">
-         INSERT into tapuser(U_ID,U_NAME,FANS,ATTENTION,COLLECT,PLAY,L_PLAY,APPRAISE,G_WEIGHT)
+         INSERT into tapuser(U_ID,U_NAME,FANS,ATTENTION,COLLECT,PLAY,L_PLAY,APPRAISE,G_WEIGHT,P_FLAY,T_FLAY,UPDATETIME)
          values
          <foreach collection="list" item="TapUser" separator=",">
-         (#{TapUser.U_ID},#{TapUser.U_NAME},#{TapUser.FANS},#{TapUser.ATTENTION},#{TapUser.COLLECT},#{TapUser.PLAY},#{TapUser.L_PLAY},#{TapUser.APPRAISE},#{TapUser.G_WEIGHT})
+         (#{TapUser.U_ID},#{TapUser.U_NAME},#{TapUser.FANS},#{TapUser.ATTENTION},#{TapUser.COLLECT},#{TapUser.PLAY},#{TapUser.L_PLAY},#{TapUser.APPRAISE},#{TapUser.G_WEIGHT},#{TapUser.P_FLAY},#{TapUser.T_FLAY},#{TapUser.UPDATETIME})
          </foreach>
     </insert>
 </mapper>

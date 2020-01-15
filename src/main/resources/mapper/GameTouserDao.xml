@@ -103,7 +103,7 @@
     </insert>
     <!--tapUser表与GameToUser表的联合查询-->
     <select id="findUnionByGId" parameterType="Map" resultType="com.UHT.Insight.pojo.TapUserAndGameToUser">
-     SELECT a.U_ID,a.U_NAME,FANS,ATTENTION,a.`COLLECT`,PLAY,L_PLAY,G_WEIGHT,a.`APPRAISE`,D_ID,G_ID,I_TIME,D_START,G_TIME,D_CONTENT,b.`G_EQUTPTMENT`,b.`D_HAPPY`,b.`D_AGRESS`,b.`D_DISAGRESS`,b.`REPLY` FROM tapuser AS a,gametouser b
+     SELECT a.U_ID,a.U_NAME,FANS,ATTENTION,a.`COLLECT`,PLAY,L_PLAY,G_WEIGHT,a.`APPRAISE`,a.P_FLAY,a.T_FLAY,a.UPDATETIME,D_ID,G_ID,I_TIME,D_START,G_TIME,D_CONTENT,b.`G_EQUTPTMENT`,b.`D_HAPPY`,b.`D_AGRESS`,b.`D_DISAGRESS`,b.`REPLY` FROM tapuser AS a,gametouser b
      WHERE a.`U_ID`=b.`U_ID`
      <if test="G_ID!=-1">
      AND b.`G_ID`=#{G_ID}
