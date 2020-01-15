@@ -5,6 +5,7 @@ import com.UHT.Insight.pojo.TapUser;
 import com.UHT.Insight.utils.MybatilsUtils;
 import org.apache.ibatis.session.SqlSession;
 
+import java.util.Date;
 import java.util.List;
 
 public class TapUserDaoImpl {
@@ -88,5 +89,18 @@ public class TapUserDaoImpl {
             return i;
         }
         return i;
+    }
+    //查询参数时间之前的更新TapUser
+    public List<TapUser> findTapUserBeforeDate(Date updateTime) {
+        List<TapUser> list=null;
+        try {
+            list = tapUserDao.findTapUserBeforeDate(updateTime);
+            sqlSession.commit();
+        }catch (Exception e) {
+            e.printStackTrace();
+            sqlSession.rollback();
+            return list;
+        }
+        return list;
     }
 }

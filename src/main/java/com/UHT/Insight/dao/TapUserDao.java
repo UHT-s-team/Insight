@@ -2,6 +2,7 @@ package com.UHT.Insight.dao;
 
 import com.UHT.Insight.pojo.TapUser;
 
+import java.util.Date;
 import java.util.List;
 
 public interface TapUserDao {
@@ -20,4 +21,6 @@ public interface TapUserDao {
     Integer SaveTapUser(TapUser tapUser);
     //批量插入
     Integer  SaveTapUserList(List<TapUser> list);
+    //查询参数时间之前的更新TapUser
+    List<TapUser> findTapUserBeforeDate(Date updateTime);
 }

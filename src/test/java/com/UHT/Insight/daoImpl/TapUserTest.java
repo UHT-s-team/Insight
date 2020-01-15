@@ -3,6 +3,8 @@ package com.UHT.Insight.daoImpl;
 import com.UHT.Insight.pojo.TapUser;
 import org.junit.Test;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -45,6 +47,17 @@ public class TapUserTest {
         list.add(tapUser);
         list.add(tapUser1);
         System.out.println(tapUserDao.SaveTapUserList(list));
+    }
+    @Test
+    public void findTapUserBeforeDate(){
+        Date date=null;
+        try {
+            date=new SimpleDateFormat("yyyy-MM-dd").parse("2020-09-26");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        List<TapUser> list=tapUserDao.findTapUserBeforeDate(date);
+        System.out.println(list);
     }
 
 }

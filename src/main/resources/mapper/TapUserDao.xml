@@ -28,4 +28,9 @@
          (#{TapUser.U_ID},#{TapUser.U_NAME},#{TapUser.FANS},#{TapUser.ATTENTION},#{TapUser.COLLECT},#{TapUser.PLAY},#{TapUser.L_PLAY},#{TapUser.APPRAISE},#{TapUser.G_WEIGHT},#{TapUser.P_FLAY},#{TapUser.T_FLAY},#{TapUser.UPDATETIME})
          </foreach>
     </insert>
+    <!--查询在更新时间之前的user-->
+    <select id="findTapUserBeforeDate" resultType="com.UHT.Insight.pojo.TapUser" parameterType="Date">
+         select U_ID,U_NAME,FANS,ATTENTION,COLLECT,PLAY,L_PLAY,APPRAISE,G_WEIGHT,P_FLAY,T_FLAY,DATE_FORMAT(UPDATETIME,'%Y-%m-%d') AS 'updatetime'from tapuser
+         where updatetime &lt; #{updateTime}
+     </select>
 </mapper>
