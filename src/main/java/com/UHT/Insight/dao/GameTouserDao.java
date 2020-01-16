@@ -1,9 +1,6 @@
 package com.UHT.Insight.dao;
 
-import com.UHT.Insight.pojo.GameEverydayData;
-import com.UHT.Insight.pojo.GameStarLevel;
-import com.UHT.Insight.pojo.GameTouser;
-import com.UHT.Insight.pojo.TapUserAndGameToUser;
+import com.UHT.Insight.pojo.*;
 
 import java.util.Date;
 import java.util.List;
@@ -57,5 +54,7 @@ public interface GameTouserDao {
     Integer addGameList(List<GameTouser> list);
     //tapUser表与gameToUser表的联合查询，map设置G_ID和TapUser的所有元素
     List<TapUserAndGameToUser> findUnionByGId(Map<String,Object> map);
-
+    //对比tapUser和gameToUser表，查询gameToUser表存在而tapUserb表不存在的用户
+    //返回值 U_ID,此U_ID对应的评论数量
+    List<CompareUser> CompareTapAndGameUser();
 }

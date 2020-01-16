@@ -155,4 +155,9 @@ public class GameTouserTest {
         System.out.println(list);
 
     }
+    @Test
+    public void CompareTapAndGameUser(){
+        List<CompareUser> list=gameTouserDao.CompareTapAndGameUser();
+        System.out.println(list);
+    }
 }

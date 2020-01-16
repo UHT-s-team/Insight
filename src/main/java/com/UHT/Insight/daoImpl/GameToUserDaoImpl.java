@@ -1,10 +1,7 @@
 package com.UHT.Insight.daoImpl;
 
 import com.UHT.Insight.dao.GameTouserDao;
-import com.UHT.Insight.pojo.GameEverydayData;
-import com.UHT.Insight.pojo.GameStarLevel;
-import com.UHT.Insight.pojo.GameTouser;
-import com.UHT.Insight.pojo.TapUserAndGameToUser;
+import com.UHT.Insight.pojo.*;
 import com.UHT.Insight.utils.MybatilsUtils;
 import org.apache.ibatis.session.SqlSession;
 
@@ -331,4 +328,22 @@ public class GameToUserDaoImpl{
         }
         return list;
     }
+    //对比tapUser和gameToUser表，查询gameToUser表存在而tapUserb表不存在的用户
+    //返回值 U_ID,此U_ID对应的评论数量
+    List<CompareUser> CompareTapAndGameUser(){
+        List<CompareUser> list=null;
+
+        try {
+            list = gameTouserDao.CompareTapAndGameUser();
+            sqlSession.commit();
+        }catch (Exception e) {
+            e.printStackTrace();
+            sqlSession.rollback();
+            return list;
+        }finally {
+            sqlSession.close();
+        }
+        return list;
+    }
+
 }

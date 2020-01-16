@@ -136,4 +136,9 @@
             AND a.`APPRAISE`&gt;=#{APPRAISE}
      </if>
     </select>
+    <select id="CompareTapAndGameUser" resultType="com.UHT.Insight.pojo.CompareUser">
+        select a.`U_ID` as U_ID,count(a.`U_ID`) as idSum FROM gametouser AS a
+        WHERE a.`U_ID` NOT IN (SELECT b.`U_ID` FROM tapuser b)
+        GROUP BY a.`U_ID`
+    </select>
 </mapper>
