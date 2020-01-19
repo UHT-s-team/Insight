@@ -48,7 +48,7 @@ public class AutoUpdataGameToUser {
         scrapyService.runScrapyStartFile(gameId, path);
     }
 
-    @Scheduled(cron = "0 15 18 * * ?")//更新指定游戏
+    @Scheduled(cron = "0 45 18 * * ?")//更新指定游戏
     public void UpdataTopGameToUser() {
         int[] a = {
                 180772, 183496, 143110, 85108, 2301, 10056, 136112, 70056, 43639, 70253, 58881, 34751, 182906, 144535, 137515, 67396, 130651, 71331, 134346, 50500, 58885, 2247, 174842, 149252, 12492, 181394, 10505, 61620, 57520, 213
