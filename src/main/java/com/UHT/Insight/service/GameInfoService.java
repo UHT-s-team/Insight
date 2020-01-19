@@ -134,7 +134,7 @@ public class GameInfoService {
         }
         pageDTO.setPage(totalPage,currentPage);
         List<GameTouser> gameTouserList=gameToUserDao.findGameTouserPageByGId(gameId,(currentPage-1)*pageSize,pageSize);
-        pageDTO.setData(gameTouserList);
+//        pageDTO.setData(gameTouserList);
         return  pageDTO;
     }
 }
