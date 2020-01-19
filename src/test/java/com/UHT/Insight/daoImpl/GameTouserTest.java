@@ -1,7 +1,6 @@
 package com.UHT.Insight.daoImpl;
 
 import com.UHT.Insight.pojo.*;
-import com.sun.xml.internal.bind.v2.runtime.output.SAXOutput;
 import org.junit.Test;
 
 import java.text.ParseException;
@@ -155,9 +154,9 @@ public class GameTouserTest {
         System.out.println(list);
 
     }
-    @Test
-    public void CompareTapAndGameUser(){
-        List<CompareUser> list=gameTouserDao.CompareTapAndGameUser();
-        System.out.println(list);
-    }
+//    @Test //太卡了，先注释了 HN
+//    public void CompareTapAndGameUser(){
+//        List<CompareUser> list=gameTouserDao.CompareTapAndGameUser();
+//        System.out.println(list);
+//    }
 }
