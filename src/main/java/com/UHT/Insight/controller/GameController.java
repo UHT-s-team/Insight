@@ -59,9 +59,7 @@ public class GameController {
         Integer currentPage = gamePageDTO.getCurrentPage();
         Integer pageSize = gamePageDTO.getPageSize();
         PageDTO<GameTouser> pageDTO = gameInfoService.list(gameId, currentPage, pageSize);
-
         return ResultDTO.okOf(pageDTO);
-
     }
 
     @ResponseBody
@@ -106,9 +104,10 @@ public class GameController {
     @ResponseBody
     @PostMapping("/search/{id}/advancedQuery")
     public ResultDTO<String> advancedQuery(@RequestBody TapUser tapUser,
-                                           @PathVariable(name = "id") Integer id){
-//        gameToUserDao.findUnionByGId(id,null,null,tapUser.getFANS(),)
-        return null;
+                                           @PathVariable(name = "id") Integer gameId){
+        List<TapUserAndGameToUser> unionByGId = gameToUserDao
+                .findUnionByGId(gameId, null, null, tapUser.getFANS(), tapUser.getATTENTION(), tapUser.getCOLLECT(), tapUser.getPLAY(), tapUser.getL_PLAY(), tapUser.getG_WEIGHT(), tapUser.getAPPRAISE());
+        return ResultDTO.okOf(unionByGId);
     }
 
 }

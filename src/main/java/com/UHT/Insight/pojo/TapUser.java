@@ -162,3 +162,4 @@ public class TapUser implements Serializable {
                 '}';
     }
 }
+
