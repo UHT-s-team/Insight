@@ -13,8 +13,6 @@ import com.UHT.Insight.utils.CacheUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -103,10 +101,10 @@ public class GameController {
 
     @ResponseBody
     @PostMapping("/search/{id}/advancedQuery")
-    public ResultDTO<String> advancedQuery(@RequestBody TapUser tapUser,
+    public ResultDTO<String> advancedQuery(@RequestBody AdvancedQueryDTO advancedQuery,
                                            @PathVariable(name = "id") Integer gameId){
         List<TapUserAndGameToUser> unionByGId = gameToUserDao
-                .findUnionByGId(gameId, null, null, tapUser.getFANS(), tapUser.getATTENTION(), tapUser.getCOLLECT(), tapUser.getPLAY(), tapUser.getL_PLAY(), tapUser.getG_WEIGHT(), tapUser.getAPPRAISE());
+                .findUnionByGId(gameId, -1, null, advancedQuery.getFans(), advancedQuery.getAttention(), advancedQuery.getCollect(), advancedQuery.getPlay(), advancedQuery.getL_play(), advancedQuery.getG_weight(), advancedQuery.getAppraise());
         return ResultDTO.okOf(unionByGId);
     }
 

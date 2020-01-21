@@ -39,7 +39,7 @@ public class TapUserAndRecentPlayJson {
                             while (reader.hasNext()) {
                                 userName=reader.readString();
                             }
-                            tapUser.setU_NAME(userName);
+                            //tapUser.setU_NAME(userName);
                             reader.endArray();
                             break;
                         case "用户id":
