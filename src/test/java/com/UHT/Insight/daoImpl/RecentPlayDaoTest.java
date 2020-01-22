@@ -3,10 +3,7 @@ package com.UHT.Insight.daoImpl;
 import com.UHT.Insight.pojo.RecentPlay;
 import org.junit.Test;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class RecentPlayDaoTest {
@@ -19,13 +16,7 @@ public class RecentPlayDaoTest {
     //插入
     @Test
     public void saveRecentPlay(){
-        Date date= null;
-        try {
-            date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2019-11-15 16:14:0");
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        RecentPlay recentPlay=new RecentPlay(134332,2323,111,date);
+        RecentPlay recentPlay=new RecentPlay(1111,111,1111,"12时52分");
         System.out.println(recentPlayDao.saveRecentPlay(recentPlay));
     }
     //根据ID查询
@@ -36,13 +27,7 @@ public class RecentPlayDaoTest {
     //根据Id修改
     @Test
     public void updateRecentPlay(){
-        Date date= null;
-        try {
-            date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2019-11-15 16:14:0");
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        RecentPlay recentPlay=new RecentPlay(134332,23233,11,date);
+        RecentPlay recentPlay=new RecentPlay(134332,23233,11,"12时52分");
         System.out.println(recentPlayDao.updateRecentPlay(recentPlay));
     }
     //根据ID删除
@@ -52,15 +37,9 @@ public class RecentPlayDaoTest {
     }
     @Test
     public void saveRecentPlayList(){
-        Date date= null;
-        try {
-            date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2019-11-15 16:14:0");
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
         List<RecentPlay> list=new ArrayList<>();
-        RecentPlay recentPlay1=new RecentPlay(1322332,2323,11,date);
-        RecentPlay recentPlay=new RecentPlay(1213332,2323,111,date);
+        RecentPlay recentPlay1=new RecentPlay(2332,2323,11,"12时52分");
+        RecentPlay recentPlay=new RecentPlay(13332,2323,111,"12时52分");
         list.add(recentPlay);
         list.add(recentPlay1);
         System.out.println(recentPlayDao.saveRecentPlayList(list));
