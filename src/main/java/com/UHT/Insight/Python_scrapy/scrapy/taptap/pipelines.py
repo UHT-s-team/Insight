@@ -27,7 +27,7 @@ class TaptapPipeline(object):
 
     def __init__(self):
         self.connect = pq.connect(host='116.62.159.13', user='root',
-                                  passwd='81234567', db='mybatis', charset='utf8mb4')
+                                  passwd='81234567', db='mybatis', charset='utf8')
         self.cursor = self.connect.cursor()
 
     def process_item(self, item, spider):
@@ -72,7 +72,7 @@ class TapusrPipeline(object):
         # self.file = open('user.json', 'wb')
         # self.file.write('['.encode('utf-8'))
         self.connect = pq.connect(host='116.62.159.13', user='root',
-                                  passwd='81234567', db='mybatis', charset='utf8mb4')
+                                  passwd='81234567', db='mybatis', charset='utf8')
         self.cursor = self.connect.cursor()
 
     def process_item(self, item, spider):
@@ -85,7 +85,7 @@ class TapusrPipeline(object):
 
         if item["玩过的游戏"]:
             games = item["玩过的游戏"]
-            print("games", games)
+            # print("games", games)
             for game in games:
                 游戏ID = game.get("玩过的游戏ID")
                 游戏名称 = game.get("游戏名称")
@@ -94,7 +94,7 @@ class TapusrPipeline(object):
                 游戏类型 = ",".join(游戏类型)
                 # print(游戏ID, 用户ID, 游戏名称, 游戏时长, 类型标签)
                 ReSql = "insert into recentplay(G_ID, U_ID, G_TIME) values(%s, %s, %s);"
-                print("wwwww", 游戏类型)
+                # print("wwwww", 游戏类型)
                 self.cursor.execute(ReSql, (游戏ID[0], 用户ID[0], 游戏时长[0]))
                 self.connect.commit()
 
@@ -105,9 +105,18 @@ class TapusrPipeline(object):
         玩过的游戏数 = item.get("玩过游戏数")
         # 玩的最久数 = item.get("标题")
         评价数 = item.get("评价数")
-        # print(用户ID, 用户名, 粉丝数, 关注数, 收藏数, 玩过的游戏数, 评价数)
-        UserSql = "insert into tapuser(U_ID, U_NAME, FANS, ATTENTION, COLLECT, PLAY, APPRAISE) values(%s, %s, %s, %s, %s, %s, %s);"
-        self.cursor.execute(UserSql, (用户ID[0], 用户名[0], 粉丝数[0], 关注数[0], 收藏数[0], 玩过的游戏数[0], 评价数[0]))
+        print(用户ID, 用户名, 粉丝数, 关注数, 收藏数, 玩过的游戏数, 评价数)
+        
+        UserSql = "INSERT INTO tapuser(U_ID, U_NAME, FANS, ATTENTION, COLLECT, PLAY, APPRAISE) values(%s, %s, %s, %s, %s, %s, %s);"
+
+        URLupdate = 'UPDATE tapuser SET U_NAME = %s,FANS = %s,ATTENTION = %s,COLLECT = %s,PLAY = %s,APPRAISE = %s WHERE U_ID = %s'
+        
+        
+        # self.cursor.execute(UserSql, (用户ID[0], 用户名[0], 粉丝数[0], 关注数[0], 收藏数[0], 玩过的游戏数[0], 评价数[0]))
+
+        # self.cursor.execute(UserSql, (用户ID[0], 用户名[0], 粉丝数[0], 关注数[0], 收藏数[0], 玩过的游戏数[0], 评价数[0]))
+        # self.connect.commit()
+        self.cursor.execute(URLupdate, (用户名[0], 粉丝数[0], 关注数[0], 收藏数[0], 玩过的游戏数[0], 评价数[0], 用户ID[0]))
         self.connect.commit()
         # except:
         #     print("错误！！！")
@@ -138,7 +147,7 @@ class TapgamePipeline(object):
 
     def __init__(self):
         self.connect = pq.connect(host='116.62.159.13', user='root',
-                                  passwd='81234567', db='mybatis', charset='utf8mb4')
+                                  passwd='81234567', db='mybatis', charset='utf8')
         self.cursor = self.connect.cursor()
 
     def process_item(self, item, spider):

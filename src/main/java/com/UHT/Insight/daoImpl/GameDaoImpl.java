@@ -3,6 +3,7 @@ package com.UHT.Insight.daoImpl;
 import com.UHT.Insight.dao.GameDao;
 import com.UHT.Insight.pojo.Game;
 import com.UHT.Insight.utils.MybatilsUtils;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.session.SqlSession;
 
 import java.sql.SQLException;

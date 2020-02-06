@@ -57,4 +57,6 @@ public interface GameTouserDao {
     //对比tapUser和gameToUser表，查询gameToUser表存在而tapUserb表不存在的用户
     //返回值 U_ID,此U_ID对应的评论数量
     List<CompareUser> CompareTapAndGameUser();
+    //查找热门评论
+    List<GameTouser> hotComment(Integer gameId,Integer num);
 }

@@ -323,16 +323,12 @@ public class GameToUserDaoImpl{
             e.printStackTrace();
             sqlSession.rollback();
             return list;
-        }finally {
-            sqlSession.close();
-        }
-        return list;
+        }return list;
     }
     //对比tapUser和gameToUser表，查询gameToUser表存在而tapUserb表不存在的用户
     //返回值 U_ID,此U_ID对应的评论数量
     List<CompareUser> CompareTapAndGameUser(){
         List<CompareUser> list=null;
-
         try {
             list = gameTouserDao.CompareTapAndGameUser();
             sqlSession.commit();
@@ -340,10 +336,21 @@ public class GameToUserDaoImpl{
             e.printStackTrace();
             sqlSession.rollback();
             return list;
-        }finally {
-            sqlSession.close();
         }
         return list;
+    }
+
+    public List<GameTouser> hotComment(Integer gameId,Integer num){
+        List<GameTouser> hotComment=null;
+        try {
+            hotComment = gameTouserDao.hotComment(gameId,num);
+            sqlSession.commit();
+        }catch (Exception e){
+            e.printStackTrace();
+            sqlSession.rollback();
+            return hotComment;
+        }
+        return hotComment;
     }
 
 }

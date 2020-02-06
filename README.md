@@ -16,4 +16,5 @@
 
 mvn mybatis-generator:generate -e
 
+show global variables like '%timeout%';
 set global wait_timeout=28800;
