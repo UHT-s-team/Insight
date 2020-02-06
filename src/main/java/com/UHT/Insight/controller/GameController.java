@@ -108,9 +108,10 @@ public class GameController {
         return ResultDTO.okOf(unionByGId);
     }
 
+    @ResponseBody
     @GetMapping("/hotComment/{id}")
     public ResultDTO<String> hotComment(@PathVariable(name = "id") Integer gameId){
-        List<GameTouser> hotComment = gameToUserDao.hotComment(gameId, 10);
+        List<GameTouser> hotComment = gameToUserDao.hotComment(gameId, 6);
         return ResultDTO.okOf(hotComment);
     }
 }

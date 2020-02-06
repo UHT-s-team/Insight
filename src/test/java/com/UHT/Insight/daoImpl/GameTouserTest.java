@@ -158,4 +158,10 @@ public class GameTouserTest {
 //        List<CompareUser> list=gameTouserDao.CompareTapAndGameUser();
 //        System.out.println(list);
 //    }
+
+    @Test
+    public void hotComment(){
+        List<GameTouser> gameTousers = gameTouserDao.hotComment(168332, 6);
+        System.out.println(gameTousers);
+    }
 }

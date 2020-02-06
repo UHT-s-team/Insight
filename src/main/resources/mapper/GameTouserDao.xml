@@ -141,4 +141,8 @@
         WHERE a.`U_ID` NOT IN (SELECT b.`U_ID` FROM tapuser b)
         GROUP BY a.`U_ID`
     </select>
+
+    <select id="hotComment" resultType="com.UHT.Insight.pojo.GameTouser">
+        SELECT * FROM gametouser WHERE G_ID=#{gameId} ORDER BY D_HAPPY DESC LIMIT #{num}
+    </select>
 </mapper>
