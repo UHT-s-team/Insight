@@ -9,6 +9,8 @@ import com.UHT.Insight.exception.CustomErrorCode;
 import com.UHT.Insight.exception.CustomException;
 import com.UHT.Insight.pojo.*;
 import com.UHT.Insight.utils.CacheUtils;
+import lombok.Builder;
+import lombok.Data;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -20,6 +22,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static com.UHT.Insight.utils.CacheUtils.obj2byte;
+
 
 @Service
 public class GameInfoService {
