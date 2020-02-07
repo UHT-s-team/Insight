@@ -73,21 +73,33 @@ class TapSpider(scrapy.Spider):
             else:
                 item['欢乐数'] = "0"
             if len(node.xpath("./div/div[4]/ul/li/button[@data-value='up']/span/text()").extract()):
-                item["点赞数"] = node.xpath("./div/div[4]/ul/li/button[@data-value='up']/span[2]/text()").extract()
+                item["点赞数"] = node.xpath("./div/div[4]/ul/li/button[@data-value='up']/span/text()").extract()
             else:
                 item['点赞数'] = "0"
             if len(node.xpath("./div/div[4]/ul/li/button[@data-value='down']/span/text()").extract()):
                 item["点踩数"] = node.xpath("./div/div[4]/ul/li/button[@data-value='down']/span/text()").extract()
             else:
                 item['点踩数'] = "0"
-            item["回复数"] = node.xpath("./div/div[4]/ul/li[4]/button/span/text()").extract()
+            回复数 = node.xpath("./div/div[4]/ul/li[4]/button/span/text()").extract()
+            回复数1 = []
+            for 回复 in 回复数:
+                回复数 = [回复.strip('回复 ')]
+                回复数1.append(回复数[0])
+            回复数1 = [x for x in 回复数1 if x != '']
+            回复数1 = "".join(回复数1)
+            回复数 = 回复数1
+            if 回复数:
+                item["回复数"] = 回复数
+            else:
+                item['回复数'] = "0"
+
             yield item
         if next_page_args:
             next_page = next_page_args[0]
             yield scrapy.Request(next_page, callback=self.parse)
         elif 评分 <= 4:
             self.评分 += 1
-            print("评分" + str(self.评分))
+            # print("评分" + str(self.评分))
             url_next = self.url + str(游戏编号) + '/review?score=' + str(self.评分) + '&order=update&page=1#review-list'
-            print("评分" + url_next)
+            # print("评分" + url_next)
             yield scrapy.Request(url_next, callback=self.parse)

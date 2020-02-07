@@ -2,6 +2,7 @@
 import scrapy
 from taptap.items import UserItem
 import json
+import pymysql as pq
 
 class TapSpider(scrapy.Spider):
     name = 'user'
@@ -13,25 +14,46 @@ class TapSpider(scrapy.Spider):
     # start_urls = ['https://www.taptap.com/user/'+str(用户ID)]
     custom_settings = {'ITEM_PIPELINES': {'taptap.pipelines.TapusrPipeline': 300}}
     # print(start_urls)
-    # def __init__(self, gameNub=None, *args, **kwargs):
-    #     super(TapSpider, self).__init__(*args, **kwargs)
-    #     self.游戏编号 = gameNub
+    def __init__(self, gameNub=None, *args, **kwargs):
+        super(TapSpider, self).__init__(*args, **kwargs)
+        self.游戏编号 = gameNub
 
     def start_requests(self):
         cookies = "_ga=GA1.2.779483002.1563987256; tapadid=e363328e-e5d0-d464-98cf-0c6ea36f0805; bottom_banner_hidden=1; user_id=55689839; remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6IkVBd3FiREVRRlwvNFdRNUtFVVcxenVnPT0iLCJ2YWx1ZSI6Ikp3UEZ2SVZWRFBLYnpROEt3TjdjSndhSWtjZGk4U1BSTGoxY0RCTWF3ZnFHakFVeGUwSU5SRG1pTmNBYm50bDJMWVV1M0lVakcyWVBzSVRxRzdubXltWUNkYmExT1M3S05Tdmg3V2FkTVVVPSIsIm1hYyI6IjVmZjQwYjYxOWFlODgyZDlhYTEwODJmZjIyY2M5NjE5OTE0NWY0ODVlNDY5YzVkZGYyMzNmNjNkOTg3NTY3NTYifQ%3D%3D; acw_tc=b65cfd3b15736480452344305e442e8b305e10ebc4a04b819bcaa76be772cd; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%2255689839%22%2C%22%24device_id%22%3A%2216c24e7a2ef123-0686956d5546b7-c343162-2073600-16c24e7a2f0aba%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22%22%2C%22%24latest_referrer_host%22%3A%22%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%7D%2C%22first_id%22%3A%2216c24e7a2ef123-0686956d5546b7-c343162-2073600-16c24e7a2f0aba%22%7D; region=CN; _gid=GA1.2.1359996011.1575697299; acw_sc__v1=5deb5958999653f66e4295fd229685d6aa0d4dcd; _gat=1; XSRF-TOKEN=eyJpdiI6IlZ1SU5FOTJOT1BJd0Z5VXhldzhhREE9PSIsInZhbHVlIjoiNzRZbFlIQ1dcL0pqemM0V2lXUmc2VTlndGx4Q1ZVbXN0M1NraGdwS2p3ZXR5NjlkMTdzXC9HMDZWc1RtSXVXbERqNmlOZUNlVG5uZnZhRUo2ZE0rQW4zQT09IiwibWFjIjoiNmJhYTI1ZDhlODYyYTc4YWNjMjlhNGI2Y2UwOTNmOWZmYWEwN2YyNDdjNzg0ZGI4MmRhMTUxMjhkMjc2MTg1MiJ9; tap_sess=eyJpdiI6IkNKbVZ0VW52ZGxRXC9tRVlxYmFpVjhRPT0iLCJ2YWx1ZSI6IjQ1R3ZzRTI2VVk1anZhbHlnZjJEK001Wk44bElIMnljTTJsRDBxOVQ5MmtBMldvREpwbGljVEpVODRKaXVjZndSeVpqR0pHbml4NUYzejZ4SnNEN1NnPT0iLCJtYWMiOiI3ZjhiZDYwMGE5MGI0NTU5ZjVhMmYxYTU3ODdkODE1NDIyZTc3OWI1YWY3MWQwMWJlMjY4NTU3Y2FjNDBhNzNlIn0%3D"
         cookies = {i.split("=")[0]:i.split("=")[1] for i in cookies.split("; ")}
         # file = [13674013]
-        with open('/software/python-scrapy/pinglun/' + self.游戏编号 + '.json', 'r', encoding='utf-8') as js:
-            file = json.load(js)
-            for y in file:
-                try:
-                    x = y['用户ID'][0]
-                    user_url = 'https://www.taptap.com/user/' + str(x)
-                    yield scrapy.Request(user_url, callback=self.parse, cookies=cookies)
+        connect = pq.connect(host='116.62.159.13', user='root',
+                             passwd='81234567', db='mybatis', charset='utf8')
+        cursor = connect.cursor()
+        G_ID = self.游戏编号
+        sql = 'SELECT `U_ID` FROM `gametouser` WHERE `G_ID` LIKE %s'
+        cursor.execute(sql, (G_ID))
+        result = cursor.fetchall()
+        # print(result[0][0])
+        connect.commit()
+        cursor.close()
+        connect.close()
 
-                except:
-                    print('null')
-            js.close()
+        for x in result:
+            user_url = 'https://www.taptap.com/user/' + str(x[0])
+            # print('no3', user_url)
+            # yield scrapy.Request(user_url, callback=self.parse)
+            yield scrapy.Request(user_url, callback=self.parse, cookies=cookies)
+
+        # user_url = 'https://www.taptap.com/user/' + str(x)
+        # yield scrapy.Request(user_url, callback=self.parse, cookies=cookies)
+
+        # with open('C:/py3/test/' + str(self.游戏编号) + '.json', 'r', encoding='utf-8') as js:
+        #     file = json.load(js)
+        #     for y in file:
+        #         try:
+        #             x = y['用户ID'][0]
+        #             user_url = 'https://www.taptap.com/user/' + str(x)
+        #             yield scrapy.Request(user_url, callback=self.parse, cookies=cookies)
+        #
+        #         except:
+        #             print('null')
+        #     js.close()
         #
         # for x in file:
         #     user_url = 'https://www.taptap.com/user/' + str(x)

@@ -41,29 +41,31 @@ class TaptapPipeline(object):
         游戏时间 = item.get("游戏时间")
         欢乐数 = item.get("欢乐数")
         点赞数 = item.get("点赞数")
+        if len(点赞数):
+            点赞数 = 点赞数[0]
+        else:
+            点赞数 = '0'
         点踩数 = item.get("点踩数")
         回复数 = item.get("回复数")
-        回复数1=[]
-        if 回复数:
-            for 回复 in 回复数:
-                回复数 = [回复.strip('回复 ')]
-                回复数1.append(回复数[0])
-            回复数1 = [x for x in 回复数1 if x != '']
-            回复数1 = "".join(回复数1)
-            回复数 = 回复数1
-            print("回复数1", 回复数1)
-
-        print("wwwww",用户ID)
-        print("wwwww",游戏ID)
-        
-        print("wwwww",游戏时间)
+        # print("wwwww", 用户ID)
+        # print("wwwww", 游戏ID)
+        print("点赞数", 点赞数)
+        print("回复数", 回复数)
+        # print("wwwww", 游戏时间)
         
         UserSql = "insert into gametouser(U_ID, G_ID, U_name, I_TIME, D_START, G_TIME, D_CONTENT, G_EQUTPTMENT, D_HAPPY, D_AGRESS, D_DISAGRESS, REPLY) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);"
-        self.cursor.execute(UserSql, (用户ID[0], 游戏ID, 用户名[0], 评论时间[0], 评分, 游戏时间, 评论[0], 设备[0], 欢乐数[0], "0", 点踩数, "0"))
-        self.connect.commit()
-        # except:
-        #     print("错误！！！")
+        try:
+            self.cursor.execute(UserSql, (用户ID[0], 游戏ID, 用户名[0], 评论时间[0], 评分, 游戏时间, 评论[0], 设备[0], 欢乐数[0], 点赞数, 点踩数, 回复数))
+            self.connect.commit()
+        except:
+            print("错误！！！")
         return item
+
+    def close_spider(self, spider):
+        # self.file.write('{}]'.encode('utf-8'))
+        # self.file.close()
+        self.cursor.close()
+        self.connect.close()
 
 
 class TapusrPipeline(object):
@@ -110,23 +112,22 @@ class TapusrPipeline(object):
         UserSql = "INSERT INTO tapuser(U_ID, U_NAME, FANS, ATTENTION, COLLECT, PLAY, APPRAISE) values(%s, %s, %s, %s, %s, %s, %s);"
 
         URLupdate = 'UPDATE tapuser SET U_NAME = %s,FANS = %s,ATTENTION = %s,COLLECT = %s,PLAY = %s,APPRAISE = %s WHERE U_ID = %s'
-        
-        
-        # self.cursor.execute(UserSql, (用户ID[0], 用户名[0], 粉丝数[0], 关注数[0], 收藏数[0], 玩过的游戏数[0], 评价数[0]))
 
-        # self.cursor.execute(UserSql, (用户ID[0], 用户名[0], 粉丝数[0], 关注数[0], 收藏数[0], 玩过的游戏数[0], 评价数[0]))
-        # self.connect.commit()
-        self.cursor.execute(URLupdate, (用户名[0], 粉丝数[0], 关注数[0], 收藏数[0], 玩过的游戏数[0], 评价数[0], 用户ID[0]))
-        self.connect.commit()
-        # except:
-        #     print("错误！！！")
+        try:
+            self.cursor.execute(UserSql, (用户ID[0], 用户名[0], 粉丝数[0], 关注数[0], 收藏数[0], 玩过的游戏数[0], 评价数[0]))
+            self.connect.commit()
+        except:
+            self.cursor.execute(URLupdate, (用户名[0], 粉丝数[0], 关注数[0], 收藏数[0], 玩过的游戏数[0], 评价数[0], 用户ID[0]))
+            self.connect.commit()
+        else:
+            print("错误！！！")
+
         return item
 
 
     def close_spider(self, spider):
         # self.file.write('{}]'.encode('utf-8'))
         # self.file.close()
-
         self.cursor.close()
         self.connect.close()
 
@@ -189,7 +190,7 @@ class TapgamePipeline(object):
             print("安装数", 安装数1)
         总评分 = item.get("总评分")
 
-        print("wdnmd",关注数, 安装数)
+        # print("wdnmd",关注数, 安装数)
 
         GameSql = "insert into game(G_ID, G_NAME, BREIF, R_CONTENT, R_NUMBER, C_NUMBER, VENDER, A_DRADE, T_TAGLTB, RECOMMENT, DOWNLOAD, ATTENTION, URL) values(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);"
         self.cursor.execute(GameSql, (游戏ID, 游戏名称, 简介, 更新内容, 评论数, 社区数, 厂商, 总评分, 类型标签, 是否推荐, 关注数, 安装数, 图片))
