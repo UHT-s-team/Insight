@@ -34,6 +34,7 @@ public class MybatilsUtils {
             //3.使用构建者创建工厂对象 SqlSessionFactory
             sqlSessionFactory = builder.build(in);
             in.close();
+
         }catch (Exception e){
           e.printStackTrace();
         }
