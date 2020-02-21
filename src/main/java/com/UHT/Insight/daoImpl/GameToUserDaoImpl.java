@@ -352,5 +352,108 @@ public class GameToUserDaoImpl{
         }
         return hotComment;
     }
+    /*根据List的关键字，对评论的模糊查询
+    *对数组进行排列组合
+    * 再进行数组的查询
+    * 对比返回结果集的总数，返回max值的结果集
+    * */
+   public List<GameTouser> likeComment(Integer gameId,List<String> list){
+       List<GameTouser> comment=null;
+       int a=list.size();//关键字总数
+       if(a<3){
+           return null;
+       }
+       String[][] str=getPorfolio(list,3);//存储3个关键字的组合
+       int[] big=new int[str.length];//定义各组大小的存储数组
+       int i=0;
+       for(String[] simple:str){//获取关键字组合的评论数量大小
+           List<String> clist=new ArrayList<String>();//数组转换为list
+           clist.add(simple[0]);
+           clist.add(simple[1]);
+           clist.add(simple[2]);
+           big[i]=gameTouserDao.likeCommentCount(gameId,clist);//获取评论数量
+           i++;
+       }
+       int size=0;//记录最大的一组
+       for (int j=0;j<str.length-1;j++){//对比评论数量，
+           if(big[j]>big[j+1]){
+               big[j+1]=big[j];
+               size=j;
+           }else {
+               size=j+1;
+           }
+       }
+       List<String> list1=new ArrayList<>();
+       for(String s:str[size]) {//4.返回结果集
+            list1.add(s);
+       }
+       try {
+           comment=gameTouserDao.likeComment(gameId,list1);
+           sqlSession.commit();
+       }catch (Exception e){
+           e.printStackTrace();
+           sqlSession.rollback();
+           return comment;
+       }
+        return comment;
+   }
+    //从m选n的算法，返回二维数组
+    public static String[][] getPorfolio(List<String> number, int n){
+        int m=number.size();//参数数组长度
+        int l=1;            //关注数组长度标记
+        for(int s=m;s>m-n;s--){//获取排列数组长度l
+            l=l*s;
+        }
+        for(int z=n;z>1;z--){
+            l=l/z;
+        }
+        String[][] rs=new String[l][n];//返回结果
+        String[] str=new String[n];            //将第一种排列存入数组rs（即所有1都在左边的情况）
+        for(int x=0;x<n;x++){
+            str[x]=number.get(x);
+        }
+        rs[0]=str;
+        int[] s=new int[m];//构造下标数组
+        boolean flag=true;//循环开关
+        int k=1;         //返回结果数组长度（自增长）
+        for (int i=0;i<m;i++){//初始化构造下标数组
+            if(i<n)
+                s[i]=1;
+            else
+                s[i]=0;
+        }
+        do {
+            flag=false;      //初始化flag
+            int zerocount=0;  //10转换 01前的0的个数
+            for(int i=0;i<m-1;i++){
+                if(s[i]==0){//记录前0个数（非0即1），可以通过这个参数进行1的前移
+                    zerocount++;
+                }
+                if(s[i]==1&&s[i+1]==0){//10变成0
+                    s[i]=0;
+                    s[i+1]=1;
+                    flag=true;
+                    for (int j=0;j<i;j++){
+                        if (j<i-zerocount)
+                            s[j]=1;
+                        else
+                            s[j]=0;
+                    }
+                    String[] returnStr=new String[n];
+                    int aa=0;
+                    for(int kk=0;kk<m;kk++){
+                        if(s[kk]==1&&number.get(kk)!=null){
+                            returnStr[aa]=number.get(kk);
+                            aa++;
+                        }
+                    }
+                    rs[k]=returnStr;
+                    i=m;
+                    k++;
+                }
+            }
+        }while (flag==true);
+        return rs;
+    }
 
 }

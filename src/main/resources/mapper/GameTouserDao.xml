@@ -145,4 +145,19 @@
     <select id="hotComment" resultType="com.UHT.Insight.pojo.GameTouser">
         SELECT * FROM gametouser WHERE G_ID=#{gameId} ORDER BY D_HAPPY DESC LIMIT #{num}
     </select>
+    <!-- 根据数组和gameID进行模糊查询-->
+    <select id="likeComment" resultType="com.UHT.Insight.pojo.GameTouser">
+      select * from gametouser where G_ID=#{gameId}
+      <foreach collection="list" item="item">
+          and D_CONTENT like "%"#{item}"%"
+      </foreach>
+       order by  D_AGRESS desc
+       limit 0,10
+    </select>
+    <select id="likeCommentCount" resultType="int">
+        select count(0) from gametouser where G_ID=#{gameId}
+        <foreach collection="list" item="item">
+            and D_CONTENT like "%"#{item}"%"
+        </foreach>
+    </select>
 </mapper>

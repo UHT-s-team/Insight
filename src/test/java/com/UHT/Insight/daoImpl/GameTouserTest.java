@@ -1,5 +1,6 @@
 package com.UHT.Insight.daoImpl;
 
+import com.UHT.Insight.dao.GameTouserDao;
 import com.UHT.Insight.pojo.*;
 import org.junit.Test;
 
@@ -163,5 +164,17 @@ public class GameTouserTest {
     public void hotComment(){
         List<GameTouser> gameTousers = gameTouserDao.hotComment(168332, 6);
         System.out.println(gameTousers);
+    }
+    @Test
+    public void likeComment(){
+        List<String> list=new ArrayList<>();
+        list.add("腾讯");
+        list.add("游戏");
+        list.add("游戏");
+        List<GameTouser> comment=new ArrayList<>();
+        comment=gameTouserDao.likeComment(168332,list);
+        for (GameTouser g:comment){
+            System.out.println(g);
+        }
     }
 }

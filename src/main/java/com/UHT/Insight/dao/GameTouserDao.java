@@ -59,4 +59,8 @@ public interface GameTouserDao {
     List<CompareUser> CompareTapAndGameUser();
     //查找热门评论
     List<GameTouser> hotComment(Integer gameId,Integer num);
+    //根据传入数组进行模糊查询
+    List<GameTouser> likeComment(Integer gameId,List<String> list);
+    //传入数组进行模糊查询的数量
+    int likeCommentCount(Integer gameId,List<String> list);
 }
