@@ -170,9 +170,11 @@ public class GameTouserTest {
         List<String> list=new ArrayList<>();
         list.add("腾讯");
         list.add("游戏");
-        list.add("游戏");
+        list.add("原神");
+        list.add(";");
+        list.add(".");
         List<GameTouser> comment=new ArrayList<>();
-        comment=gameTouserDao.likeComment(168332,list);
+        comment=gameTouserDao.likeComment(168332,list,4);
         for (GameTouser g:comment){
             System.out.println(g);
         }

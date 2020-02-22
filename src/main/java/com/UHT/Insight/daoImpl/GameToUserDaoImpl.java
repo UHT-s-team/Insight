@@ -357,20 +357,20 @@ public class GameToUserDaoImpl{
     * 再进行数组的查询
     * 对比返回结果集的总数，返回max值的结果集
     * */
-   public List<GameTouser> likeComment(Integer gameId,List<String> list){
+   public List<GameTouser> likeComment(Integer gameId,List<String> list,int num){
        List<GameTouser> comment=null;
        int a=list.size();//关键字总数
-       if(a<3){
+       if(a<3||num>a){
            return null;
        }
-       String[][] str=getPorfolio(list,3);//存储3个关键字的组合
+       String[][] str=getPorfolio(list,num);//存储3个关键字的组合
        int[] big=new int[str.length];//定义各组大小的存储数组
        int i=0;
        for(String[] simple:str){//获取关键字组合的评论数量大小
            List<String> clist=new ArrayList<String>();//数组转换为list
-           clist.add(simple[0]);
-           clist.add(simple[1]);
-           clist.add(simple[2]);
+           for(int begin=0;begin<num;begin++){
+               clist.add(simple[begin]);
+           }
            big[i]=gameTouserDao.likeCommentCount(gameId,clist);//获取评论数量
            i++;
        }
