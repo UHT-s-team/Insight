@@ -160,4 +160,9 @@
             and D_CONTENT like "%"#{item}"%"
         </foreach>
     </select>
+    <select id="likeCommentOneCount" resultType="int" >
+        select count(0) from gametouser where G_ID=#{gameId}
+        and D_CONTENT like "%"#{item}"%"
+
+    </select>
 </mapper>

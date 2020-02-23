@@ -63,4 +63,6 @@ public interface GameTouserDao {
     List<GameTouser> likeComment(Integer gameId,List<String> list);
     //传入数组进行模糊查询的数量
     int likeCommentCount(Integer gameId,List<String> list);
+    //根据id和关键字进行模糊查，统计条数
+    int likeCommentOneCount(Integer gameId,String item);
 }

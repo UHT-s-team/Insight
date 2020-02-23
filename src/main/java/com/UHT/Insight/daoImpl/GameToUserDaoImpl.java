@@ -456,4 +456,42 @@ public class GameToUserDaoImpl{
         return rs;
     }
 
+    //获取关键字里单个关键字评论数量前十的关键字
+    public List<String> getDescTen(Integer gameId,List<String> list){
+       int count=list.size();
+       if(count<=10){
+           return list;
+       }
+      int[] countArray=new int[count];//存储查询结果
+       for(int i=0;i<count;i++){//获取查询结果
+           try {
+               countArray[i]=gameTouserDao.likeCommentOneCount(gameId,list.get(i));
+               sqlSession.commit();
+           }catch (Exception e){
+               e.printStackTrace();
+               sqlSession.rollback();
+               return null;
+           }
+       }
+       //查询结果排序
+        int a=0;
+       int[] b=new int[10];
+        for(int i=0;i<10;i++){
+            a=countArray[0];
+            for (int j=0;j<count;j++){
+
+                if(countArray[j]>a){
+                    a=countArray[j];
+                    b[i]=j;
+                }
+            }
+            countArray[b[i]]=0;//最大置零
+        }
+        List<String> list1=new ArrayList<>();
+        for(int i=0;i<10;i++){
+            list1.add(list.get(b[i]));
+        }
+       return list1;
+    }
+
 }

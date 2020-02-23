@@ -179,4 +179,24 @@ public class GameTouserTest {
             System.out.println(g);
         }
     }
+    @Test
+    public void getDescTen(){
+        List<String> list=new ArrayList<>();
+        list.add("腾讯");
+        list.add("游戏");
+        list.add("原神");
+        list.add("学校");
+        list.add("大大");
+        list.add("再见");
+        list.add("失败");
+        list.add("随便");
+        list.add("设备");
+        list.add("想起");
+        list.add("小气");
+        list.add("哈哈");
+        gameTouserDao.getDescTen(168332,list);
+        for (String s:list){
+            System.out.println(s);
+        }
+    }
 }
