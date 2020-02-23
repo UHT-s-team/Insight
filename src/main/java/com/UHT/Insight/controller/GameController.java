@@ -132,7 +132,8 @@ public class GameController {
             filePath = "D://学习//代码//JavaWeb//Insight//src//main//resources//static//img//";
         } else {
             //运行在linux服务器上
-            filePath = "/root/Insight/src/main/java/resources/static/img/";
+            filePath = "/root/Insight/src/main/resources/static/img/";
+//                       "/root/Insight/src/main/resources/static/img"
         }
         res.setHeader("content-type", "application/octet-stream");
         res.setContentType("application/octet-stream");

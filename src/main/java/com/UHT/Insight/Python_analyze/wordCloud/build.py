@@ -44,5 +44,5 @@ sysstr = platform.system()
 if(sysstr =="Windows"):
     wc.to_file("D://学习//代码//JavaWeb//Insight//src//main//resources//static//img//"+indate[0] + '.png')
 if(sysstr == "Linux"):
-    wc.to_file("/root/Insight/src/main/java/resources/static/img/"+indate[0] + '.png')
+    wc.to_file("/root/Insight/src/main/resources/static/img/"+indate[0] + '.png')
 
