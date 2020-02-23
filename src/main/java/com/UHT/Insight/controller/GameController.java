@@ -3,6 +3,7 @@ package com.UHT.Insight.controller;
 import com.UHT.Insight.daoImpl.GameDaoImpl;
 import com.UHT.Insight.daoImpl.GameToUserDaoImpl;
 import com.UHT.Insight.daoImpl.KeyWordCacheDaoImpl;
+import com.UHT.Insight.daoImpl.KmeansDao;
 import com.UHT.Insight.dto.*;
 import com.UHT.Insight.exception.CustomErrorCode;
 import com.UHT.Insight.exception.CustomException;
@@ -10,9 +11,13 @@ import com.UHT.Insight.pojo.*;
 import com.UHT.Insight.service.GameInfoService;
 import com.UHT.Insight.service.HanLPService;
 import com.UHT.Insight.utils.CacheUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -23,6 +28,9 @@ public class GameController {
     private GameToUserDaoImpl gameToUserDao=new GameToUserDaoImpl();
     private HanLPService hanLPService=new HanLPService();
     private KeyWordCacheDaoImpl keyWordCacheDao=new KeyWordCacheDaoImpl();
+
+    @Autowired
+    private KmeansDao kmeansDao;
 
 
     @GetMapping("/game/{id}")
@@ -113,5 +121,77 @@ public class GameController {
     public ResultDTO<String> hotComment(@PathVariable(name = "id") Integer gameId){
         List<GameTouser> hotComment = gameToUserDao.hotComment(gameId, 6);
         return ResultDTO.okOf(hotComment);
+    }
+
+    @RequestMapping(value = "/WCImage/{id}", method = RequestMethod.GET)
+    public ResultDTO<String> downloadWCImage(HttpServletResponse res,@PathVariable(name = "id") Integer gameId) {
+        String fileName = gameId+".png";
+        String filePath;
+        if (isWindows()) {
+            //判断运行在linux服务器上还是windows本机
+            filePath = "D://学习//代码//JavaWeb//Insight//src//main//resources//static//img//";
+        } else {
+            //运行在linux服务器上
+            filePath = "/root/Insight/src/main/java/resources/static/img/";
+        }
+        res.setHeader("content-type", "application/octet-stream");
+        res.setContentType("application/octet-stream");
+        res.setHeader("Content-Disposition", "attachment;filename=" + fileName);
+        byte[] buff = new byte[1024];
+        BufferedInputStream bis = null;
+        OutputStream os = null;
+        try {
+            os = res.getOutputStream();
+            bis = new BufferedInputStream(new FileInputStream(new File(filePath + fileName)));
+            int i = bis.read(buff);
+            while (i != -1) {
+                os.write(buff, 0, buff.length);
+                os.flush();
+                i = bis.read(buff);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return ResultDTO.errorOf(CustomErrorCode.File_NOT_FOUND);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return ResultDTO.errorOf(CustomErrorCode.UNKNOWN_ERROR);
+        } finally {
+            if (bis != null) {
+                try {
+                    bis.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        System.out.println("success");
+        return ResultDTO.okOf("下载成功");
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/commentClass/{id}",method = RequestMethod.GET)
+    public ResultDTO<String> commentClass(@PathVariable(name = "id") Integer gameId){
+        List<CommentAnalyzeDTO> allLabelComment=new ArrayList<>();
+        CommentAnalyzeDTO commentAnalyzeDTO = null;
+        Integer maxLabel = kmeansDao.maxLabelIndex(gameId);
+        for (int i = 1; i <= maxLabel; i++) {
+            List<String> cindexForLabel = kmeansDao.getCindexForLabel(i, gameId);
+            List<String> descTen = gameToUserDao.getDescTen(gameId, cindexForLabel);
+            List<GameTouser> gameTousers = gameToUserDao.likeComment(gameId,descTen,3);
+//            预先获取每个label标签的所有cindax，找到其中最高的十个cindax
+
+            commentAnalyzeDTO=new CommentAnalyzeDTO();
+            commentAnalyzeDTO.setAllCindex(cindexForLabel);
+            commentAnalyzeDTO.setHotLabelComment(gameTousers);
+            allLabelComment.add(commentAnalyzeDTO);
+
+            //按label封装DTO
+            //dto内含当前cindex列表 高赞评论列表，对高赞情感分析列表
+        }
+        return ResultDTO.okOf(allLabelComment);
+    }
+
+    public boolean isWindows() {
+        return System.getProperties().getProperty("os.name").toUpperCase().indexOf("WINDOWS") != -1;
     }
 }

@@ -38,7 +38,7 @@ def Sql2(cunshuju, x, y):
     connect = pq.connect(host='116.62.159.13', user='root',
                          passwd='81234567', db='mybatis', charset='utf8')
     cursor = connect.cursor()
-    Rsql = "insert into kmean(G_ID,cindex,label,px,py) values(%s, %s, %s, %s, %s);"
+    Rsql = "insert into Kmean(G_ID,cindex,label,px,py) values(%s, %s, %s, %s, %s);"
     G_ID = cunshuju[0]
     cunshuju = cunshuju[1:]
     # print(cunshuju,x,y)

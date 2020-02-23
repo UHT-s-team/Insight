@@ -36,8 +36,8 @@
 <!--        <table schema="DB2ADMIN" tableName="uuser" domainObjectName="Uuser" >-->
 <!--            <generatedKey column="UU_ID" sqlStatement="Mysql" identity="true"/>-->
 <!--        </table>-->
-        <table schema="DB2ADMIN" tableName="gamegrade" domainObjectName="gameGrade">
-            <generatedKey column="G_ID" sqlStatement="Mysql" identity="true"/>
+        <table schema="DB2ADMIN" tableName="kmean" domainObjectName="kmean">
+            <generatedKey column="ID" sqlStatement="Mysql" identity="true"/>
         </table>
     </context>
 </generatorConfiguration>

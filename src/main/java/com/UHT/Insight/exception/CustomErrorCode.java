@@ -6,6 +6,7 @@ public enum CustomErrorCode implements ICustomErrorCode{
     NOT_AUTHORITY(2002,"权限不足"),
     USER_NOT_FOUND(2003,"该用户不存在"),
     PASSWORD_WRONG(2004,"密码错误"),
+    File_NOT_FOUND(2005,"未找到文件"),
     ;
 
     private Integer code;

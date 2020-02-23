@@ -1,10 +1,7 @@
 package com.UHT.Insight.service;
 
-import com.UHT.Insight.utils.MybatilsUtils;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import javax.validation.constraints.Null;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,7 +10,7 @@ import java.nio.file.Paths;
 
 @Service
 public class DataAnalyzeService {
-//    public boolean buildStartFile(int gameId, String scrapyType, String startFilePath) {
+    //    public boolean buildStartFile(int gameId, String scrapyType, String startFilePath) {
 //        String filePath;
 //        if(isWindows()){
 //            filePath = startFilePath + "\\" + gameId + "start.py";
@@ -128,11 +125,11 @@ public class DataAnalyzeService {
 //            e.printStackTrace();
 //        }
 //    }
-    public boolean buildStartFile(String var, String analyzeType, Integer limit,String startFilePath) {
+    public boolean buildStartFile(String var, String analyzeType, Integer limit, String startFilePath) {
         String filePath;
-        if(isWindows()){
+        if (isWindows()) {
             filePath = startFilePath + "\\" + analyzeType + "Start.py";
-        }else {
+        } else {
             filePath = startFilePath + "/" + analyzeType + "Start.py";
         }
         //构建启动文本
@@ -140,10 +137,10 @@ public class DataAnalyzeService {
         String build2 = null;
 //        os.system('kmeans.py 168332 limit 50')
 //        拼接结果如上
-        if (!"sentiment".equals(analyzeType)){//当参数不为情感分析脚本时
-            build2 = "os.system(\'"+analyzeType+".py "+var+" limit "+limit+"')";
-        }else {
-            build2 = "os.system(\'"+analyzeType+".py "+var+"')";
+        if (!"sentiment".equals(analyzeType)) {//当参数不为情感分析脚本时
+            build2 = "os.system(\'" + analyzeType + ".py " + var + " limit " + limit + "')";
+        } else {
+            build2 = "os.system(\'" + analyzeType + ".py " + var + "')";
             //构建情感分析文本
         }
         try {
@@ -158,13 +155,62 @@ public class DataAnalyzeService {
     public void runStartFile(String analyzeType, String startFilePath) {
         Process process;
         try {
-            String executePath,executePath2;
+            String executePath, executePath2;
             String[] cmdArr;
             if (isWindows()) {
-                executePath = startFilePath + "\\" + analyzeType+"Start.py " ;
+                executePath = startFilePath + "\\" + analyzeType + "Start.py ";
                 cmdArr = new String[]{"python", executePath};
             } else {
-                executePath = startFilePath + "\\" + analyzeType+"Start.py " ;
+                executePath = startFilePath + "\\" + analyzeType + "Start.py ";
+                cmdArr = new String[]{"python3", executePath};
+            }
+            System.out.println(executePath);
+
+            process = Runtime.getRuntime().
+                    exec(cmdArr, null, new File(startFilePath));
+            InputStream inputStream = process.getInputStream();
+            byte[] b = new byte[1024];
+            while (inputStream.read(b) != -1) {
+                String writeFilePath = new String(b);
+                System.out.println(writeFilePath);
+            }//返回linux执行状态码，0为执行正常
+            int statusNum = process.waitFor();
+            inputStream.close();
+            process.destroy();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void worldCloud(String gameId, String startFilePath) {
+        String filePath;
+        if (isWindows()) {
+            filePath = startFilePath + "\\" + "Wc" + "Start.py";
+        } else {
+            filePath = startFilePath + "/" + "Wc" + "Start.py";
+        }
+        //构建启动文本
+        String build1 = "import os\n";
+        String build2 = "os.system(\'" + "build" + ".py " + gameId + "')";
+        //构建情感分析文本
+        try {
+            Files.write(Paths.get(filePath), (build1 + build2).getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //上面是构建启动脚本
+        //下面是运行启动脚本
+        Process process;
+        try {
+            String executePath;
+            String[] cmdArr;
+            if (isWindows()) {
+                executePath = startFilePath + "\\" + "Wc" + "Start.py ";
+                cmdArr = new String[]{"python", executePath};
+            } else {
+                executePath = startFilePath + "/" + "Wc" + "Start.py ";
                 cmdArr = new String[]{"python3", executePath};
             }
             System.out.println(executePath);
