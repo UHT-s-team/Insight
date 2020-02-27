@@ -357,7 +357,7 @@ public class GameToUserDaoImpl{
     * 再进行数组的查询
     * 对比返回结果集的总数，返回max值的结果集
     * */
-   public List<GameTouser> likeComment(Integer gameId,List<String> list,int num){
+   public List<GameTouser> likeComment(Integer gameId,List<String> list,int num,List<Integer> intList){
        List<GameTouser> comment=null;
        int a=list.size();//关键字总数
        if(a<3||num>a){
@@ -373,16 +373,17 @@ public class GameToUserDaoImpl{
            }
            big[i]=gameTouserDao.likeCommentCount(gameId,clist);//获取评论数量
            i++;
+           clist.clear();
        }
        int size=0;//记录最大的一组
+       int ma=big[0];
        for (int j=0;j<str.length-1;j++){//对比评论数量，
-           if(big[j]>big[j+1]){
-               big[j+1]=big[j];
+           if(ma<big[j]){
                size=j;
-           }else {
-               size=j+1;
+               ma=big[j];
            }
        }
+       intList.add(big[size]);//将最大评论数添加到intlist
        List<String> list1=new ArrayList<>();
        for(String s:str[size]) {//4.返回结果集
             list1.add(s);

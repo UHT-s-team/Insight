@@ -178,12 +178,12 @@ public class GameController {
         for (int i = 1; i <= maxLabel; i++) {
             List<String> cindexForLabel = kmeansDao.getCindexForLabel(i, gameId);
             List<String> descTen = gameToUserDao.getDescTen(gameId, cindexForLabel);
-            List<GameTouser> gameTousers = gameToUserDao.likeComment(gameId,descTen,3);
+         //   List<GameTouser> gameTousers = gameToUserDao.likeComment(gameId,descTen,3);
 //            预先获取每个label标签的所有cindax，找到其中最高的十个cindax
 
             commentAnalyzeDTO=new CommentAnalyzeDTO();
             commentAnalyzeDTO.setAllCindex(cindexForLabel);
-            commentAnalyzeDTO.setHotLabelComment(gameTousers);
+          //  commentAnalyzeDTO.setHotLabelComment(gameTousers);
             allLabelComment.add(commentAnalyzeDTO);
 
             //按label封装DTO
