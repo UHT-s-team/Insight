@@ -16,6 +16,7 @@ public class Application implements Serializable {
     private String KEYWORD; //关键词
     private String EVENT;   //事件
 
+
     public Integer getG_ID() {
         return G_ID;
     }
