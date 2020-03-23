@@ -1,3 +1,17 @@
+Python部分使用的第三方库有：
+jieba
+sklearn
+snownlp
+scrapy
+wordcloud
+
+Java部分使用的第三方库有：
+Hanlp
+spring
+
+
+
+
 
 ##项目资源
 [BootStrap组件文档](https://v3.bootcss.com/components/)<br>

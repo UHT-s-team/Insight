@@ -21,24 +21,24 @@ def Sql(indate):
     sql = sql + ' ' + indate + ';'
     cursor.execute(sql)
     result = cursor.fetchall()
-    元数据 = []
-    元数据.append(G_ID)
+    metadata = []
+    metadata.append(G_ID)
     for x in result:
-        数据 = []
-        数据.append(x[1])
-        数据.append(x[7])
-        元数据.append(数据)
+        data = []
+        data.append(x[1])
+        data.append(x[7])
+        metadata.append(data)
 
     connect.commit()
     cursor.close()
     connect.close()
-    return 元数据
+    return metadata
 
 def Sql2(cunshuju, x, y):
     connect = pq.connect(host='116.62.159.13', user='root',
                          passwd='81234567', db='mybatis', charset='utf8')
     cursor = connect.cursor()
-    Rsql = "insert into Kmean(G_ID,cindex,label,px,py) values(%s, %s, %s, %s, %s);"
+    Rsql = "insert into kmean(G_ID,cindex,label,px,py) values(%s, %s, %s, %s, %s);"
     G_ID = cunshuju[0]
     cunshuju = cunshuju[1:]
     # print(cunshuju,x,y)
@@ -54,28 +54,28 @@ def Sql2(cunshuju, x, y):
     cursor.close()
     connect.close()
 
-def cut_words(元数据):
-    切数据 = []
-    数据 = ''
-    for x in 元数据:
+def cut_words(metadata):
+    cutData = []
+    data = ''
+    for x in metadata:
         seg_list = jieba.cut(x[1], cut_all=False)
         # for s in seg_list:
         # print(seg_list)
-        stopwords = stop_words('停词.txt')
+        stopwords = stop_words('停词(原).txt')
         for word in seg_list:
             if word not in stopwords:
                 # print(word)
                 value = re.compile(r'^[\u4e00-\u9fa5]{2,}')
-                # 数据.append(word)
+                # data.append(word)
                 if value.match(word):
-                    数据 += word + ' '
-        #         # print(数据)
-        # # print(数据)
-        # #             数据.append(outstr)
-        # # 数据.append(x[0])
-    切数据.append(数据)
-    print(切数据)
-    return 切数据
+                    data += word + ' '
+        #         # print(data)
+        # # print(data)
+        # #             data.append(outstr)
+        # # data.append(x[0])
+    cutData.append(data)
+    print(cutData)
+    return cutData
 
 
 def stop_words(stop_word_file):
@@ -86,10 +86,10 @@ def stop_words(stop_word_file):
         return stopwords
 
 
-def countIdf(切数据, G_ID):
+def countIdf(cutData, G_ID):
     vectorizer = CountVectorizer()
     transformer = TfidfTransformer()
-    tfidf = transformer.fit_transform(vectorizer.fit_transform(切数据))
+    tfidf = transformer.fit_transform(vectorizer.fit_transform(cutData))
     weight = tfidf.toarray()
     word = vectorizer.get_feature_names()
     wordss = []
@@ -143,11 +143,11 @@ def countIdf(切数据, G_ID):
     Sql2(cunshuju, x, y)
 
 indate = sys.argv[1:]
-元数据 = Sql(indate)
-G_ID = 元数据[0]
-切数据 = cut_words(元数据[1:])
-# print(切数据[0:])
-weight = countIdf(切数据, G_ID)
-# # print(切数据)
+metadata = Sql(indate)
+G_ID = metadata[0]
+cutData = cut_words(metadata[1:])
+# print(cutData[0:])
+weight = countIdf(cutData, G_ID)
+# # print(cutData)
 # print(weight)
 # cut_words(Sql())

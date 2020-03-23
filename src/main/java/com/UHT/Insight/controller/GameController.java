@@ -8,6 +8,7 @@ import com.UHT.Insight.dto.*;
 import com.UHT.Insight.exception.CustomErrorCode;
 import com.UHT.Insight.exception.CustomException;
 import com.UHT.Insight.pojo.*;
+import com.UHT.Insight.service.DataAnalyzeService;
 import com.UHT.Insight.service.GameInfoService;
 import com.UHT.Insight.service.HanLPService;
 import com.UHT.Insight.utils.CacheUtils;
@@ -28,6 +29,7 @@ public class GameController {
     private GameToUserDaoImpl gameToUserDao=new GameToUserDaoImpl();
     private HanLPService hanLPService=new HanLPService();
     private KeyWordCacheDaoImpl keyWordCacheDao=new KeyWordCacheDaoImpl();
+    private DataAnalyzeService dataAnalyzeService=new DataAnalyzeService();
 
     @Autowired
     private KmeansDao kmeansDao;
@@ -175,16 +177,22 @@ public class GameController {
         List<CommentAnalyzeDTO> allLabelComment=new ArrayList<>();
         CommentAnalyzeDTO commentAnalyzeDTO = null;
         Integer maxLabel = kmeansDao.maxLabelIndex(gameId);
+        List<Integer> countComment=new ArrayList<>();
         for (int i = 1; i <= maxLabel; i++) {
             List<String> cindexForLabel = kmeansDao.getCindexForLabel(i, gameId);
             List<String> descTen = gameToUserDao.getDescTen(gameId, cindexForLabel);
-         //   List<GameTouser> gameTousers = gameToUserDao.likeComment(gameId,descTen,3);
 //            预先获取每个label标签的所有cindax，找到其中最高的十个cindax
+            List<GameTouser> gameTousers = gameToUserDao.likeComment(gameId,descTen,3,countComment);
+//            根据cindax查找排名最高的组合
 
-            commentAnalyzeDTO=new CommentAnalyzeDTO();
-            commentAnalyzeDTO.setAllCindex(cindexForLabel);
-          //  commentAnalyzeDTO.setHotLabelComment(gameTousers);
-            allLabelComment.add(commentAnalyzeDTO);
+            if(gameTousers!=null){
+                commentAnalyzeDTO=new CommentAnalyzeDTO();
+                commentAnalyzeDTO.setAllCindex(cindexForLabel);
+                commentAnalyzeDTO.setHotLabelComment(gameTousers);
+                commentAnalyzeDTO.setCommentNum(countComment.get(0));
+                allLabelComment.add(commentAnalyzeDTO);
+                countComment.clear();
+            }
 
             //按label封装DTO
             //dto内含当前cindex列表 高赞评论列表，对高赞情感分析列表

@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 public class CommentAnalyzeDTO {
-    public List<GameTouser> hotLabelComment;//标签组合对应的热评
-    public List<String> allCindex;//标签list
-
+    private List<GameTouser> hotLabelComment;//标签组合对应的热评
+    private List<String> allCindex;//标签list
+    private Integer commentNum;
 }

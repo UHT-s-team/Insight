@@ -52,7 +52,7 @@ def cut_words(元数据):
         seg_list = jieba.cut(x[1], cut_all=False)
         # for s in seg_list:
         # print(seg_list)
-        stopwords = stop_words('停词.txt')
+        stopwords = stop_words('停词(原).txt')
         for word in seg_list:
             if word not in stopwords:
                 # print(word)
