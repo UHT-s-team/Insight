@@ -1,21 +1,22 @@
 package com.UHT.Insight.provide;
 
 import com.UHT.Insight.daoImpl.GameToUserDaoImpl;
+import com.UHT.Insight.pojo.CompareUser;
 import com.UHT.Insight.service.ScrapyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+import sun.rmi.runtime.Log;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class AutoUpdataGameToUser {
 
-    @Autowired
-    private ScrapyService scrapyService;
+    private ScrapyService scrapyService=new ScrapyService();
 
     private GameToUserDaoImpl gameToUserDao = new GameToUserDaoImpl();
-
 
     public void UpdataGameToUser(int gameId) {
         String path = null;
@@ -32,7 +33,7 @@ public class AutoUpdataGameToUser {
     }
 
     @Scheduled(cron = "0 */2 * * * ?")//自动随机更新游戏
-    public void UpdataGameToUser() {
+    public void UpdateGameToUser() {
         int gameId;
         gameId = (int) (Math.random() * 179428);
         String path = null;
@@ -49,7 +50,7 @@ public class AutoUpdataGameToUser {
     }
 
     @Scheduled(cron = "0 45 18 1 * ?")//更新指定游戏
-    public void UpdataTopGameToUser() {
+    public void UpdateTopGameToUser() {
         int[] a = {
                 180772, 183496, 143110, 85108, 2301, 10056, 136112, 70056, 43639, 70253, 58881, 34751, 182906, 144535, 137515, 67396, 130651, 71331, 134346, 50500, 58885, 2247, 174842, 149252, 12492, 181394, 10505, 61620, 57520, 213
                 , 180772, 183496, 143110, 136112, 144535, 182906, 137515, 149252, 181394, 57520, 182499, 60908, 183462, 182901, 169161, 182914, 84231, 182840, 167322, 153730, 180101, 182882, 174654, 182819, 182556, 181241, 181267, 175587, 180285, 182915
@@ -69,6 +70,25 @@ public class AutoUpdataGameToUser {
             gameToUserDao.deleteGameTouserByGameId(gameId);
             scrapyService.buildScrapyStartFile(gameId, "tap", path);
             scrapyService.runScrapyStartFile(gameId, path);
+        }
+    }
+
+    //@Scheduled(cron = "0 45 18 1 * ?")
+    // 根据gametouser表更新Tapuser表
+    public void UpdateTapUser() {
+        List<CompareUser> compareUsers = gameToUserDao.CompareTapAndGameUser();
+        String path = null;
+        if (isWindows()) {
+            //判断运行在linux服务器上还是windows本机
+            path = "D:\\学习\\代码\\JavaWeb\\Insight\\src\\main\\java\\com\\UHT\\Insight\\Python_scrapy\\scrapy";
+        } else {
+            //运行在linux服务器上
+            path = "/root/Insight/src/main/java/com/UHT/Insight/Python_scrapy/scrapy";
+        }
+//        CompareUser compareUser=compareUsers.get(0);
+        for (CompareUser compareUser:compareUsers) {
+            scrapyService.buildScrapyStartFile(compareUser.getU_ID(), "user", path);
+            scrapyService.runScrapyStartFile(compareUser.getU_ID(), path);
         }
     }
 

@@ -151,7 +151,7 @@ public class GameTouserTest {
     }
     @Test
     public void findUnionByGId(){
-        List<TapUserAndGameToUser> list=gameTouserDao.findUnionByGId(168332,-1,null,100,-1,-1,-1,-1,-1.0f,-1);
+        List<TapUserAndGameToUser> list=gameTouserDao.findUnionByGId(168332,-1,null,1,-1,-1,-1,-1,-1.0f,-1);
         System.out.println(list);
     }
 //    @Test //太卡了，先注释了 HN
