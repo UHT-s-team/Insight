@@ -21,7 +21,8 @@ public class ScrapyService {
         //构建启动文本
         String build1 = "from scrapy import cmdline\n";
         String build2 = "cmdline.execute(\"scrapy crawl "
-                + scrapyType + " -a gameNub=" + gameId + " -s LOG_FILE=" + gameId + ".log\".split())\n";
+//                + scrapyType + " -a gameNub=" + gameId + " -s LOG_FILE=" + gameId + ".log\".split())\n";
+                + scrapyType + " -a gameNub=" + gameId + ")\n";
 //        cmdline.execute("scrapy crawl tap -a gameNub=147488 -s LOG_FILE=147488.log".split())
 //        拼接结果如上
         try {

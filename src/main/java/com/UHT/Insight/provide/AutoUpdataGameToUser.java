@@ -32,7 +32,7 @@ public class AutoUpdataGameToUser {
         scrapyService.runScrapyStartFile(gameId, path);
     }
 
-    @Scheduled(cron = "0 */2 * * * ?")//自动随机更新游戏
+    @Scheduled(cron = "0 */10 * * * ?")//自动随机更新游戏
     public void UpdateGameToUser() {
         int gameId;
         gameId = (int) (Math.random() * 179428);
