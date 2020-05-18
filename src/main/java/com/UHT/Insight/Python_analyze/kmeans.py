@@ -21,18 +21,18 @@ def Sql(indate):
     sql = sql + ' ' + indate + ';'
     cursor.execute(sql)
     result = cursor.fetchall()
-    metadata = []
-    metadata.append(G_ID)
+    baseData = []
+    baseData.append(G_ID)
     for x in result:
         data = []
         data.append(x[1])
         data.append(x[7])
-        metadata.append(data)
+        baseData.append(data)
 
     connect.commit()
     cursor.close()
     connect.close()
-    return metadata
+    return baseData
 
 def Sql2(cunshuju, x, y):
     connect = pq.connect(host='116.62.159.13', user='root',
@@ -54,14 +54,14 @@ def Sql2(cunshuju, x, y):
     cursor.close()
     connect.close()
 
-def cut_words(metadata):
+def cut_words(baseData):
     cutData = []
     data = ''
-    for x in metadata:
+    for x in baseData:
         seg_list = jieba.cut(x[1], cut_all=False)
         # for s in seg_list:
         # print(seg_list)
-        stopwords = stop_words('停词(原).txt')
+        stopwords = stop_words('停词.txt')
         for word in seg_list:
             if word not in stopwords:
                 # print(word)
@@ -143,12 +143,11 @@ def countIdf(cutData, G_ID):
     Sql2(cunshuju, x, y)
 
 indate = sys.argv[1:]
-metadata = Sql(indate)
-G_ID = metadata[0]
-cutData = cut_words(metadata[1:])
+baseData = Sql(indate)
+G_ID = baseData[0]
+cutData = cut_words(baseData[1:])
 # print(cutData[0:])
 weight = countIdf(cutData, G_ID)
 # # print(cutData)
 # print(weight)
-# cut_words(Sql())
 # cut_words(Sql())

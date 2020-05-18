@@ -12,6 +12,7 @@ import com.UHT.Insight.service.DataAnalyzeService;
 import com.UHT.Insight.service.GameInfoService;
 import com.UHT.Insight.service.HanLPService;
 import com.UHT.Insight.utils.CacheUtils;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -50,15 +51,15 @@ public class GameController {
         return ResultDTO.okOf(gameById);
     }
 
-    @ResponseBody
-    @GetMapping("/game/{id}/comment")
-    public ResultDTO<List<GameTouser>> gameTouserComment(@PathVariable(name = "id") Integer id){
-        List<GameTouser> gameIdComment = gameToUserDao.findGameTouserByGId(id);
-        if (gameIdComment ==null){
-            throw new CustomException(CustomErrorCode.GAME_NOT_FIND);
-        }
-        return ResultDTO.okOf(gameIdComment);
-    }
+//    @ResponseBody
+//    @GetMapping("/game/{id}/comment")
+//    public ResultDTO<List<GameTouser>> gameTouserComment(@PathVariable(name = "id") Integer id){
+//        List<GameTouser> gameIdComment = gameToUserDao.findGameTouserByGId(id);
+//        if (gameIdComment ==null){
+//            throw new CustomException(CustomErrorCode.GAME_NOT_FIND);
+//        }
+//        return ResultDTO.okOf(gameIdComment);
+//    }
 
     @ResponseBody
     @RequestMapping(value = "/page",method = RequestMethod.POST)
@@ -69,6 +70,28 @@ public class GameController {
         PageDTO<GameTouser> pageDTO = gameInfoService.list(gameId, currentPage, pageSize);
         return ResultDTO.okOf(pageDTO);
     }
+
+//    @ResponseBody
+//    @RequestMapping(value = "/symptomAnalysis",method = RequestMethod.POST)
+//    public Object analysis(@RequestBody SymptomsDTO symptomsDTO) {
+//        if(symptomsDTO!=null){
+//            AnalysisResultDTO analysisResult =symptomService.analysis(symptomsDTO);
+//            return ResultDTO.okOf(analysisResult);
+//        }else {
+//            return ResultDTO.errorOf(2002,"病症信息不能为空");
+//        }
+//    }
+//
+//    @Data
+//    public class AnalysisResultDTO{
+//        ArrayList<String> analysisResults;
+//        //储存诊断结果,结果和概率用分号隔开，以便app端使用
+//        // "牙周炎;0.89"
+//        ArrayList<String> treatmentOptions;
+//        //储存治疗方案 ”一般治疗;XXXXX“
+//        ArrayList<String> suggests;
+//        //储存生活建议 ”XXXXX“ 无特殊格式
+//    }
 
     @ResponseBody
     @GetMapping("/game/{id}/Keyword")
@@ -184,7 +207,6 @@ public class GameController {
 //            预先获取每个label标签的所有cindax，找到其中最高的十个cindax
             List<GameTouser> gameTousers = gameToUserDao.likeComment(gameId,descTen,3,countComment);
 //            根据cindax查找排名最高的组合
-
             if(gameTousers!=null){
                 commentAnalyzeDTO=new CommentAnalyzeDTO();
                 commentAnalyzeDTO.setAllCindex(cindexForLabel);
@@ -193,7 +215,6 @@ public class GameController {
                 allLabelComment.add(commentAnalyzeDTO);
                 countComment.clear();
             }
-
             //按label封装DTO
             //dto内含当前cindex列表 高赞评论列表，对高赞情感分析列表
         }

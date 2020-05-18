@@ -13,7 +13,7 @@
         <!-- 开启二级缓存，默认是false -->
         <setting name="cacheEnabled" value="true"/>
         <!--设置超时-->
-        <setting name="defaultStatementTimeout" value="10000" />
+        <setting name="defaultStatementTimeout" value="25" />
     </settings>
     <!-- 配置环境 -->
     <environments default="mysql">
@@ -36,7 +36,6 @@
 
     <!-- 指定映射配置文件的位置，映射配置文件指的是每个dao独立的配置文件 -->
     <mappers>
-        <mapper resource="mapper/UserDao.xml"/>
         <mapper resource="mapper/TapUserDao.xml"/>
         <mapper resource="mapper/GameTouserDao.xml"/>
         <mapper resource="mapper/GameDao.xml"/>
