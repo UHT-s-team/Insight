@@ -14,9 +14,11 @@ public class ScrapyService {
     public boolean buildScrapyStartFile(int gameId, String scrapyType, String startFilePath) {
         String filePath;
         if(isWindows()){
-             filePath = startFilePath + "\\" + gameId + "start.py";
+//             filePath = startFilePath + "\\" + gameId + "start.py";
+             filePath = startFilePath + "\\" + "start.py";
         }else {
-            filePath = startFilePath + "/" + gameId + "start.py";
+//            filePath = startFilePath + "/" + gameId + "start.py";
+            filePath = startFilePath + "/" + "start.py";
         }
         //构建启动文本
         String build1 = "from scrapy import cmdline\n";
@@ -40,7 +42,8 @@ public class ScrapyService {
             String executePath;
             String[] cmdArr;
             if(isWindows()) {
-                executePath = startFilePath + "\\" + gameId + "start.py";
+//                executePath = startFilePath + "\\" + gameId + "start.py";
+                executePath = startFilePath + "\\" + "start.py";
                 cmdArr = new String[]{"python", executePath};
             }else {
                 executePath = startFilePath + "/" + gameId + "start.py";
